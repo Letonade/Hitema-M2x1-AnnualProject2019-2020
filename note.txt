@@ -1,0 +1,572 @@
+composer create-project symfony/skeleton GMsOfUniverse 4.4.*
+    {
+                   Installing symfony/skeleton (v4.4.99)
+                     - Installing symfony/skeleton (v4.4.99): Downloading (100%)
+                   Created project in GMsOfUniverse
+                   Loading composer repositories with package information
+                   Updating dependencies (including require-dev)
+                   Package operations: 1 install, 0 updates, 0 removals
+                     - Installing symfony/flex (v1.6.0): Downloading (100%)
+                   Symfony operations: 1 recipe (9a0d417306bbf3992c0251734b031612)
+                     - Configuring symfony/flex (>=1.0): From github.com/symfony/recipes:master
+                   Loading composer repositories with package information
+                   Updating dependencies (including require-dev)
+                   Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+                   Prefetching 28 packages
+                     - Downloading (100%)
+
+                   Package operations: 28 installs, 0 updates, 0 removals
+                     - Installing psr/container (1.0.0): Loading from cache
+                     - Installing symfony/service-contracts (v2.0.1): Loading from cache
+                     - Installing symfony/polyfill-php73 (v1.13.1): Loading from cache
+                     - Installing symfony/polyfill-mbstring (v1.13.1): Loading from cache
+                     - Installing symfony/console (v4.4.2): Loading from cache
+                     - Installing symfony/dotenv (v4.4.2): Loading from cache
+                     - Installing symfony/routing (v4.4.2): Loading from cache
+                     - Installing symfony/polyfill-php72 (v1.13.1): Loading from cache
+                     - Installing symfony/polyfill-intl-idn (v1.13.1): Loading from cache
+                     - Installing symfony/mime (v4.4.2): Loading from cache
+                     - Installing symfony/http-foundation (v4.4.2): Loading from cache
+                     - Installing symfony/event-dispatcher-contracts (v1.1.7): Loading from cache
+                     - Installing symfony/event-dispatcher (v4.4.2): Loading from cache
+                     - Installing symfony/var-dumper (v4.4.2): Loading from cache
+                     - Installing psr/log (1.1.2): Loading from cache
+                     - Installing symfony/debug (v4.4.2): Loading from cache
+                     - Installing symfony/error-handler (v4.4.2): Loading from cache
+                     - Installing symfony/http-kernel (v4.4.2): Loading from cache
+                     - Installing symfony/finder (v4.4.2): Loading from cache
+                     - Installing symfony/filesystem (v4.4.2): Loading from cache
+                     - Installing symfony/dependency-injection (v4.4.2): Loading from cache
+                     - Installing symfony/config (v4.4.2): Loading from cache
+                     - Installing symfony/var-exporter (v4.4.2): Loading from cache
+                     - Installing psr/cache (1.0.1): Loading from cache
+                     - Installing symfony/cache-contracts (v2.0.1): Loading from cache
+                     - Installing symfony/cache (v4.4.2): Loading from cache
+                     - Installing symfony/framework-bundle (v4.4.2): Loading from cache
+                     - Installing symfony/yaml (v4.4.2): Loading from cache
+                   Writing lock file
+                   Generating autoload files
+                   Symfony operations: 3 recipes (9a0d417306bbf3992c0251734b031612)
+                     - Configuring symfony/framework-bundle (>=4.4): From github.com/symfony/recipes:master
+                     - Configuring symfony/console (>=4.4): From github.com/symfony/recipes:master
+                     - Configuring symfony/routing (>=4.2): From github.com/symfony/recipes:master
+                   Executing script cache:clear [OK]
+                   Executing script assets:install public [OK]
+
+                   Some files may have been created or updated to configure your new packages.
+                   Please review, edit and commit them: these files are yours.
+
+                   Some files may have been created or updated to configure your new packages.
+                   Please review, edit and commit them: these files are yours.
+
+
+                    What's next?
+
+
+                     * Run your application:
+                       1. Go to the project directory
+                       2. Create your code repository with the git init command
+                       3. Download the Symfony CLI at https://symfony.com/download to install a development web server
+
+                     * Read the documentation at https://symfony.com/doc
+                   }
+    composer require jms/serializer-bundle
+
+                {
+                    Using version ^3.5 for jms/serializer-bundle
+                    ./composer.json has been updated
+                    Loading composer repositories with package information
+                    Updating dependencies (including require-dev)
+                    Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+                    Prefetching 19 packages
+                      - Downloading (100%)
+
+                    Package operations: 19 installs, 0 updates, 0 removals
+                      - Installing hoa/exception (1.17.01.16): Loading from cache
+                      - Installing hoa/event (1.17.01.13): Loading from cache
+                      - Installing hoa/consistency (1.17.05.02): Loading from cache
+                      - Installing hoa/visitor (2.17.01.16): Loading from cache
+                      - Installing hoa/ustring (4.17.01.16): Loading from cache
+                      - Installing hoa/protocol (1.17.01.14): Loading from cache
+                      - Installing hoa/zformat (1.17.01.10): Loading from cache
+                      - Installing hoa/iterator (2.17.01.10): Loading from cache
+                      - Installing hoa/compiler (3.17.08.08): Loading from cache
+                      - Installing hoa/regex (1.17.01.13): Loading from cache
+                      - Installing hoa/math (1.17.05.16): Loading from cache
+                      - Installing hoa/stream (1.17.02.21): Loading from cache
+                      - Installing hoa/file (1.17.07.11): Loading from cache
+                      - Installing doctrine/instantiator (1.3.0): Loading from cache
+                      - Installing doctrine/lexer (1.2.0): Loading from cache
+                      - Installing doctrine/annotations (v1.8.0): Loading from cache
+                      - Installing jms/metadata (2.1.0): Loading from cache
+                      - Installing jms/serializer (3.4.0): Loading from cache
+                      - Installing jms/serializer-bundle (3.5.0): Loading from cache
+                    Writing lock file
+                    Generating autoload files
+                    Symfony operations: 2 recipes (9c10ca5a7046c83131def7cd80eaaef9)
+                      - Configuring doctrine/annotations (>=1.0): From github.com/symfony/recipes:master
+                      -  WARNING  jms/serializer-bundle (>=3.0): From github.com/symfony/recipes-contrib:master
+                        The recipe for this package comes from the "contrib" repository, which is open to community contributions.
+                        Review the recipe at https://github.com/symfony/recipes-contrib/tree/master/jms/serializer-bundle/3.0
+
+                        Do you want to execute this recipe?
+                        [y] Yes
+                        [n] No
+                        [a] Yes for all packages, only for the current installation session
+                        [p] Yes permanently, never ask again for this project
+                        (defaults to n): y
+                      - Configuring jms/serializer-bundle (>=3.0): From github.com/symfony/recipes-contrib:master
+                    Executing script cache:clear [OK]
+                    Executing script assets:install public [OK]
+
+                    Some files may have been created or updated to configure your new packages.
+                    Please review, edit and commit them: these files are yours.
+
+
+
+                }
+    composer require symfony/web-server-bundle --dev
+        {
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+            Prefetching 2 packages
+              - Downloading (100%)
+
+            Package operations: 2 installs, 0 updates, 0 removals
+              - Installing symfony/process (v4.4.2): Loading from cache
+              - Installing symfony/web-server-bundle (v4.4.2): Loading from cache
+            Writing lock file
+            Generating autoload files
+            Symfony operations: 1 recipe (670e8d4af1cc5a9edfbc6b9088dc49bb)
+              - Configuring symfony/web-server-bundle (>=3.3): From github.com/symfony/recipes:master
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+            Some files may have been created or updated to configure your new packages.
+            Please review, edit and commit them: these files are yours.
+        }
+        ******************************test**************************
+        php bin/console server:run //lancement du server local symfony
+        *************************************************************
+    composer require symfony/maker-bundle --dev
+    //bon je trouve que c'est pas le bundle tres utile mais quand on developpe en groupe il peut etre sympa
+            {
+                Using version ^1.14 for symfony/maker-bundle
+                ./composer.json has been updated
+                Loading composer repositories with package information
+                Updating dependencies (including require-dev)
+                Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+                Prefetching 3 packages
+                  - Downloading (100%)
+
+                Package operations: 3 installs, 0 updates, 0 removals
+                  - Installing nikic/php-parser (v4.3.0): Loading from cache
+                  - Installing doctrine/inflector (1.3.1): Loading from cache
+                  - Installing symfony/maker-bundle (v1.14.3): Loading from cache
+                Writing lock file
+                Generating autoload files
+                Symfony operations: 1 recipe (c5cb50bacbe0b0cae516d0004acdf78c)
+                  - Configuring symfony/maker-bundle (>=1.0): From github.com/symfony/recipes:master
+                Executing script cache:clear [OK]
+                Executing script assets:install public [OK]
+
+                Some files may have been created or updated to configure your new packages.
+                Please review, edit and commit them: these files are yours.
+
+            }
+            *******************************Alerte|Disclaimer*****************************
+            C'est un outil tres complexe qui permet de gagner du temps. Il faut eviter l'utiliser dans des tests.
+            Il faut toujours penser au developpement avants de cree avec make et de pas prendre ces commande a la legere.
+            !*De mon experience de symfony 3 ces commande (qui cree des fichier et le dise clairement) peuve ajouter des
+             lignes de code dans des configues profonde de symfony qui peut poser des problemes "invisible/etrange" dans le long terme *!
+            Supprimer des fichiers cree par make n'est pas egale a suppression de l'impact de la commande
+            Il faut supprimer via les commande correspondante
+
+            exemple de make : php bin/console make:entity
+            *****************************************************************************
+
+    composer require symfony/orm-pack
+      {
+            Using version ^1.0 for symfony/orm-pack
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+            Prefetching 19 packages
+              - Downloading (100%)
+
+            Package operations: 19 installs, 0 updates, 0 removals
+              - Installing ocramius/package-versions (1.5.1): Loading from cache
+              - Installing symfony/stopwatch (v4.4.2): Loading from cache
+              - Installing zendframework/zend-eventmanager (3.2.1): Loading from cache
+              - Installing zendframework/zend-code (3.4.1): Loading from cache
+              - Installing ocramius/proxy-manager (2.2.3): Loading from cache
+              - Installing doctrine/event-manager (1.1.0): Loading from cache
+              - Installing doctrine/cache (1.10.0): Loading from cache
+              - Installing doctrine/dbal (v2.10.1): Loading from cache
+              - Installing doctrine/reflection (v1.0.0): Loading from cache
+              - Installing doctrine/collections (1.6.4): Loading from cache
+              - Installing doctrine/persistence (1.3.3): Loading from cache
+              - Installing doctrine/common (v2.11.0): Loading from cache
+              - Installing doctrine/migrations (2.2.0): Loading from cache
+              - Installing symfony/doctrine-bridge (v4.4.2): Loading from cache
+              - Installing jdorn/sql-formatter (v1.2.17): Loading from cache
+              - Installing doctrine/doctrine-bundle (2.0.6): Loading from cache
+              - Installing doctrine/doctrine-migrations-bundle (2.1.2): Loading from cache
+              - Installing doctrine/orm (v2.7.0): Loading from cache
+              - Installing symfony/orm-pack (v1.0.7): Loading from cache
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Symfony operations: 2 recipes (6581cc25985897014a9cf5ba315b4d34)
+              - Configuring doctrine/doctrine-bundle (>=2.0): From github.com/symfony/recipes:master
+              - Configuring doctrine/doctrine-migrations-bundle (>=1.2): From github.com/symfony/recipes:master
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+            Some files may have been created or updated to configure your new packages.
+            Please review, edit and commit them: these files are yours.
+
+
+             Database Configuration
+
+
+              * Modify your DATABASE_URL config in .env
+
+              * Configure the driver (mysql) and
+                server_version (5.7) in config/packages/doctrine.yaml
+      }
+
+    php bin/console doctrine:database:create
+        {
+        Created database `gmsofu` for connection named default
+
+        }
+
+    /*Info*/
+    Pour autentification j ai utiliser:
+    https://symfony.com/doc/current/security/json_login_setup.html
+    https://symfony.com/blog/new-in-makerbundle-1-8-instant-user-login-form-commands
+    version standard que j'utiliser avant:
+    https://symfony.com/doc/4.4/security/guard_authentication.html
+    /*****/
+
+    composer require lexik/jwt-authentication-bundle
+        {
+            Using version ^2.6 for lexik/jwt-authentication-bundle
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+            Prefetching 10 packages
+              - Downloading (100%)
+
+            Package operations: 10 installs, 0 updates, 0 removals
+              - Installing symfony/security-core (v4.4.2): Loading from cache
+              - Installing symfony/inflector (v4.4.2): Loading from cache
+              - Installing symfony/property-access (v4.4.2): Loading from cache
+              - Installing symfony/security-http (v4.4.2): Loading from cache
+              - Installing symfony/security-guard (v4.4.2): Loading from cache
+              - Installing symfony/security-csrf (v4.4.2): Loading from cache
+              - Installing symfony/security-bundle (v4.4.2): Loading from cache
+              - Installing namshi/jose (7.2.3): Loading from cache
+              - Installing lcobucci/jwt (3.3.1): Loading from cache
+              - Installing lexik/jwt-authentication-bundle (v2.6.5): Loading from cache
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Symfony operations: 2 recipes (877e051d6af8f6c4ca6bd960bcd4d293)
+              - Configuring symfony/security-bundle (>=4.4): From github.com/symfony/recipes:master
+              - Configuring lexik/jwt-authentication-bundle (>=2.5): From github.com/symfony/recipes:master
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+            Some files may have been created or updated to configure your new packages.
+            Please review, edit and commit them: these files are yours.
+
+        }
+
+    composer require profiler
+        {
+            Using version ^1.0 for symfony/profiler-pack
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+            Prefetching 6 packages
+              - Downloading (100%)
+
+            Package operations: 6 installs, 0 updates, 0 removals
+              - Installing twig/twig (v3.0.1): Loading from cache
+              - Installing symfony/translation-contracts (v2.0.1): Loading from cache
+              - Installing symfony/twig-bridge (v4.4.2): Loading from cache
+              - Installing symfony/twig-bundle (v4.4.2): Loading from cache
+              - Installing symfony/web-profiler-bundle (v4.4.2): Loading from cache
+              - Installing symfony/profiler-pack (v1.0.4): Loading from cache
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Symfony operations: 2 recipes (9875d70b660cc9cc07ca087509eabff0)
+              - Configuring symfony/twig-bundle (>=4.4): From github.com/symfony/recipes:master
+              - Configuring symfony/web-profiler-bundle (>=3.3): From github.com/symfony/recipes:master
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+            Some files may have been created or updated to configure your new packages.
+            Please review, edit and commit them: these files are yours.
+        }
+
+    composer require security
+        {
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Nothing to install or update
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+
+
+        }
+
+    php bin/console make:user
+        {
+
+         The name of the security user class (e.g. User) [User]:
+         >
+
+         Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
+         >
+
+         Enter a property name that will be the unique "display" name for the user (e.g. email, username, uuid) [email]:
+         >
+
+         Will this app need to hash/check user passwords? Choose No if passwords are not needed or will be checked/hashed by some other system (e.g. a single sign-on server).
+
+         Does this app need to hash/check user passwords? (yes/no) [yes]:
+         >
+
+         created: src/Entity/User.php
+         created: src/Repository/UserRepository.php
+         updated: src/Entity/User.php
+         updated: config/packages/security.yaml
+
+
+          Success!
+
+
+         Next Steps:
+           - Review your new App\Entity\User class.
+           - Use make:entity to add more fields to your User entity and then run make:migration.
+           - Create a way to authenticate! See https://symfony.com/doc/current/security.html
+
+        }
+
+    On modifier le config/packages/security.yaml
+        {
+            #firewalls:
+                #    dev:
+                #        pattern: ^/(_(profiler|wdt)|css|images|js)/
+                #        security: false
+                #    main:
+                #        anonymous: lazy
+                firewalls:
+                    main:
+                        anonymous: ~
+                        json_login:
+                            check_path: /login
+        }
+
+    php bin/console make:controller
+        {
+
+             Choose a name for your controller class (e.g. OrangeChefController):
+             > SecurityController
+
+             created: src/Controller/SecurityController.php
+             created: templates/security/index.html.twig
+
+
+              Success!
+
+
+             Next: Open your new controller class and add some pages!
+
+        }
+    php bin/console make:migration
+        {
+
+
+              Success!
+
+
+             Next: Review the new migration "src/Migrations/Version20200110005337.php"
+             Then: Run the migration with php bin/console doctrine:migrations:migrate
+             See https://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
+
+
+        }
+
+    php bin/console doctrine:migrations:migrate
+        {
+
+                    Application Migrations
+
+
+                    WARNING! You are about to execute a database migration that could result in schema changes and data loss. Are you sure you wish to continue? (y/n)y
+                    Migrating up to 20200110005337 from 0
+
+                      ++ migrating 20200110005337
+
+                         -> CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4
+                     COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
+
+                      ++ migrated (took 615.4ms, used 14M memory)
+
+                      ------------------------
+
+                      ++ finished in 637.5ms
+                      ++ used 14M memory
+                      ++ 1 migrations executed
+                      ++ 1 sql queries
+
+        }
+
+    composer require annotations
+        {
+            Using version ^5.5 for sensio/framework-extra-bundle
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Nothing to install or update
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+        }
+
+    composer require symfony/validator
+
+    postman c'est de la merde c'est de la merde 2 c'est de la merde 3
+
+    composer require nelmio/api-doc-bundle
+        {
+            Using version ^3.5 for nelmio/api-doc-bundle
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Nothing to install or update
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [KO]
+             [KO]
+            Script cache:clear returned with error code 1
+            !!
+            !!  In FileLoader.php line 180:
+            !!
+
+            !!    There is no extension able to load the configuration for "api_login_check" (in D:\projects\Hitema-M2x1-AnnualProject2019-2020\GMsOfUniverse\config/packages/route.yaml). Looked for namespace "api_login_check", found "framework
+            "
+            !!    , "jms_serializer", "web_server", "maker", "doctrine", "doctrine_migrations", "security", "lexik_jwt_authentication", "twig", "web_profiler", "sensio_framework_extra", "nelmio_api_doc" in D:\projects\Hitema-M2x1-AnnualProject
+            2
+            !!    019-2020\GMsOfUniverse\config/packages/route.yaml (which is loaded in resource "D:\projects\Hitema-M2x1-AnnualProject2019-2020\GMsOfUniverse\config/packages/route.yaml").
+
+            !!
+
+            !!
+            !!  In YamlFileLoader.php line 721:
+            !!
+
+            !!    There is no extension able to load the configuration for "api_login_check" (in D:\projects\Hitema-M2x1-AnnualProject2019-2020\GMsOfUniverse\config/packages/route.yaml). Looked for namespace "api_login_check", found "framework
+            "
+            !!    , "jms_serializer", "web_server", "maker", "doctrine", "doctrine_migrations", "security", "lexik_jwt_authentication", "twig", "web_profiler", "sensio_framework_extra", "nelmio_api_doc"
+
+            !!
+
+            !!
+            !!
+            Script @auto-scripts was called via post-update-cmd
+
+            Installation failed, reverting ./composer.json to its original content.
+
+        }
+
+    j'ai enlever le route.yaml
+
+    composer require asset
+        {
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Package operations: 1 install, 0 updates, 0 removals
+              - Installing symfony/asset (v4.4.2): Downloading (100%)
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+        }
+
+    composer require swagger-api/swagger-ui
+        {
+            Using version ^3.24 for swagger-api/swagger-ui
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Package operations: 1 install, 0 updates, 0 removals
+              - Installing swagger-api/swagger-ui (v3.24.3): Downloading (100%)
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+
+        }
+
+  
