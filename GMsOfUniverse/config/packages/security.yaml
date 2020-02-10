@@ -57,7 +57,10 @@ security:
                 check_path:               /login_check
                 success_handler:          lexik_jwt_authentication.handler.authentication_success
                 failure_handler:          lexik_jwt_authentication.handler.authentication_failure
-
+        register:
+            pattern: ^/register
+            stateless: true
+            anonymous: true
         api:
             pattern:   ^/
             stateless: true

@@ -569,4 +569,21 @@ composer create-project symfony/skeleton GMsOfUniverse 4.4.*
 
         }
 
-  
+  composer require symfony/serializer
+        {
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            ./composer.json has been updated
+            Loading composer repositories with package information
+            Updating dependencies (including require-dev)
+            Restricting packages listed in "symfony/symfony" to "4.4.*"
+            Package operations: 1 install, 0 updates, 0 removals
+              - Installing symfony/serializer (v4.4.4): Downloading (100%)
+            Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+            Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+            Writing lock file
+            Generating autoload files
+            ocramius/package-versions: Generating version class...
+            ocramius/package-versions: ...done generating version class
+            Executing script cache:clear [OK]
+            Executing script assets:install public [OK]
+        }

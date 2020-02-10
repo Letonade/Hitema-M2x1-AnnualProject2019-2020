@@ -18,8 +18,10 @@
         "symfony/orm-pack": "^1.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/security-bundle": "4.4.*",
+        "symfony/serializer": "4.4.*",
         "symfony/validator": "4.4.*",
-        "symfony/yaml": "4.4.*"
+        "symfony/yaml": "4.4.*",
+        "ext-json": "*"
     },
     "require-dev": {
         "symfony/maker-bundle": "^1.14",
