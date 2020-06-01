@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TheAdmin is a responsive, professional, and multipurpose admin template powered with Bootstrap 4. TheAdmin is a powerful and super flexible tool, which suits best for any kind of web applications such as: app admin, eCommerce websites, CMS backends, CRM, SAAS, web applications, support & social portals, personal business, corporate websites, etc. TheAdmin is definitely a great kick starter for your web project.">
+    <meta name="keywords" content="admin, dashboard, webapp, saas, template, responsive, material, bootstrap, crm, uikit, framework, backend, app, widgets, premium">
+<script>if (top !== self) top.location.replace(self.location.href +'?utm_source=themeforest&utm_medium=preview&utm_campaign=theadmin');</script>
+    <title>TheAdmin - Responsive Bootstrap 4 Admin, Dashboard & WebApp Template</title>
+
+    <!-- Styles -->
+    <link href="assets/css/core.min.css" rel="stylesheet">
+    <link href="assets/css/thesaas.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.png">
+
+    <!--  Open Graph Tags -->
+    <meta property="og:title" content="The Admin Template of 2018!">
+    <meta property="og:description" content="TheAdmin is a responsive, professional, and multipurpose admin template powered with Bootstrap 4.">
+    <meta property="og:image" content="http://thetheme.io/theadmin/landing/assets/img/og-img.jpg">
+    <meta property="og:url" content="http://thetheme.io/theadmin/landing/">
+    <meta name="twitter:card" content="summary_large_image">
+  </head>
+
+  <body id="home">
+
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-sticky1 navbar-transparent navbar-toggleable-md navbar-shadow navbar-on-header">
+      <div class="container-fluid">
+        <div class="navbar-left">
+          <a class="navbar-brand" href="../dashboard/general.html">
+            <img src="assets/img/logo-light.png" alt="logo inverse">
+          </a>
+        </div>
+
+        <div class="navbar-right">
+          <a class="fs-12 text-white opacity-80 bb-1 scroll-to" href="#section-price">Purchase Now - $39</a>
+        </div>
+      </div>
+    </nav>
+    <!-- END Navigation bar -->
+
+
+
+
+
+    <!-- Header -->
+    <header class="header header-inverse h-fullscreen p-0 overflow-hidden bg-fixed" style="background-image: linear-gradient(to bottom, #a770ef, #cf8bf3, #fdb99b);">
+      <canvas class="constellation"></canvas>
+
+      <div class="container text-center h-full">
+
+        <div class="row h-full">
+          <div class="col-12 col-lg-8 offset-lg-2 align-self-center pt-150">
+
+            <h1 class="display-4 text-white">Create Professional Web Applications</h1>
+            <br>
+            <p class="lead text-white fs-20"><span class="fw-400">TheAdmin</span> is a responsive, professional, and multipurpose<br> admin template powered with <span style="border-bottom: 1px dashed #fff; padding-bottom: 2px;">Bootstrap 4</span>.</p>
+
+          </div>
+
+          <div class="col-12 col-lg-10 offset-lg-1 align-self-end text-center">
+            <img class="shadow-3" src="assets/img/bg-header.jpg" alt="..." data-aos="fade-up" data-aos-offset="0">
+          </div>
+
+        </div>
+
+      </div>
+    </header>
+    <!-- END Header -->
+
+
+
+
+
+
+    <!-- Main container -->
+    <main class="main-content">
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bg-bg py-120 by-1 border-light" id="section-demos">
+        <div class="container-fluid">
+          <div class="row gap-y align-items-center">
+
+            <div class="col-12 col-md-6">
+              <h2><span style="color: #33cabb">The Admin</span> Template of 2018!</h2><br>
+              <p>TheAdmin design is harmonious, clean and user friendly. Even though the template has a lot of content, it doesn’t looks messy and all files and code are well structured, commented and divided. TheAdmin has a huge collection of plugins and UI components and works seamlessly on all major web browsers, tablets and phones.</p>
+              <br>
+              <a class="btn btn-lg btn-round btn-primary shadow-3 w-200" href="../dashboard/general.html">Get Start Now</a>
+            </div>
+
+
+            <div class="col-12 offset-md-1 col-md-5">
+              <div>
+                <br>
+                <div class="swiper-container swiper-pagination-outside" data-autoplay="2000" data-loop="true" data-space-between="10">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/intro-dashboard.jpg" alt="theadmin dashboard"></div>
+                    <div class="swiper-slide"><img src="assets/img/intro-mailbox.jpg" alt="theadmin mailbox inbox"></div>
+                    <div class="swiper-slide"><img src="assets/img/intro-chat.jpg" alt="theadmin messanger chat"></div>
+                  </div>
+
+                  <div class="swiper-pagination"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bb-1 border-light" id="section-samples">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>Ready to use</small>
+            <h2>Sample Showcase</h2>
+            <hr>
+            <p class="lead opacity-70">TheAdmin includes several real life examples of admin and web app design, such as support system, job board management admin, invoice maker, etc.</p>
+          </header>
+
+          <div class="row text-center">
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <a class="d-block" href="../samples/invoicer/index.html">
+                <div class="swiper-container shadow-2" data-autoplay="2000" data-loop="true" data-space-between="10">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/demo-invoicer-1.jpg" alt="theadmin invoice dashboard"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-invoicer-2.jpg" alt="theadmin invoice clients"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-invoicer-3.jpg" alt="theadmin invoice invoices"></div>
+                  </div>
+                </div>
+                <br>
+                <h6>Invoicer <small class="d-block pt-8">Manage customers, products, and invoices</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr class="hidden-md-up">
+              <a class="d-block" href="../samples/job/index.html">
+                <div class="swiper-container shadow-2" data-autoplay="2000" data-loop="true" data-space-between="10">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/demo-job-1.jpg" alt="theadmin job managment dashboard"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-job-2.jpg" alt="theadmin job managment candidates"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-job-3.jpg" alt="theadmin job managment resume"></div>
+                  </div>
+                </div>
+                <br>
+                <h6>Job Managment <small class="d-block pt-8">Manage positions, resumes, and applicants</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr class="hidden-xl-up">
+              <a class="d-block" href="../samples/support/index.html">
+                <div class="swiper-container shadow-2" data-autoplay="2000" data-loop="true" data-space-between="10">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/img/demo-support-1.jpg" alt="theadmin support system dashboard"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-support-2.jpg" alt="theadmin support system forum"></div>
+                    <div class="swiper-slide"><img src="assets/img/demo-support-3.jpg" alt="theadmin support system article"></div>
+                  </div>
+                </div>
+                <br>
+                <h6>Support System <small class="d-block pt-8">Support through ticket, forum, and articles</small></h6>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bg-bg bb-1 border-light" id="section-layouts">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>Scafolding</small>
+            <h2>Unlimited Layout Variations</h2>
+            <hr>
+            <p class="lead opacity-70">Choose between the multiple types of layouts that are available in TheAdmin. Your options are not limited to the following list.</p>
+          </header>
+
+          <div class="row gap-y1 text-center">
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <a href="../layout/sidebar.html">
+                <p><img class="shadow-2" src="assets/img/layout-sidebar.jpg" alt="theadmin layout sidebar"></p>
+                <h6>Sidebar <small class="d-block pt-8">6 Layout, 4 Indicator, 3 Types, Unlimited Variations</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr class="hidden-md-up">
+              <a href="../layout/aside.html">
+                <p><img class="shadow-2" src="assets/img/layout-aside.jpg" alt="theadmin layout aside"></p>
+                <h6>Aside <small class="d-block pt-8">5 Samples, Unlimited Posibilities</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr class="hidden-xl-up">
+              <a href="../layout/quickview.html">
+                <p><img class="shadow-2" src="assets/img/layout-quickview.jpg" alt="theadmin layout quickview"></p>
+                <h6>Quickview <small class="d-block pt-8">9 Sample, 6 Sizes, Unlimited Posibilities</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr>
+              <a href="../layout/topbar.html">
+                <p><img class="shadow-2" src="assets/img/layout-topbar.jpg" alt="theadmin layout topbar"></p>
+                <h6>Topbar <small class="d-block pt-8">12 Colors, 2 Types, Unlimited Variations</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr>
+              <a href="../layout/header.html">
+                <p><img class="shadow-2" src="assets/img/layout-header.jpg" alt="theadmin layout header"></p>
+                <h6>Header <small class="d-block pt-8">+15 Sample, Unlimited Variations</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-4">
+              <hr>
+              <a href="../layout/card.html">
+                <p><img class="shadow-2" src="assets/img/layout-card.jpg" alt="theadmin layout card"></p>
+                <h6>Cards <small class="d-block pt-8">12 Colors, +40 Samples, Unlimited Posibilities</small></h6>
+              </a>
+            </div>
+
+          </div>
+
+
+          <p class="text-center mt-90"><a class="btn btn-lg btn-round btn-secondary w-200 opacity-701" href="../layout/grid.html">Explore All</a></p>
+
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bb-1 border-light" id="section-features">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>Ready common pages</small>
+            <h2>Apps & Pages</h2>
+            <hr>
+            <p class="lead opacity-70">TheAdmin equiped with +200 html pages. A lot of common and most used pages and applications are developed for your ease.</p>
+          </header>
+
+          <div class="row text-center">
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <a href="../page-app/mailbox.html">
+                <p><img class="shadow-2" src="assets/img/page-mailbox.jpg" alt="theadmin mailbox inbox"></p>
+                <h6>Mailbox <small class="d-block pt-8">Inbox, Compose, Conversation</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr class="hidden-md-up">
+              <a href="../page-app/chat.html">
+                <p><img class="shadow-2" src="assets/img/page-chat.jpg" alt="theadmin chat messanger"></p>
+                <h6>Chat <small class="d-block pt-8">Conversation, Last messages, Search</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr class="hidden-xl-up">
+              <a href="../page-app/users.html">
+                <p><img class="shadow-2" src="assets/img/page-users.jpg" alt="theadmin user list"></p>
+                <h6>Userlist <small class="d-block pt-8">Grid view, List view, and App</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr class="hidden-xl-up">
+              <a href="../page-app/calendar.html">
+                <p><img class="shadow-2" src="assets/img/page-calendar.jpg" alt="theadmin calendar"></p>
+                <h6>Calendar <small class="d-block pt-8">View and Modify Events</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr>
+              <a href="../page/gallery.html">
+                <p><img class="shadow-2" src="assets/img/page-gallery.jpg" alt="theadmin gallery masonry"></p>
+                <h6>Gallery <small class="d-block pt-8">Basic, Justified, Masonry, and Shuffle galleries</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr>
+              <a href="../page/profile.html">
+                <p><img class="shadow-2" src="assets/img/page-profile.jpg" alt="theadmin profile"></p>
+                <h6>Profile <small class="d-block pt-8">Timeline, Status, Social Widgets, etc.</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr>
+              <a href="../page-extra/user-login.html">
+                <p><img class="shadow-2" src="assets/img/page-login.jpg" alt="theadmin login signin"></p>
+                <h6>Login <small class="d-block pt-8">3 Samples, More in future</small></h6>
+              </a>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <hr>
+              <a href="../page-extra/user-register.html">
+                <p><img class="shadow-2" src="assets/img/page-register.jpg" alt="theadmin register"></p>
+                <h6>Register <small class="d-block pt-8">3 Samples, More in future</small></h6>
+              </a>
+            </div>
+
+          </div>
+
+
+          <p class="text-center mt-90"><a class="btn btn-lg btn-round btn-secondary w-200 opacity-701" href="../dashboard/general.html">Explore All</a></p>
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bb-1 border-light bg-bg" id="section-uikit">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>UI Kit</small>
+            <h2>Build Anything</h2>
+            <hr>
+            <p class="lead opacity-70">A highlight of some UI features and components that you will find in TheAdmin.</p>
+          </header>
+
+
+          <div class="row gap-y text-center">
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../content/typography.html">
+                <p><i class="fa fa-font"></i></p>
+                <span>Typography</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../content/icons.html">
+                <p><i class="fa fa-star-o"></i></p>
+                <span>Icons</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../content/tables.html">
+                <p><i class="fa fa-table"></i></p>
+                <span>Tables</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../content/media.html">
+                <p><i class="ti-list"></i></p>
+                <span>Medias</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../extension/animation-animate.html">
+                <p><i class="ti-pulse"></i></p>
+                <span>Animation</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../extension/ajax-loader.html">
+                <p><i class="fa fa-rocket"></i></p>
+                <span>Ajax</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/buttons.html">
+                <p><i class="fa fa-bolt"></i></p>
+                <span>Buttons</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/notification-alert.html">
+                <p><i class="fa fa-bell-o"></i></p>
+                <span>Notifications</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/dialog-modal.html">
+                <p><i class="ti-layers"></i></p>
+                <span>Dialogs</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/dropdown.html">
+                <p><i class="fa fa-caret-square-o-down"></i></p>
+                <span>Dropdowns</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/picker-datetime.html">
+                <p><i class="ti-timer"></i></p>
+                <span>Date & Time</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/progress-progressbar.html">
+                <p><i class="fa fa-tasks"></i></p>
+                <span>Progressbar</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/panel-tab.html">
+                <p><i class="ti-layout-tab"></i></p>
+                <span>Tab</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/panel-accordion.html">
+                <p><i class="ti-layout-accordion-separated"></i></p>
+                <span>Accordion</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/timeline.html">
+                <p><i class="ti-layout-list-thumb"></i></p>
+                <span>Timeline</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../uikit/carousel.html">
+                <p><i class="ti-layout-slider"></i></p>
+                <span>Carousel</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/input-default.html">
+                <p><i class="ti-layout-cta-btn-right"></i></p>
+                <span>Inputs</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/control-checkbox.html">
+                <p><i class="fa fa-check-square-o"></i></p>
+                <span>Controls</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/addon-slider.html">
+                <p><i class="fa fa-sliders"></i></p>
+                <span>Sliders</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/lookup.html">
+                <p><i class="ti-search"></i></p>
+                <span>Lookups</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../form/upload.html">
+                <p><i class="fa fa-upload"></i></p>
+                <span>Uploaders</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../chart/morris.html">
+                <p><i class="fa fa-bar-chart"></i></p>
+                <span>Charts</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../widget/chart.html">
+                <p><i class="ti-layout-media-overlay"></i></p>
+                <span>Widgets</span>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 col-xl-2">
+              <a class="feature-iconic" href="../email/index.html">
+                <p><i class="fa fa-envelope-o"></i></p>
+                <span>Email Templates</span>
+              </a>
+            </div>
+
+          </div>
+
+
+          <p class="text-center mt-90"><a class="btn btn-lg btn-round btn-secondary w-200 opacity-701" href="../dashboard/general.html">Explore All</a></p>
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bb-1 pb-0" id="section-inputs">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>Trends</small>
+            <h2>Several Input Design</h2>
+            <hr>
+            <p class="lead opacity-70">No matter which design trend you are going to use; Material, Flat, Responsive, Round, Minimalism, etc. TheAdmin has something for you!</p>
+          </header>
+
+          <div class="text-center">
+            <a href="../form/input-default.html">
+              <img src="assets/img/inputs.gif" alt="theadmin input types">
+            </a>
+          </div>
+          <br>
+
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section section-inverse py-90 bg-fixed" id="section-price" style="background-image: linear-gradient(to bottom, #1d976c, #93f9b9); position: relative;">
+        <canvas class="constellation"></canvas>
+        <div class="container-fluid text-center">
+
+          <p class="fs-40 mb-40">All of these for a <span class="underdash">Perfect Price</span></p>
+          <h2 class="display-4">$39 NOW</h2>
+          <br><br><br>
+          <p>
+            <a class="btn btn-lg btn-round btn-outline btn-white fs-20 w-250 mb-10" href="https://themeforest.net/item/theadmin-responsive-bootstrap-4-admin-dashboard-webapp-template/20475359?license=regular&open_purchase_for_item_id=20475359&purchasable=source&ref=thethemeio" target="_blank">Purchase Now</a>
+            <br>
+            <span class="opacity-80">or <a href="https://themeforest.net/item/theadmin-responsive-bootstrap-4-admin-dashboard-webapp-template/20475359?license=extended&open_purchase_for_item_id=20475359&purchasable=source&ref=thethemeio" target="_blank">Get Extended License</a></span>
+          </p>
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bb-1 border-light" id="section-faq">
+        <div class="container-fluid">
+          <header class="section-header">
+            <small>Questions</small>
+            <h2>FAQ</h2>
+            <hr>
+            <p class="lead opacity-70">Got a question? We've got answers. If you have some other questions, see our <a href="../help/articles.html">support center</a>.</p>
+          </header>
+
+
+          <h5>Do you charge for each upgrade?</h5>
+          <p>Not at all. Once you purchase a license, you'll receive all future releases for free.</p>
+
+          <hr class="w-50">
+
+
+          <h5>Do I need to purchase a license for each website?</h5>
+          <p>Yes, you need to have a separate license for each website. You might need to purchase extended license for your web application.</p>
+
+          <hr class="w-50">
+
+          <h5>What is regular license?</h5>
+          <p>Regular license can be used for end products that do not charge users for access or service(access is free and there will be no monthly subscription fee).
+          <br>Single regular license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate license for each client. The same rule applies if you want to use the same end product on multiple domains(unique setup).
+          <br>For more info on regular license you can check <a href="http://themeforest.net/licenses/standard?license=regular" target="_blank">official description.</a></p>
+
+          <hr class="w-50">
+
+          <h5>What is extended license?</h5>
+          <p>Extended license can be used for end products(web service or SAAS) that charges users for access or service(e.g: monthly subscription fee).
+          <br>Single extended license can be used for single end product and end product can be used by you or your client. If you want to sell end product to multiple clients then you will need to purchase separate extended license for each client. The same rule applies if you want to use the same end product on multiple domains(unique setup).
+          <br>For more info on extended licenses you can check <a href="http://themeforest.net/licenses/terms/extended" target="_blank">official description.</a></p>
+
+
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+      <!-- Section name -->
+      <section class="section bg-bg pt-40 pb-20" id="section-footer">
+        <div class="container-fluid text-center">
+          <p class="lead">Developed with <i class="fa fa-heart text-danger px-8"></i> by <a class="text-dark" href="http://thetheme.io">TheThemeio</a></p>
+
+          <hr class="my-20 w-30">
+
+          <div class="social-icons social-icons-sm cycling text-center">
+            <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-facebook"></i></a>
+            <a class="social-twitter" href="https://twitter.com/thethemeio"><i class="fa fa-twitter"></i></a>
+            <a class="social-dribbble" href="https://dribbble.com/thethemeio"><i class="fa fa-dribbble"></i></a>
+            <a class="social-instagram" href="https://instagram.com/thethemeio"><i class="fa fa-instagram"></i></a>
+          </div>
+        </div>
+      </section>
+      <!-- END Section name -->
+
+
+
+
+
+
+
+
+    </main>
+    <!-- END Main container -->
+
+
+
+
+    <!-- Scripts -->
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/thesaas.min.js"></script>
+    <script src="assets/js/script.js"></script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-73325209-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-73325209-2');
+  
+  $(document).ready(function() {
+    $('a[href*="https://themeforest.net"]').on('click', function() {
+      ga('send', 'event', {
+        eventCategory: 'Button',
+        eventAction: 'Click',
+        eventLabel: 'Buy',
+        transport: 'beacon'
+      });
+    });
+  })
+</script>
+
+  </body>
+</html>
