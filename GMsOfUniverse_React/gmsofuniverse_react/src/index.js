@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import HomeApp 			from './components/Home/Home'
+import LoginApp 		from './components/Authentification/LoginAccueil'
 import reducer 			from './reducers/reducers'
 
 
@@ -18,6 +19,8 @@ import './assets/fonts/themify-icons/themify-icons.css';
 import './assets/css/app.min.css';
 import './assets/css/core.min.css';
 import './assets/css/style.min.css';
+
+// NOT IN REACT 
 // import './assets/js/Jquery.js';
 // import './assets/js/bootstrap.js';
 
@@ -27,6 +30,7 @@ render(
 	<Provider store={store}>
 		<Router>
 			<Switch>
+				<Route path="/LoginApp" component={LoginApp} />
 				<Route path="/" component={HomeApp} />
 			</Switch>
 		</Router>

@@ -51,6 +51,14 @@ class Home extends Component {
     </div>
 
       <div className="col-12">
+        <div className="divider text-uppercase fw-500">Le powerpoint</div>
+      </div>
+
+      <div className="col-12 text-center">
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRz5TdFn8ZbkxBim2w08-DJM-IeI7_37V3T9c5psCv8_lwx-SWJwL07TPDjXmft1A/embed?start=true&loop=true&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+      </div>
+
+      <div className="col-12">
         <div className="divider text-uppercase fw-500">Some Stats</div>
       </div>
 
@@ -93,9 +101,143 @@ class Home extends Component {
             </div>
           </div>
 
+
+
+
+
+
+
+
+
+      <div className="col-md-8">
+        <div className="card">
+          <div className="card-header">
+            <h5 className="card-title"><strong>Earnings</strong></h5>
+            <a className="btn btn-xs btn-secondary" href="../widget/chart.html">More Charts</a>
+          </div>
+
+          <div className="card-body">
+            <ul className="list-inline text-center gap-items-4 mb-30">
+              <li className="list-inline-item">
+                <span className="badge badge-lg badge-dot mr-1" style={{"backgroundColor": "#b1bccb"}}></span>
+                <span>Advertising</span>
+              </li>
+              <li className="list-inline-item">
+                <span className="badge badge-lg badge-dot mr-1" style={{"backgroundColor": "#01c4cc"}}></span>
+                <span>Hosting</span>
+              </li>
+            </ul>
+
+            <canvas id="chart-js-2" height="130" data-provide="chartjs"></canvas>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div className="col-md-4">
+        <div className="card">
+          <div className="card-header">
+            <h5 className="card-title"><strong>Top</strong> Advertisers</h5>
+
+            <ul className="card-controls">
+              <li className="dropdown">
+                <a data-toggle="dropdown" href=" #"><i className="ti-more-alt rotate-90"></i></a>
+                <div className="dropdown-menu dropdown-menu-right">
+                  <a className="dropdown-item active" href=" #">Today</a>
+                  <a className="dropdown-item" href=" #">Yesterday</a>
+                  <a className="dropdown-item" href=" #">Last week</a>
+                  <a className="dropdown-item" href=" #">Last month</a>
+                </div>
+              </li>
+              <li><a className="card-btn-reload" href=" #" title="" data-provide="tooltip" data-original-title="Refresh"><i className="fa fa-circle-thin"></i></a></li>
+            </ul>
+          </div>
+
+          <div className="card-body card-body">
+            <p className="text-center d-none d-xl-block">We need to stop interrupting what people are and be what people are interested in. We need to stop interrupting what people are and be what people are interested in.</p>
+
+            <div className="text-center py-20 d-none d-lg-block">
+              <div data-provide="peity" data-type="donut" data-size="150" data-inner-radius="55" data-fill="#efb3e6,#ffdf7c,#b2def7">9,6,5</div>
+            </div>
+
+            <div className="text-center py-20 d-lg-none">
+              <div data-provide="peity" data-type="donut" data-size="87" data-inner-radius="35" data-fill="#efb3e6,#ffdf7c,#b2def7">9,6,5</div>
+            </div>
+
+            <ul className="list-inline mb-0">
+              <li className="flexbox mb-1">
+                <div>
+                  <span className="badge badge-dot badge-lg mr-1" style={{"backgroundColor" : "#efb3e6"}}></span>
+                  <span>Google</span>
+                </div>
+                <div>953</div>
+              </li>
+
+              <li className="flexbox mb-1">
+                <div>
+                  <span className="badge badge-dot badge-lg mr-1" style={{"backgroundColor" : "#ffdf7c"}}></span>
+                  <span>Facebook</span>
+                </div>
+                <div>813</div>
+              </li>
+
+              <li className="flexbox">
+                <div>
+                  <span className="badge badge-dot badge-lg mr-1" style={{"backgroundColor" : "#b2def7"}}></span>
+                  <span>Twitter</span>
+                </div>
+                <div>369</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
       <div className="col-12">
         <div className="divider text-uppercase fw-500">Social</div>
       </div>
+
+
+
+
+
+      <div className="col-md-6 col-lg-4">
+        <div className="card p-30 pt-50 text-center">
+          <div>
+            <a className="avatar avatar-xxl status-success mb-3" href="../page/profile.html">
+              <img src="../assets/img/avatar/1.jpg" alt="..."/>
+            </a>
+          </div>
+          <h5><a href="../page/profile.html">Maryam Amiri</a></h5>
+          <p><small className="fs-13">Designer</small></p>
+          <p className="text-light fs-12 mb-30">Hello everyone, I am Maryam. My designs are used in several big companies in United State and other countries.</p>
+          <div className="gap-items fs-16">
+            <a className="text-facebook" href=" #"><i className="fa fa-facebook"></i></a>
+            <a className="text-dribbble" href=" #"><i className="fa fa-dribbble"></i></a>
+            <a className="text-google" href=" #"><i className="fa fa-google"></i></a>
+            <a className="text-twitter" href=" #"><i className="fa fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
 
       <div className="col-md-6 col-lg-4">
         <div className="card">
@@ -126,21 +268,6 @@ class Home extends Component {
               <div className="media-body">
                 <h6><a href=" #">Maryam Amiri</a></h6>
                 <small className="text-fader">Co-Founder</small>
-              </div>
-
-              <div className="media-right">
-                <a className="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px" href=" #">Followed</a>
-              </div>
-            </div>
-
-            <div className="media media-single">
-              <a href=" #">
-                <img className="avatar" src="../assets/img/avatar/1.jpg" alt=".T."/>
-              </a>
-
-              <div className="media-body">
-                <h6><a href=" #">Leton Bebug</a></h6>
-                <small className="text-fader">Ultimate Sportsman</small>
               </div>
 
               <div className="media-right">
