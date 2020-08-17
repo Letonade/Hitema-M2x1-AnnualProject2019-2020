@@ -12521,7 +12521,8 @@ select.form-control:not([size]):not([multiple]){
 .form-type-material.form-group label:not(.custom-control-label):not(.switch),.form-type-material .form-group label:not(.custom-control-label):not(.switch){
 	position:absolute;
 	left:0;
-	top:13px;
+	/*de 13px à 0 pour le top*/
+	top:0px;
 	font-weight:300;
 	padding:0;
 	pointer-events:none;
