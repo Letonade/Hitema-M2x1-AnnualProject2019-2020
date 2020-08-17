@@ -10,14 +10,19 @@ import {
 } from "react-router-dom";
 
 import HomeApp 			from './components/Home/Home'
+import LoginApp 		from './components/Authentification/LoginAccueil'
+import ProfilApp 		from './components/Users/Profil'
 import reducer 			from './reducers/reducers'
 
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import './assets/fonts/fontawesome-free-5.12.1-web/css/all.css';
 import './assets/fonts/themify-icons/themify-icons.css';
 import './assets/css/app.min.css';
 import './assets/css/core.min.css';
 import './assets/css/style.min.css';
+
+// NOT IN REACT 
 // import './assets/js/Jquery.js';
 // import './assets/js/bootstrap.js';
 
@@ -27,6 +32,8 @@ render(
 	<Provider store={store}>
 		<Router>
 			<Switch>
+				<Route path="/LoginApp" component={LoginApp} />
+				<Route path="/ProfilApp" component={ProfilApp} />
 				<Route path="/" component={HomeApp} />
 			</Switch>
 		</Router>

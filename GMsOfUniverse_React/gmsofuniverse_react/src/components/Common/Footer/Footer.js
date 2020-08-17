@@ -2,15 +2,27 @@ import React              from 'react';
 
 function Footer() {
   return (
-      <footer className="text-muted">
-        <div className="container">
-          <p className="float-right">
-            <a href="/#">Back to top</a>
-          </p>
-            <p>{1 == 0 && "Test"}</p>
-            <p>{1 == 0 && "Un message."}</p>
+    <footer className="site-footer">
+      <div className="row">
+        <div className="col-md-6">
+          <p className="text-center text-md-left">Chat Conteur 2020</p>
         </div>
-      </footer>
+
+        <div className="col-md-6">
+          <ul className="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+            <li className="nav-item">
+              <a className="nav-link" href="# ">Contact us</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="# ">FAQ</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="# ">Ideas Box</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   );
 }
 
