@@ -13,6 +13,7 @@ import HomeApp 			from './components/Home/Home'
 import LoginApp 		from './components/Authentification/LoginAccueil'
 import reducer 			from './reducers/reducers'
 
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 import './assets/fonts/fontawesome-free-5.12.1-web/css/all.css';
 import './assets/fonts/themify-icons/themify-icons.css';
