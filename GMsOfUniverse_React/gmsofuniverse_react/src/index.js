@@ -11,6 +11,7 @@ import {
 
 import HomeApp 			from './components/Home/Home'
 import LoginApp 		from './components/Authentification/LoginAccueil'
+import ProfilApp 		from './components/Users/Profil'
 import reducer 			from './reducers/reducers'
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
@@ -32,6 +33,7 @@ render(
 		<Router>
 			<Switch>
 				<Route path="/LoginApp" component={LoginApp} />
+				<Route path="/ProfilApp" component={ProfilApp} />
 				<Route path="/" component={HomeApp} />
 			</Switch>
 		</Router>
