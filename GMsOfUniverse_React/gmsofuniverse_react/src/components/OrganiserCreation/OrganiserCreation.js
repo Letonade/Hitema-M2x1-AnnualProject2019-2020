@@ -35,24 +35,28 @@ class OrganiserCreation extends Component {
 
               <div className="card-body">
                 <div className="flexbox gap-items-4">
-                  <img className="img-fluid" src={banner} alt="..."/>
-
-                  <div className="flex-grow">
-                    <h5>
-                      <ReactQuill theme="bubble"
-                        modules={{toolbar : false}}
-                        value="<h2>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h2>"                      
-                      />
-                    </h5>
-                    <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
-                      <div className="file-group file-group-inline">
-                        <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
-                        <input type="file"/>
-                      </div>
-
-                      <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
+                  <div className="row">
+                    <div className="col-md-7 col-sm-0 ">
+                      <img className="img-fluid" src={banner} alt="..."/>
                     </div>
+                    <div className="col-md-5 col-sm-12 ">
+                      <div className="flex-grow">
+                        <h5>
+                          <ReactQuill theme="bubble"
+                            modules={{toolbar : false}}
+                            value="<h2>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h2>"                      
+                          />
+                        </h5>
+                        <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
+                          <div className="file-group file-group-inline">
+                            <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
+                            <input type="file"/>
+                          </div>
 
+                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
