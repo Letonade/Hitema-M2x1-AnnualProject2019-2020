@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { withRouter }       from 'react-router-dom';
 // import UserService           from '../../services/user.service';
 
-import Navbar                 from '../../components/Common/Navbar/Navbar'
-import Footer                 from '../../components/Common/Footer/Footer'
 
-import banner                 from '../../assets/img/banner/ShadowrunBanner.png';
+import Navbar               from '../../components/Common/Navbar/Navbar'
+import Footer               from '../../components/Common/Footer/Footer'
+
+import banner               from '../../assets/img/banner/ShadowrunBanner.png';
 
 class OrganiserCreation extends Component {
 
@@ -67,37 +68,73 @@ class OrganiserCreation extends Component {
                   <div className="col-md-3">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option>Interessé</option>
-                        <option>Initié</option>
-                        <option>Confirmé</option>
-                        <option>Vétérans</option>
+                        <option value="1">Interessé</option>
+                        <option value="2">Initié</option>
+                        <option value="3" selected>Confirmé</option>
+                        <option value="4">Vétérans</option>
                       </select>
-                      <label>Who ?</label>
+                      <label>Catégorie</label>
                     </div>
                   </div>
                 </div>
-
-
-                <div className="form-group">
-                  <input className="form-control" type="text"/>
-                  <label>Email</label>
-                </div>
-
 
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option>France</option>
+                        <option value="1">Warhammer 1ere édition</option>
+                        <option value="2" selected>Warhammer 2nd édition</option>
+                        <option value="3">Warhammer 3eme édition</option>
+                        <option value="4">Warhammer 4eme édition</option>
+                        <option value="5">pathfinder 1ere édition</option>
+                        <option value="6">pathfinder 2nd édition</option>
+                        <option value="7">pathfinder 3eme édition</option>
+                        <option value="8">Starfinder 1ere édition</option>
+                        <option value="9">Shadowrun Sixth World</option>
                       </select>
-                      <label>Country</label>
+                      <label>Univers</label>
                     </div>
                   </div>
 
-                  <div className="col-md-6">
+                  <div className="col-md-2">
+                    <div className="form-group">                      
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
+                        <option value="1" selected>OK</option>
+                        <option value="2">KO</option>
+                      </select>
+                      <label>Mature Content</label>
+                    </div>
+                  </div>
+
+                  <div className="col-md-2">
                     <div className="form-group">
-                      <input className="form-control" type="text"/>
-                      <label>Phone</label>
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
+                        <option value="1" selected>FR</option>
+                        <option value="2">EN</option>
+                      </select>
+                      <label>Langue</label>
+                    </div>
+                  </div>
+
+                  <div className="col-md-2">
+                    <div className="form-group">
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
+                        <option value="1">Campagne (selon la facon de voir des parisien)</option>
+                        <option value="2">Paris</option>
+                        <option value="3" selected>Région parisienne</option>
+                      </select>
+                      <label>Région</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-12">
+                    <div className="form-group">
+
+
+
+                      <label>Description</label>
                     </div>
                   </div>
                 </div>
