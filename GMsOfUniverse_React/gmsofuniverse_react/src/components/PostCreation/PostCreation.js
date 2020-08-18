@@ -3,15 +3,14 @@ import { withRouter }       from 'react-router-dom';
 // import UserService           from '../../services/user.service';
 
 import ReactQuill           from 'react-quill'; 
-import 'react-quill/dist/quill.bubble.css';
+import 'react-quill/dist/quill.snow.css';
 
 import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
-import OrganiserCreationInscrits from './OrganiserCreationInscrits'
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
 
-class OrganiserCreation extends Component {
+class PostCreation extends Component {
 
   // componentDidMount() {
     
@@ -19,7 +18,7 @@ class OrganiserCreation extends Component {
 
  render(){
   return (
-  <div className="OrganiserCreation">
+  <div className="PostCreation">
 
     <Navbar/>
 
@@ -38,12 +37,7 @@ class OrganiserCreation extends Component {
                   <img className="img-fluid" src={banner} alt="..."/>
 
                   <div className="flex-grow">
-                    <h5>
-                      <ReactQuill theme="bubble"
-                        modules={{toolbar : false}}
-                        value="<h2>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h2>"                      
-                      />
-                    </h5>
+                    <h5>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h5>
                     <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                       <div className="file-group file-group-inline">
                         <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
@@ -139,17 +133,13 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
-                      <ReactQuill theme="bubble"
-                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."
-                      />
+                      <ReactQuill theme="snow"  
+                        format={'header','bold', 'italic', 'underline', 'strike', 'blockquote','list', 'bullet', 'indent','link', 'image'}
+                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."/>
                       <label>Description</label>
                     </div>
                   </div>
                 </div>
-
-                <OrganiserCreationInscrits>
-                </OrganiserCreationInscrits>
-
               </div>
 
               <footer className="card-footer text-right">
@@ -168,5 +158,5 @@ class OrganiserCreation extends Component {
  }
 }
 
-export default withRouter(OrganiserCreation)
+export default withRouter(PostCreation)
 

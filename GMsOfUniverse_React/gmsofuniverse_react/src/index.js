@@ -13,6 +13,7 @@ import HomeApp 					from './components/Home/Home'
 import HomeAppOLD 				from './components/Home/HomeOLD'
 import LoginApp 				from './components/Authentification/LoginAccueil'
 import OrganiserCreationApp 	from './components/OrganiserCreation/OrganiserCreation'
+import PostCreationApp 			from './components/PostCreation/PostCreation'
 import ProfilApp 				from './components/Users/Profil'
 import reducer 					from './reducers/reducers'
 
@@ -37,6 +38,7 @@ render(
 				<Route path="/LoginApp" component={LoginApp} />
 				<Route path="/ProfilApp" component={ProfilApp} />
 				<Route path="/OrganiserCreationApp" component={OrganiserCreationApp} />
+				<Route path="/PostCreationApp" component={PostCreationApp} />
 				<Route path="/HomeAppOLD" component={HomeAppOLD} />
 				<Route path="/" component={HomeApp} />
 			</Switch>
