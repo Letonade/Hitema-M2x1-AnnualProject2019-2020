@@ -9,6 +9,7 @@ import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
+import image               from '../../assets/img/gallery/thumb/2.jpg';
 
 class PostCreation extends Component {
 
@@ -33,25 +34,17 @@ class PostCreation extends Component {
               <h4 className="card-title fw-400">Game Details</h4>
 
               <div className="card-body">
-                <div className="flexbox gap-items-4">
-                  <img className="img-fluid" src={banner} alt="..."/>
-
-                  <div className="flex-grow">
-                    <h5>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h5>
-                    <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
-                      <div className="file-group file-group-inline">
-                        <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
-                        <input type="file"/>
-                      </div>
-
-                      <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
-                    </div>
-
+                <div className="row"> 
+                  <div className="col-md-12"> 
+                  <div class="card-body">
+                  <img src={banner} alt="Bubba image hover effect"/>
+              </div>
+                    <ReactQuill theme="bubble"
+                      modules={{toolbar : false}}
+                      value="<h1>Shadowrun Sixth world</h1>"                      
+                    />
                   </div>
                 </div>
-
-                <hr/>
-
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">

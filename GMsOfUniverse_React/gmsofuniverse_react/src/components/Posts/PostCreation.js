@@ -3,15 +3,15 @@ import { withRouter }       from 'react-router-dom';
 // import UserService           from '../../services/user.service';
 
 import ReactQuill           from 'react-quill'; 
-import 'react-quill/dist/quill.bubble.css';
+import 'react-quill/dist/quill.snow.css';
 
 import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
-import OrganiserCreationInscrits from './OrganiserCreationInscrits'
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
+import image               from '../../assets/img/gallery/thumb/2.jpg';
 
-class OrganiserCreation extends Component {
+class PostCreation extends Component {
 
   // componentDidMount() {
     
@@ -19,7 +19,7 @@ class OrganiserCreation extends Component {
 
  render(){
   return (
-  <div className="OrganiserCreation">
+  <div className="PostCreation">
 
     <Navbar/>
 
@@ -34,32 +34,24 @@ class OrganiserCreation extends Component {
               <h4 className="card-title fw-400">Game Details</h4>
 
               <div className="card-body">
-                <div className="flexbox gap-items-4">
-                  <div className="row">
-                    <div className="col-md-7 col-sm-0 ">
-                      <img className="img-fluid" src={banner} alt="..."/>
-                    </div>
-                    <div className="col-md-5 col-sm-12 ">
-                      <div className="flex-grow">
-                          <ReactQuill theme="bubble"
-                            modules={{toolbar : false}}
-                            value="<h2>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h2>"                      
-                          />
-                        <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
-                          <div className="file-group file-group-inline">
-                            <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
-                            <input type="file"/>
-                          </div>
-
-                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
-                        </div>
-                      </div>
-                    </div>
+                <div className="row"> 
+                  <div className="col-md-12"> 
+                  <div class="card-body">
+                <figure class="teaser teaser-bubba">
+                  <img src={banner} alt="Bubba image hover effect"/>
+                  <figcaption>
+                    <h2 href="# " className="goldShadow">Buy now</h2>
+                    <p>Shadow run is out now !</p>
+                    <a href="# ">View more</a>
+                  </figcaption>
+                </figure>
+              </div>
+                    <ReactQuill theme="bubble"
+                      modules={{toolbar : false}}
+                      value="<h1>Warhammer 4ème édition</h1>"                      
+                    />
                   </div>
                 </div>
-
-                <hr/>
-
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
@@ -141,17 +133,13 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
-                      <ReactQuill theme="bubble"
-                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."
-                      />
+                      <ReactQuill theme="snow"  
+                        format={'header','bold', 'italic', 'underline', 'strike', 'blockquote','list', 'bullet', 'indent','link', 'image'}
+                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."/>
                       <label>Description</label>
                     </div>
                   </div>
                 </div>
-
-                <OrganiserCreationInscrits>
-                </OrganiserCreationInscrits>
-
               </div>
 
               <footer className="card-footer text-right">
@@ -170,5 +158,5 @@ class OrganiserCreation extends Component {
  }
 }
 
-export default withRouter(OrganiserCreation)
+export default withRouter(PostCreation)
 
