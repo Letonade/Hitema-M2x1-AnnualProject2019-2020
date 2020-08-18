@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import HomeApp 					from './components/Home/Home'
+import HomeAppOLD 				from './components/Home/HomeOLD'
 import LoginApp 				from './components/Authentification/LoginAccueil'
 import OrganiserCreationApp 	from './components/OrganiserCreation/OrganiserCreation'
 import ProfilApp 				from './components/Users/Profil'
@@ -36,6 +37,7 @@ render(
 				<Route path="/LoginApp" component={LoginApp} />
 				<Route path="/ProfilApp" component={ProfilApp} />
 				<Route path="/OrganiserCreationApp" component={OrganiserCreationApp} />
+				<Route path="/HomeAppOLD" component={HomeAppOLD} />
 				<Route path="/" component={HomeApp} />
 			</Switch>
 		</Router>

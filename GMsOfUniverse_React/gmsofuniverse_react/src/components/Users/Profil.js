@@ -55,7 +55,7 @@ class Profil extends Component {
                         <input type="file"/>
                       </div>
 
-                      <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
+                      <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# ">Delete Picture</a>
                     </div>
 
                   </div>
@@ -130,7 +130,7 @@ class Profil extends Component {
                     <input type="file"/>
                   </div>
 
-                  <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
+                  <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# ">Delete Picture</a>
                 </div>
 
               </div>

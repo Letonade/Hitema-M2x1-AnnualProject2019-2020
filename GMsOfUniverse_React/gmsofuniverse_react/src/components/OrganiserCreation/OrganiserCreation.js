@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { withRouter }       from 'react-router-dom';
 // import UserService           from '../../services/user.service';
 
+import ReactQuill           from 'react-quill'; 
+import 'react-quill/dist/quill.snow.css';
 
 import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
+import OrganiserCreationInscrits from './OrganiserCreationInscrits'
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
 
@@ -131,13 +134,17 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <div className="form-group">
-
-
-
+                      <ReactQuill theme="snow"  
+                        format={'header','bold', 'italic', 'underline', 'strike', 'blockquote','list', 'bullet', 'indent','link', 'image'}
+                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."/>
                       <label>Description</label>
                     </div>
                   </div>
                 </div>
+
+                <OrganiserCreationInscrits>
+                </OrganiserCreationInscrits>
+
               </div>
 
               <footer className="card-footer text-right">
