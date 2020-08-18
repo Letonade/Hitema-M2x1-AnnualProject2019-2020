@@ -58,7 +58,7 @@ class Home extends Component {
               />
               <Carousel.Caption>
                 <h3> </h3>
-                <h2 style={{"text-shadow": "#FC0 1px 0 10px"}}>Buy Now !</h2>
+                <h2 className="goldShadow">Buy Now !</h2>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>

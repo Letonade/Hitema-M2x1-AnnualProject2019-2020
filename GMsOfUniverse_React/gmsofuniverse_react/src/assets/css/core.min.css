@@ -76,6 +76,11 @@
  	margin-bottom:.5rem
  }
 
+ h1.goldShadow,h2.goldShadow,h3.goldShadow,h4.goldShadow,h5.goldShadow,h6.goldShadow{
+	text-shadow: #FC0 1px 0 10px;
+ }
+
+
  p{
  	margin-top:0;
  	margin-bottom:1rem

@@ -24,7 +24,7 @@ class OrganiserGame extends Component {
         </div>
         <div className="col-md-2 col-lg-2">
           <h6 className="text-fader">6/7 Joueurs</h6>
-          <h6 className="text-fader">18-30ans</h6>
+          <h6 className="text-fader">Joueurs Confirmé attendu</h6>
           <h6 className="text-fader">Warhammer 2nd édition</h6>
         </div>
         <div className="col-md-0 col-lg-2">

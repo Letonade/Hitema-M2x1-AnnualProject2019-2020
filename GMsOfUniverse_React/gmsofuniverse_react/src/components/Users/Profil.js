@@ -7,7 +7,7 @@ import Footer                 from '../../components/Common/Footer/Footer'
 
 import avatar       from '../../assets/img/avatar/5.jpg';
 
-class Home extends Component {
+class Profil extends Component {
 
   // componentDidMount() {
     
@@ -15,7 +15,7 @@ class Home extends Component {
 
  render(){
   return (
-  <div className="Home">
+  <div className="Profil">
 
     <Navbar/>
 
@@ -194,5 +194,5 @@ class Home extends Component {
  }
 }
 
-export default withRouter(Home)
+export default withRouter(Profil)
 
