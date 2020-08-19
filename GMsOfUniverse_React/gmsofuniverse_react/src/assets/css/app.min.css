@@ -637,7 +637,27 @@ img{
 	text-transform:uppercase
 }
 
+.avatarBanner{
+	position:relative;
+	display:inline-block;
+	width:136px;
+	height:36px;
+	line-height:36px;
+	text-align:center;
+	border-radius:100%;
+	background-color:#f5f6f7;
+	color:#8b95a5;
+	text-transform:uppercase
+}
+
 .avatar img{
+	width:100%;
+	height:100%;
+	border-radius:100%;
+	vertical-align:top
+}
+
+.avatarBanner img{
 	width:100%;
 	height:100%;
 	border-radius:100%;
@@ -660,9 +680,22 @@ img{
 	line-height:29px;
 	font-size:0.75rem
 }
+.avatarBanner-sm{
+	width:72px;
+	height:29px;
+	line-height:29px;
+	font-size:0.75rem
+}
 
 .avatar-lg{
 	width:48px;
+	height:48px;
+	line-height:48px;
+	font-size:1.125rem
+}
+
+.avatarBanner-lg{
+	width:120px;
 	height:48px;
 	line-height:48px;
 	font-size:1.125rem
@@ -675,8 +708,21 @@ img{
 	font-size:1.25rem
 }
 
+.avatarBanner-xl{
+	width:160px;
+	height:64px;
+	line-height:64px;
+	font-size:1.25rem
+}
+
 .avatar-xxl{
 	width:96px;
+	height:96px;
+	line-height:96px;
+	font-size:1.375rem
+}
+.avatarBanner-xxl{
+	width:240px;
 	height:96px;
 	line-height:96px;
 	font-size:1.375rem
@@ -684,6 +730,12 @@ img{
 
 .avatar-xxxl{
 	width:128px;
+	height:128px;
+	line-height:128px;
+	font-size:1.5rem
+}
+.avatarBanner-xxxl{
+	width:320px;
 	height:128px;
 	line-height:128px;
 	font-size:1.5rem
