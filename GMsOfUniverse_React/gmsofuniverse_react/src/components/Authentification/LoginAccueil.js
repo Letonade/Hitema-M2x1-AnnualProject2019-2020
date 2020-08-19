@@ -51,7 +51,7 @@ class LoginApp extends Component{
   	render() {
 		let {error, success} = this.state;
 		return (
-			<div className="LoginApp">
+			<div className="LoginApp" style= {{"padding-top": "100px"}} >
 				<div className="container LoginCenter">
 					<div className="d-flex justify-content-center h-100">
 						<div className="card">
