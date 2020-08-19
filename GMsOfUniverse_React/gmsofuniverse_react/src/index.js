@@ -14,6 +14,8 @@ import HomeAppOLD 				from './components/Home/HomeOLD'
 import LoginApp 				from './components/Authentification/LoginAccueil'
 import OrganiserCreationApp 	from './components/OrganiserCreation/OrganiserCreation'
 import PostCreationApp 			from './components/PostCreation/PostCreation'
+import PostHistoriqueApp		from './components/Posts/PostHistorique'
+import PostOneApp 				from './components/Posts/PostOne'
 import ProfilApp 				from './components/Users/Profil'
 import reducer 					from './reducers/reducers'
 
@@ -39,6 +41,8 @@ render(
 				<Route path="/ProfilApp" component={ProfilApp} />
 				<Route path="/OrganiserCreationApp" component={OrganiserCreationApp} />
 				<Route path="/PostCreationApp" component={PostCreationApp} />
+				<Route path="/PostHistoriqueApp" component={PostHistoriqueApp} />
+				<Route path="/PostOneApp" component={PostOneApp} />
 				<Route path="/HomeAppOLD" component={HomeAppOLD} />
 				<Route path="/" component={HomeApp} />
 			</Switch>

@@ -28,11 +28,11 @@ class OrganiserCreation extends Component {
 
     <main className="main-container">
 
-      <div class="main-content">
-        <div class="row">
+      <div className="main-content">
+        <div className="row">
 
           {/*Pannel*/}
-          <div class="col-lg-12 tab-content">
+          <div className="col-lg-12 tab-content">
             <form className="card form-type-material tab-pane fade active show" id="tab1">
               <h4 className="card-title fw-400">Game Details</h4>
 
@@ -54,7 +54,7 @@ class OrganiserCreation extends Component {
                             <input type="file"/>
                           </div>
 
-                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="#">Delete Picture</a>
+                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# ">Delete Picture</a>
                         </div>
                       </div>
                     </div>
