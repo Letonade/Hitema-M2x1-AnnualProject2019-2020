@@ -587,3 +587,50 @@ composer create-project symfony/skeleton GMsOfUniverse 4.4.*
             Executing script cache:clear [OK]
             Executing script assets:install public [OK]
         }
+
+  composer require vich/uploader-bundle
+  {
+    Using version ^1.13 for vich/uploader-bundle
+    ./composer.json has been updated
+    Loading composer repositories with package information
+    Updating dependencies (including require-dev)
+    Restricting packages listed in "symfony/symfony" to "4.4.*"
+
+    Prefetching 7 packages
+      - Downloading (100%)
+
+    Package operations: 7 installs, 0 updates, 0 removals
+      - Installing symfony/polyfill-intl-normalizer (v1.14.0): Loading from cache
+      - Installing symfony/polyfill-intl-grapheme (v1.14.0): Loading from cache
+      - Installing symfony/string (v5.0.5): Loading from cache
+      - Installing symfony/intl (v4.4.5): Loading from cache
+      - Installing symfony/polyfill-intl-icu (v1.14.0): Loading from cache
+      - Installing symfony/form (v4.4.5): Loading from cache
+      - Installing vich/uploader-bundle (1.13.1): Loading from cache
+    Package zendframework/zend-code is abandoned, you should avoid using it. Use laminas/laminas-code instead.
+    Package zendframework/zend-eventmanager is abandoned, you should avoid using it. Use laminas/laminas-eventmanager instead.
+    Writing lock file
+    Generating autoload files
+    ocramius/package-versions: Generating version class...
+    ocramius/package-versions: ...done generating version class
+    Symfony operations: 1 recipe (798ddf1b2ac4c45f663fa16d60983a22)
+      -  WARNING  vich/uploader-bundle (>=1.5): From github.com/symfony/recipes-contrib:master
+        The recipe for this package comes from the "contrib" repository, which is open to community contributions.
+        Review the recipe at https://github.com/symfony/recipes-contrib/tree/master/vich/uploader-bundle/1.5
+
+        Do you want to execute this recipe?
+        [y] Yes
+        [n] No
+        [a] Yes for all packages, only for the current installation session
+        [p] Yes permanently, never ask again for this project
+        (defaults to n): y
+      - Configuring vich/uploader-bundle (>=1.5): From github.com/symfony/recipes-contrib:master
+    Executing script cache:clear [OK]
+    Executing script assets:install public [OK]
+
+    Some files may have been created or updated to configure your new packages.
+    Please review, edit and commit them: these files are yours.
+  }
+
+  Pour les images il faut s'asurer que dans php.ini il y a phpinfo qui est activer(virer les ; devant si il existe)
+  Et il faut donner le droit au dossier

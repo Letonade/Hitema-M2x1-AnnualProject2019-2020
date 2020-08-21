@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Image;
 use App\Entity\User;
+use App\Type\ImageType;
 use Doctrine\ORM\EntityManagerInterface;
 use JMS\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use App\Utils\UploadedBase64File;
+
 
 class SecurityController extends AbstractController
 {
@@ -24,18 +29,18 @@ class SecurityController extends AbstractController
         ]);
     }
 
+
+
     /**
-     * @Route("/login", name="login", methods={"POST"})
+     * @Route("/test", name="test", methods={"POST"})
      */
-    public function login(Request $request)
+    public function test(Request $request)
     {
         $user = $this->getUser();
 
-        return $this->json([
-            'username' => $user->getUsername(),
-            'roles' => $user->getRoles(),
-        ]);
+        return new JsonResponse(['value' =>'good'], 200);
     }
+
 
     /**
      * @Route("/register", name="register", methods={"POST"})
@@ -74,5 +79,91 @@ class SecurityController extends AbstractController
             'data' => $request->get('_username')
         ];
         return new JsonResponse(['value' =>json_last_error()], 200);
+    }
+
+    /**
+     * @Route("/addAvatar", name="addAvatar", methods={"POST"})
+     */
+    public function addAvatar(Request $request)
+    {
+      /*  $values = json_decode($request->getContent());
+        if(isset($values->_image)&&isset($values->_id))
+        {
+          /*
+            $user = $this->getDoctrine()->getRepository(User::class)->find($values->_id);
+            if(isset($user))
+            {
+                $user->setAvatarFile(base64_decode ($values->_image));
+                return new JsonResponse(['value' =>'good'], 200);
+            }
+            return new JsonResponse(['value' =>'bad2'], 200);
+            */
+            //test
+         /*   $data = $values->_image;
+            if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+                $data = substr($data, strpos($data, ',') + 1);
+                $type = strtolower($type[1]); // jpg, png, gif
+
+                if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+                    throw new \Exception('invalid image type');
+                }
+
+                $data = base64_decode($data);
+
+                if ($data === false) {
+                    throw new \Exception('base64_decode failed');
+                }
+                return new JsonResponse(['value' =>'good'], 200);
+            } else {
+                throw new \Exception('did not match data URI with image data');
+            }
+
+            file_put_contents("img.{$type}", $data);
+            //return new JsonResponse(['value' =>'good'], 200);
+        }
+
+        return new JsonResponse(['value' =>'bad1'], 200);*/
+
+         //vichuploader safe version
+
+        $data = json_decode($request->getContent(), true);
+        if($data === null
+            || !is_array($data)
+            || count($data) !== 1
+            || !isset($data['image']['name'], $data['image']['value'], $data['image']['id'])
+            || count($data['image']) !== 3
+        ) {
+            return new JsonResponse(['value' =>'bad1'], 200);
+        }
+
+        $avatarFile = new UploadedBase64File($data['image']['value'], $data['image']['name']);
+        $user = $this->getDoctrine()->getRepository(User::class)->find( $data['image']['id']);
+        $image = new Image();
+        $form = $this->createForm(ImageType::class, $image, ['csrf_protection' => false]);
+        $form->submit(['imageFile' => $avatarFile]);
+
+        if(!($form->isSubmitted() && $form->isValid())) {
+            return new JsonResponse(['valid' =>$form->isValid(), 'submit' =>$form->isSubmitted()], 200);
+        }
+        $user->setAvatar($image);
+        $oldimage = $this->getDoctrine()->getRepository(Image::class)->findOneBy(array('user_id' => $data['image']['id']));
+        if (isset($oldimage))
+        {
+
+        }
+        $image->setUser($user);
+        $entityManager = $this->getDoctrine()->getManager();
+        if (isset($oldimage))
+        {
+            $oldimage->SetUser(NULL);
+        }
+        $entityManager->persist($image);
+        $entityManager->persist($user);
+        $entityManager->flush();
+
+
+        // Persist, do thing you want to do and send json response
+        return new JsonResponse(['value' =>'good'], 200);
+
     }
 }
