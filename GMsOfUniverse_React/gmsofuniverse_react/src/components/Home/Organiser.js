@@ -39,10 +39,15 @@ class Organiser extends Component {
 
           <PerfectScrollbar>
             <div className="media-list media-list-sm media-list-hover media-list-divided scrollable" style={{height: "400px"}} data-ps-id="dadac395-34e9-0117-df73-bf58e70fcf18">
-
-              <OrganiserGameApp>
-              </OrganiserGameApp>
-
+              {
+                this.props.children.map((elem,x) => {
+                  return (
+                    <OrganiserGameApp key={x}>
+                      {elem}
+                    </OrganiserGameApp>
+                  )
+                })
+              }
             </div>
           </PerfectScrollbar>
           <div className="text-center bt-1 border-light p-2">

@@ -14,6 +14,78 @@ import OrganiserApp           from './Organiser'
 
 class Home extends Component {
 
+    state = {
+      homeCarroussel : 
+        [
+          {
+            img : Slider1
+            ,commercial : 0
+            ,h3 : "Warhammer JDR 4eme Edition"
+            ,h2 : ""
+            ,p : "Fight with brothers !"
+            ,alt : "SlideShow"
+          },
+          {
+            img : Slider2
+            ,commercial : 0
+            ,h3 : ""
+            ,h2 : "Light you'r star."
+            ,p : ""
+            ,alt : "SlideShow"
+          },
+          {
+            img : Slider3
+            ,commercial : 1
+            ,h3 : ""
+            ,h2 : "Buy Now !"
+            ,p : ""
+            ,alt : "SlideShow"
+          }
+        ],
+      homeOrganisator :
+        [
+          {
+            avatarImg : ""
+            ,avatarAlt : ".T."
+            ,title : "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent"
+            ,mj : "Leton Bebug"
+            ,description : "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."
+            ,maxJoueur : 7
+            ,nombreInscrit : 6
+            ,categorieDeJoueur : "Confirmé"
+            ,univers : "Warhammer 2nd édition"
+            ,langue : "FR"
+            ,matureContent : "OK"
+            ,region : "Région Parisienne"
+            ,actualUser : {
+              inscrit : 1
+              ,passés : 0
+            }
+          }
+        ],
+      homeStats : 
+        [
+          {
+            title :"Parties en cours"
+            ,number : "258"
+            ,percent : "27%"
+            ,howClass : "ti-angle-up text-success"
+          },
+          {
+            title :"Comptes passés en confirmer"
+            ,number : "12"
+            ,percent : "12%"
+            ,howClass : "ti-angle-up text-success"
+          },
+          {
+            title :"Nouveaux abbonés aujourd'hui"
+            ,number : "28"
+            ,percent : "27%"
+            ,howClass : "ti-angle-up text-success"
+          }
+        ]
+    }
+
 	// componentDidMount() {
 		
 	// }
@@ -28,39 +100,25 @@ class Home extends Component {
       <div className="main-content">
         <div className="card">
           <Carousel>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={Slider1}
-                alt="First slide"
-              />
-              <Carousel.Caption>
-                <h3>Warhammer JDR 4eme Edition</h3>
-                <p>Fight with brothers !</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={Slider2}
-                alt="Second slide"
-              />
-              <Carousel.Caption>
-                <h3> </h3>
-                <h2>Light you'r star.</h2>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src={Slider3}
-                alt="Third slide"
-              />
-              <Carousel.Caption>
-                <h3> </h3>
-                <h2 className="goldShadow">Buy Now !</h2>
-              </Carousel.Caption>
-            </Carousel.Item>
+            {// mise en place du carroussel
+              this.state.homeCarroussel.map((elem,x) => 
+              {
+                return (
+                  <Carousel.Item key={x}>
+                    <img
+                      className="d-block w-100"
+                      src={elem.img}
+                      alt={elem.alt}
+                    />
+                    <Carousel.Caption>
+                      {elem.h3 && <h3>{elem.h3}</h3>}
+                      {elem.h2 && <h2 className={elem.commercial && "goldShadow"} >{elem.h2}</h2>}
+                      {elem.p && <p>{elem.p}</p>}
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                 )
+              })
+            }
           </Carousel>
         </div>
       </div>
@@ -71,43 +129,23 @@ class Home extends Component {
 
       <div className="main-content">
         <div className="row">
-
-          <div className="col-md-4">
-            <div className="card card-body">
-                <div className="text-center">
-                  <span className="">258 Parties en cours</span><br/>
-                  <span>
-                    <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">27%</span>
-                  </span>
+          {// statistiques
+            this.state.homeStats.filter((elem,x) => x>-1 && x<3).map((elem, x) => {
+              return (
+                <div className="col-md-4" key={x}>
+                  <div className="card card-body">
+                      <div className="text-center">
+                        <span className="">{elem.number} {elem.title}</span><br/>
+                        <span>
+                          <i className={elem.howClass}></i>
+                          <span className="fs-18 ml-1">{elem.percent}</span>
+                        </span>
+                      </div>
+                  </div>
                 </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card card-body">
-                <div className="text-center">
-                  <span className="">12 compte passé en confirmer</span><br/>
-                  <span>
-                    <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">12%</span>
-                  </span>
-                </div>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card card-body">
-                <div className="text-center">
-                  <span className="">28 nouveaux abbonés aujourd'hui</span><br/>
-                  <span>
-                    <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">8%</span>
-                  </span>
-                </div>
-            </div>
-          </div>
-
+              )
+            })
+          }
         </div>
       </div>
 
@@ -116,6 +154,7 @@ class Home extends Component {
   </div>
 
   <OrganiserApp>
+    {this.state.homeOrganisator}
   </OrganiserApp>
 
   <Footer/>

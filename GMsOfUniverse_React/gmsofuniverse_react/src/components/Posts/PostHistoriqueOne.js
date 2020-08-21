@@ -14,7 +14,7 @@ class PostHistoriqueOne extends Component {
   return (
           <div className="media-list-body bg-white b-1">
             <div className="media align-items-center">
-              <img src={banner} className="avatarBanner avatarBanner-xl rounded" />
+              <img src={banner} className="avatarBanner avatarBanner-xl rounded" alt="..." />
               <a className="media-body text-truncate" href="#qv-product-details" data-toggle="quickview">
                 <h5>Shadowrun Sixth world</h5>
                 <small>Message</small>
@@ -22,14 +22,14 @@ class PostHistoriqueOne extends Component {
               <span className="lead text-fade mr-25" title="Balance" data-provide="tooltip">Buy Now !</span>
             </div>
             <div className="media align-items-center">
-              <img src={banner} className="avatarBanner avatarBanner-xl rounded" />
+              <img src={banner} className="avatarBanner avatarBanner-xl rounded" alt="..." />
               <a className="media-body text-truncate" href="#qv-product-details" data-toggle="quickview">
                 <h5>Shadowrun Sixth world</h5>
                 <small>Message</small>
               </a>
               <span className="lead text-fade mr-25" title="Balance" data-provide="tooltip">Buy Now !</span>
             </div>            <div className="media align-items-center">
-              <img src={banner} className="avatarBanner avatarBanner-xl rounded" />
+              <img src={banner} className="avatarBanner avatarBanner-xl rounded" alt="..." />
               <a className="media-body text-truncate" href="#qv-product-details" data-toggle="quickview">
                 <h5>Shadowrun Sixth world</h5>
                 <small>Message</small>
