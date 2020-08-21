@@ -46,6 +46,42 @@ class Home extends Component {
         [
           {
             avatarImg : ""
+            ,avatarAlt : ".G."
+            ,title : "La penitence de John Rakan Lerouge"
+            ,mj : "Gabrielle Archangéli"
+            ,description : "Quand les cieux s'abatte sur les péons nous répliquerons et quand le malin descendra tes gosse, v'la qu'on le désosse (dit alors l'orc)"
+            ,maxJoueur : 8
+            ,nombreInscrit : 3
+            ,categorieDeJoueur : "Vétéran"
+            ,univers : "Starfinder 1ere édition"
+            ,langue : "EN"
+            ,matureContent : "KO"
+            ,region : "Région Parisienne"
+            ,actualUser : {
+              inscrit : 1
+              ,passés : 1
+            }
+          },
+          {
+            avatarImg : ""
+            ,avatarAlt : ".L."
+            ,title : "La relique du conquérent"
+            ,mj : "Aliaksandr Legrand"
+            ,description : "Terre, mer et cieux ne sont que propriété du conquérent et que nul n'en doute, mais serez vous au rendez-vous."
+            ,maxJoueur : 5
+            ,nombreInscrit : 5
+            ,categorieDeJoueur : "Initié"
+            ,univers : "Shadowrun Sixth World"
+            ,langue : "FR"
+            ,matureContent : "OK"
+            ,region : "Paris"
+            ,actualUser : {
+              inscrit : 0
+              ,passés : 0
+            }
+          },
+          {
+            avatarImg : ""
             ,avatarAlt : ".T."
             ,title : "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent"
             ,mj : "Leton Bebug"
@@ -61,7 +97,7 @@ class Home extends Component {
               inscrit : 1
               ,passés : 0
             }
-          }
+          },
         ],
       homeStats : 
         [

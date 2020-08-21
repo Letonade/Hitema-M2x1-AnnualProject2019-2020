@@ -13147,7 +13147,9 @@ select.form-control:not([size]):not([multiple]){
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after,.custom-radio .custom-control-input:checked ~ .custom-control-label::after{
 	-webkit-transform:scale(1);
 	transform:scale(1);
-	background-image:none
+	background-image:none;
+	/*j'ai rajouté un décalage de 4px car il le check n'était pas centré sur la home page*/
+	top: 4px;
 }
 
 .custom-checkbox .custom-control-input:disabled ~ .custom-control-label::before,.custom-checkbox .custom-control-input:disabled ~ .custom-control-label::after,.custom-radio .custom-control-input:disabled ~ .custom-control-label::before,.custom-radio .custom-control-input:disabled ~ .custom-control-label::after{
