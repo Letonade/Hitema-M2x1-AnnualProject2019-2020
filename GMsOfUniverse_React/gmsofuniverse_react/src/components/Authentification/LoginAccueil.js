@@ -32,9 +32,9 @@ class LoginApp extends Component{
 		let {email, password, button} = this.state;
 		let response;
 		if (button === 'signIn')
-			{response = await UserService.authenticate({'_username': email, '_password': password});}
-		else
 			{response = await UserService.register({'_username': email, '_password': password});}
+		else
+			{response = await UserService.authenticate({'_username': email, '_password': password});}
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();
@@ -68,7 +68,7 @@ class LoginApp extends Component{
 										<div className="input-group-prepend">
 											<span className="input-group-text"><i className="fas fa-user"></i></span>
 										</div>
-										<input id="email"  className='form-control' pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$" type="email" placeholder="Email" required onChange={(e) => this.changeForm(e)}/>
+										<input id="email" className='form-control' pattern="^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$" type="email" placeholder="Email" required onChange={(e) => this.changeForm(e)}/>
 									</div>
 
 									<div className="input-group form-group">
