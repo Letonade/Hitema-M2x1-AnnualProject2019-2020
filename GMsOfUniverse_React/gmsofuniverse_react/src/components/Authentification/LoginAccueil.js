@@ -38,8 +38,8 @@ class LoginApp extends Component{
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();
-			localStorage.setItem("TokenTalentUpApiReact",json.token);
-			localStorage.setItem("TokenTalentUpApiReactExpiracy",new Date());
+			localStorage.setItem("TokenUser",json.token);
+			localStorage.setItem("TokenUserExpiracy",new Date());
 			this.props.history.push('/', /*OBJ*/);
 		}else{
 			this.setState({success: false, error: true})
@@ -47,8 +47,8 @@ class LoginApp extends Component{
 	}
 
 	componentDidMount() {
-			//if (localStorage.getItem("TokenTalentUpApiReactExpiracy") ) {}
-		if(localStorage.getItem("TokenTalentUpApiReact") != null)
+			//if (localStorage.getItem("TokenUserExpiracy") ) {}
+		if(localStorage.getItem("TokenUser") != null)
 			this.props.history.push('/', /*OBJ*/);
 	}
 

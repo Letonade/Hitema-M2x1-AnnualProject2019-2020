@@ -3,11 +3,11 @@ const apiUrl = "http://127.0.0.1:8000";
 class UserService {
 
 	static VerificationToken () {
-		if ((new Date() - new Date(localStorage.getItem("TokenTalentUpApiReactExpiracy")))/60000 > 59) {
-			localStorage.removeItem("TokenTalentUpApiReact");
-			localStorage.removeItem("TokenTalentUpApiReactExpiracy");
+		if ((new Date() - new Date(localStorage.getItem("TokenUserExpiracy")))/60000 > 59) {
+			localStorage.removeItem("TokenUser");
+			localStorage.removeItem("TokenUserExpiracy");
 		}
-		if(localStorage.getItem("TokenTalentUpApiReact") === null){
+		if(localStorage.getItem("TokenUser") === null){
 			return 1;
 		}
 		return null;
