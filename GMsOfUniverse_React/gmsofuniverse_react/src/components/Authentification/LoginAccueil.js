@@ -29,11 +29,12 @@ class LoginApp extends Component{
 	async handleSubmit(e){
 		console.log(this.state);
 		e.preventDefault();
-		let {email, password, button} = this.state;	
-		if button === 'logIn'
-			{let response = await UserService.authenticate({'_username': email, '_password': password});}
-		else if button === 'signIn'
-			{let response = await UserService.authenticate({'_username': email, '_password': password});}
+		let {email, password, button} = this.state;
+		let response;
+		if (button === 'signIn')
+			{response = await UserService.authenticate({'_username': email, '_password': password});}
+		else
+			{response = await UserService.register({'_username': email, '_password': password});}
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();

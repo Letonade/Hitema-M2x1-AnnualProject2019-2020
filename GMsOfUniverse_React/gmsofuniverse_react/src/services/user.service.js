@@ -19,11 +19,11 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin' : '*',
 				'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
-
 		let call = await fetch(`${apiUrl}/login_check`, init)
 		return call;
 	}
@@ -34,11 +34,11 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
+				'Access-Control-Allow-Origin' : '*',
 				'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
-
 		let call = await fetch(`${apiUrl}/register`, init)
 		return call;
 	}
