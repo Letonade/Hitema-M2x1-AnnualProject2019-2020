@@ -8,6 +8,7 @@ class LoginApp extends Component{
 	state = {
 		email: '',
 		password:'',
+		button: '',
 //		adresseApi: 'http:/\/192.168.1.58:8000',
 
 		success: false,
@@ -26,10 +27,13 @@ class LoginApp extends Component{
 	}
 
 	async handleSubmit(e){
+		console.log(this.state);
 		e.preventDefault();
-		let {email, password} = this.state;	
-
-		let response = await UserService.authenticate({'username': email, 'password': password});
+		let {email, password, button} = this.state;	
+		if button === 'logIn'
+			{let response = await UserService.authenticate({'_username': email, '_password': password});}
+		else if button === 'signIn'
+			{let response = await UserService.authenticate({'_username': email, '_password': password});}
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();
@@ -41,7 +45,6 @@ class LoginApp extends Component{
 		}
 	}
 
-
 	componentDidMount() {
 			//if (localStorage.getItem("TokenTalentUpApiReactExpiracy") ) {}
 		if(localStorage.getItem("TokenTalentUpApiReact") != null)
@@ -51,7 +54,7 @@ class LoginApp extends Component{
   	render() {
 		let {error, success} = this.state;
 		return (
-			<div className="LoginApp" style= {{"padding-top": "100px"}} >
+			<div className="LoginApp" style= {{"paddingTop": "100px"}} >
 				<div className="container LoginCenter">
 					<div className="d-flex justify-content-center h-100">
 						<div className="card">
@@ -73,7 +76,8 @@ class LoginApp extends Component{
 										</div>
 										<input id="password" className='form-control' pattern="(?=.{0,19}$)(?=\w{0,19})(?=.*[A-Z])(?=.*\d)([\w]{2,})$" type="password" placeholder="password" required onChange={(e) => this.changeForm(e)}/>
 									</div>
-									<button className="btn btn-outline-info btn-rounded btn-block my-2 waves-effect z-depth-0" disabled={!this.validateForm()} type="submit">Log in</button>
+									<button onClick={(e) => this.setState({button : "logIn"})} className="btn btn-outline-info btn-rounded btn-block my-2 waves-effect z-depth-0" disabled={!this.validateForm()} type="submit" >Log in</button>
+									<button onClick={(e) => this.setState({button : "signIn"})} className="btn btn-outline-warning btn-rounded btn-block my-2 waves-effect z-depth-0" disabled={!this.validateForm()} type="submit" >Sign in</button>
 									{success && <div>Success</div>}
 								</form>
 							</div>
