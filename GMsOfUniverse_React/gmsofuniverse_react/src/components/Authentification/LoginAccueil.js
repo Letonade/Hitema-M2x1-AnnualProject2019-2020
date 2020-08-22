@@ -34,7 +34,7 @@ class LoginApp extends Component{
 		if (button === 'signIn')
 			{response = await UserService.register({'_username': email, '_password': password});}
 		else
-			{response = await UserService.authenticate({'_username': email, '_password': password});}
+			{response = await UserService.authenticate({'username': email, 'password': password});}
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();
