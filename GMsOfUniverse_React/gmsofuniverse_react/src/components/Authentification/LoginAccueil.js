@@ -27,7 +27,6 @@ class LoginApp extends Component{
 	}
 
 	async handleSubmit(e){
-		console.log(this.state);
 		e.preventDefault();
 		let {email, password, button} = this.state;
 		let response;
