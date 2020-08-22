@@ -1,4 +1,4 @@
-const apiUrl = "http://192.168.1.63:8000";
+const apiUrl = "http://127.0.0.1:8000";
 
 class UserService {
 
@@ -25,6 +25,21 @@ class UserService {
 		}
 
 		let call = await fetch(`${apiUrl}/login_check`, init)
+		return call;
+	}
+
+	// Connexion
+	static async register (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+
+		let call = await fetch(`${apiUrl}/register`, init)
 		return call;
 	}
 
