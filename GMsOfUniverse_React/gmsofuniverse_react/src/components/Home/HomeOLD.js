@@ -30,6 +30,67 @@ class Home extends Component {
       console.log('ERROR TEST SUBJECT !');
     }
   }
+
+  async TestFunc1(){
+    console.log('LANCEMENT...TestFunc1');
+    console.log('EFFICIENT TEST ! TestFunc1');
+    console.log('ERROR TEST SUBJECT ! TestFunc1');
+  }
+  async TestFunc2(){
+    console.log('LANCEMENT...TestFunc2');
+    console.log('EFFICIENT TEST ! TestFunc2');
+    console.log('ERROR TEST SUBJECT ! TestFunc2');
+  }
+  async TestFunc3(){
+    console.log('LANCEMENT...TestFunc3');
+    console.log('EFFICIENT TEST ! TestFunc3');
+    console.log('ERROR TEST SUBJECT ! TestFunc3');
+  }
+  async TestFunc4(){
+    console.log('LANCEMENT...TestFunc4');
+    console.log('EFFICIENT TEST ! TestFunc4');
+    console.log('ERROR TEST SUBJECT ! TestFunc4');
+  }
+  async TestFunc5(){
+    console.log('LANCEMENT...TestFunc5');
+    console.log('EFFICIENT TEST ! TestFunc5');
+    console.log('ERROR TEST SUBJECT ! TestFunc5');
+  }
+  async TestFunc6(){
+    console.log('LANCEMENT...TestFunc6');
+    console.log('EFFICIENT TEST ! TestFunc6');
+    console.log('ERROR TEST SUBJECT ! TestFunc6');
+  }
+  async TestFunc7(){
+    console.log('LANCEMENT...TestFunc7');
+    console.log('EFFICIENT TEST ! TestFunc7');
+    console.log('ERROR TEST SUBJECT ! TestFunc7');
+  }
+  async TestFunc8(){
+    console.log('LANCEMENT...TestFunc8');
+    console.log('EFFICIENT TEST ! TestFunc8');
+    console.log('ERROR TEST SUBJECT ! TestFunc8');
+  }
+  async TestFunc9(){
+    console.log('LANCEMENT...TestFunc9');
+    console.log('EFFICIENT TEST ! TestFunc9');
+    console.log('ERROR TEST SUBJECT ! TestFunc9');
+  }
+  async TestFunc10(){
+    console.log('LANCEMENT...TestFunc10');
+    console.log('EFFICIENT TEST ! TestFunc10');
+    console.log('ERROR TEST SUBJECT ! TestFunc10');
+  }
+  async TestFunc11(){
+    console.log('LANCEMENT...TestFunc11');
+    console.log('EFFICIENT TEST ! TestFunc11');
+    console.log('ERROR TEST SUBJECT ! TestFunc11');
+  }
+  async TestFunc12(){
+    console.log('LANCEMENT...TestFunc12');
+    console.log('EFFICIENT TEST ! TestFunc12');
+    console.log('ERROR TEST SUBJECT ! TestFunc12');
+  }
 	// componentDidMount() {
 		
 	// }
@@ -56,6 +117,90 @@ class Home extends Component {
           <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
             href="# " onClick={() => {this.TestFunc()}}>
               TestButton
+          </a>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc1()}}>
+              TestButton 1
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc2()}}>
+              TestButton 2
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc3()}}>
+              TestButton 3
+          </a>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc4()}}>
+              TestButton 4
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc5()}}>
+              TestButton 5
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc6()}}>
+              TestButton 6
+          </a>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc7()}}>
+              TestButton 7
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc8()}}>
+              TestButton 8
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc9()}}>
+              TestButton 9
+          </a>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc10()}}>
+              TestButton 10
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc11()}}>
+              TestButton 11
+          </a>
+        </div>
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
+            href="# " onClick={() => {this.TestFunc12()}}>
+              TestButton 12
           </a>
         </div>
       </div>
