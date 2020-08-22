@@ -19,8 +19,8 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
-			//	'Access-Control-Allow-Origin' : '*',
-			//	'Accept': 'application/json',
+				//'Access-Control-Allow-Origin' : '*',
+				//'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
@@ -34,8 +34,8 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
-			//	'Access-Control-Allow-Origin' : '*',
-			//	'Accept': 'application/json',
+				//'Access-Control-Allow-Origin' : '*',
+				//'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
