@@ -9,6 +9,7 @@
         "jms/serializer-bundle": "^3.5",
         "lexik/jwt-authentication-bundle": "^2.6",
         "nelmio/api-doc-bundle": "^3.5",
+        "nelmio/cors-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.5",
         "swagger-api/swagger-ui": "^3.24",
         "symfony/asset": "4.4.*",
