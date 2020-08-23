@@ -27,6 +27,7 @@ return [
     'getPost' => [[], ['_controller' => 'App\\Controller\\PostController::getPost'], [], [['text', '/post/get_post']], [], []],
     'security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], []],
     'test' => [[], ['_controller' => 'App\\Controller\\SecurityController::test'], [], [['text', '/test']], [], []],
+    'profile' => [[], ['_controller' => 'App\\Controller\\SecurityController::profile'], [], [['text', '/profile']], [], []],
     'register' => [[], ['_controller' => 'App\\Controller\\SecurityController::register'], [], [['text', '/register']], [], []],
     'addAvatar' => [[], ['_controller' => 'App\\Controller\\SecurityController::addAvatar'], [], [['text', '/addAvatar']], [], []],
     'app.swagger' => [[], ['_controller' => 'nelmio_api_doc.controller.swagger'], [], [['text', '/api/doc.json']], [], []],

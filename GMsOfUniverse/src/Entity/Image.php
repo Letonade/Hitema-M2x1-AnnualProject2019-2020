@@ -136,23 +136,7 @@ class Image
         $this->imageName = $imageName;
         return $this;
     }
-    /*User*/
-    /**
-     * @ORM\OneToOne(targetEntity="User", inversedBy="avatar")
-     */
-    private $user_id;
 
-    public function getUser(): User
-    {
-        return $this->user_id;
-    }
-
-    public function setUser(User $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
 
 
     /******/

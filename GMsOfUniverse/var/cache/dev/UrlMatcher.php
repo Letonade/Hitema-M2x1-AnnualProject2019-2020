@@ -25,6 +25,7 @@ return [
         '/post/get_post' => [[['_route' => 'getPost', '_controller' => 'App\\Controller\\PostController::getPost'], null, ['POST' => 0], null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/test' => [[['_route' => 'test', '_controller' => 'App\\Controller\\SecurityController::test'], null, ['POST' => 0], null, false, false, null]],
+        '/profile' => [[['_route' => 'profile', '_controller' => 'App\\Controller\\SecurityController::profile'], null, ['POST' => 0], null, false, false, null]],
         '/register' => [[['_route' => 'register', '_controller' => 'App\\Controller\\SecurityController::register'], null, ['POST' => 0], null, false, false, null]],
         '/addAvatar' => [[['_route' => 'addAvatar', '_controller' => 'App\\Controller\\SecurityController::addAvatar'], null, ['POST' => 0], null, false, false, null]],
         '/api/doc.json' => [[['_route' => 'app.swagger', '_controller' => 'nelmio_api_doc.controller.swagger'], null, ['GET' => 0], null, false, false, null]],

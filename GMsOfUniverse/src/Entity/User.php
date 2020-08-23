@@ -119,7 +119,7 @@ class User implements UserInterface
 
     /*Image section*/
     /**
-     * @ORM\OneToOne(targetEntity="Image", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Image")
      * @ORM\JoinColumn(name="avatar_id", referencedColumnName="id")
      */
     private $avatar;

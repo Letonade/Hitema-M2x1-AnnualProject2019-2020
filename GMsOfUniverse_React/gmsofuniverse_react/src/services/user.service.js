@@ -43,7 +43,7 @@ class UserService {
 		return call;
 	}
 
-	// Connexion
+	// Ajout d'avatar
 	static async addAvatar (body) {
 		let init = {
 			method : "POST",
@@ -56,6 +56,22 @@ class UserService {
 			body: JSON.stringify(body),
 		}
 		let call = await fetch(`${apiUrl}/addAvatar`, init)
+		return call;
+	}
+
+
+	static async getProfil (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+				//'Access-Control-Allow-Origin' : '*',
+				//'Accept': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/profile`, init)
 		return call;
 	}
 

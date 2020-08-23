@@ -38,7 +38,35 @@ class SecurityController extends AbstractController
     {
         $user = $this->getUser();
 
-        return new JsonResponse(['value' =>'good'], 200);
+        return new JsonResponse(['value' =>$user->getUsername()], 200);
+    }
+
+    /**
+     * @Route("/profile", name="profile", methods={"POST"})
+     */
+    public function profile(Request $request)
+    {
+        $user = $this->getUser();
+
+       /* $name = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$user->getAvatar()->getImageName();
+
+
+
+        $type = pathinfo($name, PATHINFO_EXTENSION);
+
+        $idata = file_get_contents($name);
+
+        $image = 'data:image/' . $type . ';base64,' . base64_encode($idata);*/
+
+
+            $data = [
+                'status' => 201,
+                'data' => [ 'mail' => $user->getUsername(), 'avatar' => $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$user->getAvatar()->getImageName()  ]
+            ];
+
+            return new JsonResponse($data, 201);
+
+       // return new JsonResponse(['value' =>json_last_error()], 200);
     }
 
 
@@ -130,14 +158,14 @@ class SecurityController extends AbstractController
         if($data === null
             || !is_array($data)
             || count($data) !== 1
-            || !isset($data['image']['name'], $data['image']['value'], $data['image']['id'])
-            || count($data['image']) !== 3
+            || !isset($data['image']['name'], $data['image']['value'])
+            || count($data['image']) !== 2
         ) {
             return new JsonResponse(['value' =>'bad1'], 200);
         }
 
         $avatarFile = new UploadedBase64File($data['image']['value'], $data['image']['name']);
-        $user = $this->getDoctrine()->getRepository(User::class)->find( $data['image']['id']);
+        $user = $this->getDoctrine()->getRepository(User::class)->find($this->getUser()->getId());
         $image = new Image();
         $form = $this->createForm(ImageType::class, $image, ['csrf_protection' => false]);
         $form->submit(['imageFile' => $avatarFile]);
@@ -146,17 +174,7 @@ class SecurityController extends AbstractController
             return new JsonResponse(['valid' =>$form->isValid(), 'submit' =>$form->isSubmitted()], 200);
         }
         $user->setAvatar($image);
-        $oldimage = $this->getDoctrine()->getRepository(Image::class)->findOneBy(array('user_id' => $data['image']['id']));
-        if (isset($oldimage))
-        {
-
-        }
-        $image->setUser($user);
         $entityManager = $this->getDoctrine()->getManager();
-        if (isset($oldimage))
-        {
-            $oldimage->SetUser(NULL);
-        }
         $entityManager->persist($image);
         $entityManager->persist($user);
         $entityManager->flush();
