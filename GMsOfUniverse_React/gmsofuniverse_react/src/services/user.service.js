@@ -6,11 +6,17 @@ class UserService {
 		if ((new Date() - new Date(localStorage.getItem("TokenUserExpiracy")))/60000 > 59) {
 			localStorage.removeItem("TokenUser");
 			localStorage.removeItem("TokenUserExpiracy");
+			let response = await UserService.authenticate(
+				{'username': localStorage.getItem("TokenAuthMail"), 
+				'password': localStorage.getItem("TokenAuthPassword")});
 		}
-		if(localStorage.getItem("TokenUser") === null){
-			return 1;
-		}
+		//if(localStorage.getItem("TokenUser") === null){return 1;}
 		return null;
+	}
+
+	//déconnexion
+	static async Deconnexion () {
+		return localStorage.clear();
 	}
 	
 	// Connexion
@@ -27,12 +33,14 @@ class UserService {
 		if (call.ok) {
 			const json = await call.json();
 			if (json.token){
+				localStorage.setItem("TokenAuthMail",body.username);
+				localStorage.setItem("TokenAuthPassword",body.password);
 				localStorage.setItem("TokenUser",json.token);
 				localStorage.setItem("TokenUserExpiracy",new Date());
 			}
-			else{call.ok = false;}
+			else{return {ok : false}}
 		}else
-		{call.ok = false;}
+		{return {ok : false}}
 
 		return call;
 	}
@@ -84,7 +92,7 @@ class UserService {
 			localStorage.setItem("ProfilMail",mail);
 			localStorage.setItem("ProfilAvatar",avatar);
 		}else
-		{call.ok = false;}
+		{return {ok : false}}
 
 		return call;
 	}
