@@ -57,11 +57,20 @@ class SecurityController extends AbstractController
         $idata = file_get_contents($name);
 
         $image = 'data:image/' . $type . ';base64,' . base64_encode($idata);*/
+        $avatar = $user->getAvatar();
+        if(isset($avatar))
+        {
+            $avatar = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$user->getAvatar()->getImageName();
 
+        }
+        else
+        {
+            $avatar = ' '.$user->getUsername()[0].' ';
+        }
 
             $data = [
                 'status' => 201,
-                'data' => [ 'mail' => $user->getUsername(), 'avatar' => $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$user->getAvatar()->getImageName()  ]
+                'data' => [ 'mail' => $user->getUsername(), 'avatar' =>  $avatar, 'roles' => $user->getRoles() ]
             ];
 
             return new JsonResponse($data, 201);
