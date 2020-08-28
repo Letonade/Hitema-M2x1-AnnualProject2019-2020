@@ -57,6 +57,7 @@ class Home extends Component {
             ,langue : "EN"
             ,matureContent : "KO"
             ,region : "Région Parisienne"
+            ,"date" : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 1
               ,passés : 1
@@ -75,6 +76,7 @@ class Home extends Component {
             ,langue : "FR"
             ,matureContent : "OK"
             ,region : "Paris"
+            ,"date" : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 0
               ,passés : 0
@@ -93,6 +95,7 @@ class Home extends Component {
             ,langue : "FR"
             ,matureContent : "OK"
             ,region : "Région Parisienne"
+            ,"date" : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 1
               ,passés : 0

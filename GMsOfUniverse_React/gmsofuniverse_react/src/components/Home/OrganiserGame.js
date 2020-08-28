@@ -25,13 +25,13 @@ class OrganiserGame extends Component {
             {this.props.children.description}
           </p>
         </div>
-        <div className="col-md-2 col-lg-2">
-          <h6 className="text-fader">{this.props.children.nombreInscrit} / {this.props.children.maxJoueur} Joueurs</h6>
-          <h6 className="text-fader">Joueurs {this.props.children.categorieDeJoueur}</h6>
+        <div className="col-md-3 col-lg-3">
+          <h6 className="text-fader">{this.props.children.date}</h6>
+          <h6 className="text-fader">{this.props.children.nombreInscrit} / {this.props.children.maxJoueur} Joueurs {this.props.children.langue}</h6>
           <h6 className="text-fader">{this.props.children.univers}</h6>
         </div>
         <div className="col-md-0 col-lg-2 d-md-none d-lg-block">
-          <h6 className="text-fader">{this.props.children.langue}</h6>
+          <h6 className="text-fader">Joueurs {this.props.children.categorieDeJoueur}</h6>
           <h6 className="text-fader">Mature Content: {this.props.children.matureContent}</h6>
           <h6 className="text-fader">{this.props.children.region}</h6>
         </div>

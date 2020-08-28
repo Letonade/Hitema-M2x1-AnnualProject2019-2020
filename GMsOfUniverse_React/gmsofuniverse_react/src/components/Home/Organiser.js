@@ -31,27 +31,6 @@ class Organiser extends Component {
  render(){
   return (
   <div className="main-content">
-
-    <div className="card">
-      <div className="row">
-        <div className="col-md-4 text-center">
-          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
-            href="# " onClick={() => {console.log(this.state)}}>
-              State
-          </a>
-        </div>
-        <div className="col-md-4 text-center">
-          <h6 className="h6 text-secondary pt-1">ZONE BÊTA</h6>
-        </div>
-        <div className="col-md-4 text-center">
-          <a className="btn btn-sm btn-bold btn-round btn-outline btn-warning w-200px" 
-            href="# " onClick={() => {console.log(this.filteredResult())}}>
-              FiltredResult
-          </a>
-        </div>
-      </div>
-    </div>
-
     <div className="row">
       <div className="col-md-12 col-lg-12">
         <div className="card">
