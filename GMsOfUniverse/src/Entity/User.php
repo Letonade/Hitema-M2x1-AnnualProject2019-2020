@@ -146,7 +146,7 @@ class User implements UserInterface
         $this->participants = new ArrayCollection();
     }
 
-    public function getAvatar(): Image
+    public function getAvatar(): ?Image
     {
         return $this->avatar;
     }
