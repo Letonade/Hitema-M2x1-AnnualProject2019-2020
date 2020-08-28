@@ -29,9 +29,14 @@ class Home extends Component {
   }
 
   componentDidMount() {
-
     this.setState({user : {mail : "test"}})// = (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null
     this.setState({user : {avatar : "test"}})// = (localStorage.getItem("ProfilAvatar") != null) ? localStorage.getItem("ProfilAvatar") : null
+    this.setState((prevState,currentprops) => {return ({
+        user : {
+          mail : (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null,
+          avatar : (localStorage.getItem("ProfilAvatar") != null) ? localStorage.getItem("ProfilAvatar") : null,
+          }
+        })})
   }
 
   async TestFunc(){
