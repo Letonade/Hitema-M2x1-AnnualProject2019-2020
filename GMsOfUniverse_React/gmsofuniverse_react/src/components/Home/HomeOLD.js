@@ -220,6 +220,21 @@ class Home extends Component {
       </div>
     </div>
 
+    <div className="card">
+      <div className="row">
+        <div className="col-md-4 text-center">
+          <img src={this.state.img.image.value} />
+        </div>
+        <div className="col-md-4 text-center">
+          {this.state.img.image.name}
+        </div>
+        <div className="col-md-4 text-center">
+          {this.state.img.image.name}
+        </div>
+      </div>
+    </div>
+      
+
       <div className="main-content">
         <div className="card">
           <Carousel>
@@ -240,13 +255,13 @@ class Home extends Component {
                 src={Slider2}
                 alt="Second slide"
               />
-            <Carousel.Caption>
-              <h2>Light you'r star.</h2>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+              <Carousel.Caption>
+                <h2>Light you'r star.</h2>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>
       </div>
-    </div>
 
       <div className="col-12">
         <div className="divider text-uppercase fw-500">Le powerpoint</div>
