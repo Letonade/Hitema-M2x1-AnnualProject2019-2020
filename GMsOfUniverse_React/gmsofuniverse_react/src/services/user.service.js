@@ -3,12 +3,16 @@ const apiUrl = "http://127.0.0.1:8000";
 class UserService {
 
 	static async VerificationToken () {
-		if ((new Date() - new Date(localStorage.getItem("TokenUserExpiracy")))/60000 > 59) {
-			localStorage.removeItem("TokenUser");
-			localStorage.removeItem("TokenUserExpiracy");
-			let response = await UserService.authenticate(
-				{'username': localStorage.getItem("TokenAuthMail"), 
-				'password': localStorage.getItem("TokenAuthPassword")});
+		if (localStorage.getItem("TokenUser") != null && localStorage.getItem("TokenUserExpiracy") != null)
+		{		
+			if ((new Date() - new Date(localStorage.getItem("TokenUserExpiracy")))/60000 > 59) {
+				localStorage.removeItem("TokenUser");
+				localStorage.removeItem("TokenUserExpiracy");
+				await UserService.authenticate(
+					{'username': localStorage.getItem("TokenAuthMail"), 
+					'password': localStorage.getItem("TokenAuthPassword")});
+			}
+			return 1;
 		}
 		//if(localStorage.getItem("TokenUser") === null){return 1;}
 		return null;
