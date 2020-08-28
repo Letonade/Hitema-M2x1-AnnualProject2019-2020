@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 
+use App\Entity\Campagne;
+use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +31,24 @@ class GameController extends AbstractController
     {
         $user = $this->getUser();
 
-        return new JsonResponse(['value' =>'create_post'], 200);
+        $values = json_decode($request->getContent());
+        if(isset($values->name)) {
+
+            $campagne = new Campagne();
+            $campagne->setName($values->name);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($campagne);
+            $entityManager->flush();
+
+
+            return new JsonResponse(['value' => 'create_campagne'], 200);
+
+
+        }
+
+
+        return new JsonResponse(['value' => 'bad json. You are a bad boy, bad json bad boy'], 500);
+
     }
 
     /**
@@ -38,6 +57,8 @@ class GameController extends AbstractController
     public function createGame(Request $request)
     {
         $user = $this->getUser();
+
+
 
         return new JsonResponse(['value' =>'create_post'], 200);
     }
