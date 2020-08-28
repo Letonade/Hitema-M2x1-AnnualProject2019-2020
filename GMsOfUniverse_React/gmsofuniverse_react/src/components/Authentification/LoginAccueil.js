@@ -32,16 +32,9 @@ class LoginApp extends Component{
 		let response;
 		if (button === 'signIn')
 			{response = await UserService.register({'_username': email, '_password': password});}
-		if (!response.ok)
-			return (this.setState({success: false, error: true}))
 		response = await UserService.authenticate({'username': email, 'password': password});
 		if (response.ok) {
 			this.setState({success: true, error: false})
-			const json = await response.json();
-			if (json.token){
-				localStorage.setItem("TokenUser",json.token);
-				localStorage.setItem("TokenUserExpiracy",new Date());
-			}
 			this.props.history.push('/', /*OBJ*/);
 		}else{
 			return (this.setState({success: false, error: true}))
@@ -81,11 +74,11 @@ class LoginApp extends Component{
 									</div>
 									<button onClick={(e) => this.setState({button : "logIn"})} className="btn btn-outline-info btn-rounded btn-block my-2 waves-effect z-depth-0" disabled={!this.validateForm()} type="submit" >Log in</button>
 									<button onClick={(e) => this.setState({button : "signIn"})} className="btn btn-outline-warning btn-rounded btn-block my-2 waves-effect z-depth-0" disabled={!this.validateForm()} type="submit" >Sign in</button>
-									{success && <div>Success</div>}
 								</form>
 							</div>
 							<div className="card-footer">
 								<div className="d-flex justify-content-center links">
+									{success && <div>Success</div>}
 									{error && <div>Errors</div>}
 								</div>
 							</div>

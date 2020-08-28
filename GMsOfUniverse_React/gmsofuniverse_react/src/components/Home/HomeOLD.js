@@ -20,8 +20,18 @@ class Home extends Component {
       }
     },
     user :{
-
+      mail : null,
+      avatar : null,
+      avatarAlt : " 0 ",
+      //@aliak -> je te laisse compléter le nécessaire pour le profil
+      //    -> dans componentDidMount je complete le user (c'est pour les test uniquement)
     }
+  }
+
+  componentDidMount() {
+
+    this.setState({user : {mail : "test"}})// = (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null
+    this.setState({user : {avatar : "test"}})// = (localStorage.getItem("ProfilAvatar") != null) ? localStorage.getItem("ProfilAvatar") : null
   }
 
   async TestFunc(){
@@ -41,13 +51,13 @@ class Home extends Component {
     console.log('LANCEMENT...TestFunc1');
     let response = await UserService.getProfil();
     if (response.ok) {
-      const json = await response.json();
+/*      const json = await response.json();
     console.log('EFFICIENT TEST ! TestFunc1');
       console.log(json);
-      this.state.user = json.data;
+      this.state.user = json.data;*/
     }else{
     console.log('ERROR TEST SUBJECT ! TestFunc1');
-    }
+  }
 
   }
   async TestFunc2(){
@@ -105,9 +115,6 @@ class Home extends Component {
     console.log('EFFICIENT TEST ! TestFunc12');
     console.log('ERROR TEST SUBJECT ! TestFunc12');
   }
-	// componentDidMount() {
-		
-	// }
 
  render(){
   return (
@@ -226,7 +233,7 @@ class Home extends Component {
           <img src={this.state.img.image.value} />
         </div>
         <div className="col-md-4 text-center">
-          {this.state.img.image.name}
+          <img src={this.state.user.avatar} />
         </div>
         <div className="col-md-4 text-center">
           {this.state.img.image.name}

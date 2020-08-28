@@ -2,7 +2,7 @@ const apiUrl = "http://127.0.0.1:8000";
 
 class UserService {
 
-	static VerificationToken () {
+	static async VerificationToken () {
 		if ((new Date() - new Date(localStorage.getItem("TokenUserExpiracy")))/60000 > 59) {
 			localStorage.removeItem("TokenUser");
 			localStorage.removeItem("TokenUserExpiracy");
@@ -19,12 +19,21 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
-				//'Access-Control-Allow-Origin' : '*',
-				//'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
 		let call = await fetch(`${apiUrl}/login_check`, init)
+		// traitement de la reception
+		if (call.ok) {
+			const json = await call.json();
+			if (json.token){
+				localStorage.setItem("TokenUser",json.token);
+				localStorage.setItem("TokenUserExpiracy",new Date());
+			}
+			else{call.ok = false;}
+		}else
+		{call.ok = false;}
+
 		return call;
 	}
 
@@ -34,8 +43,6 @@ class UserService {
 			method : "POST",
 			headers : {
 				'Content-Type': 'application/json',
-				//'Access-Control-Allow-Origin' : '*',
-				//'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
@@ -66,14 +73,34 @@ class UserService {
 			headers : {
 				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
 				'Content-Type': 'application/json',
-				//'Access-Control-Allow-Origin' : '*',
-				//'Accept': 'application/json',
 			},
 			body: JSON.stringify(body),
 		}
 		let call = await fetch(`${apiUrl}/profile`, init)
+		// traitement de la reception
+		if (call.ok) {
+			const json = await call.json();
+			let {mail, avatar} = json.data;
+			localStorage.setItem("ProfilMail",mail);
+			localStorage.setItem("ProfilAvatar",avatar);
+		}else
+		{call.ok = false;}
+
 		return call;
 	}
+	
+/*	// OLDConnexion
+	static async OLDauthenticate (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/login_check`, init)
+		return call;
+	}*/
 
 }
 
