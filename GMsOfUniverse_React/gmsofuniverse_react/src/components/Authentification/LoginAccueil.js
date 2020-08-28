@@ -32,16 +32,19 @@ class LoginApp extends Component{
 		let response;
 		if (button === 'signIn')
 			{response = await UserService.register({'_username': email, '_password': password});}
-		else
-			{response = await UserService.authenticate({'username': email, 'password': password});}
+		if (!response.ok)
+			return (this.setState({success: false, error: true}))
+		response = await UserService.authenticate({'username': email, 'password': password});
 		if (response.ok) {
 			this.setState({success: true, error: false})
 			const json = await response.json();
-			localStorage.setItem("TokenUser",json.token);
-			localStorage.setItem("TokenUserExpiracy",new Date());
+			if (json.token){
+				localStorage.setItem("TokenUser",json.token);
+				localStorage.setItem("TokenUserExpiracy",new Date());
+			}
 			this.props.history.push('/', /*OBJ*/);
 		}else{
-			this.setState({success: false, error: true})
+			return (this.setState({success: false, error: true}))
 		}
 	}
 
