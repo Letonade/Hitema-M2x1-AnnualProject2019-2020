@@ -46,7 +46,48 @@ class Home extends Component {
         ],
       homeOrganisator :
         [
-          /* {
+          /* 
+          {
+            id: 1
+            ,avatarImg : ""
+            ,avatarAlt : ".G."
+            ,title : "La penitence de John Rakan Lerouge"
+            ,mj : "Gabrielle Archangéli"
+            ,description : "Quand les cieux s'abatte sur les péons nous répliquerons et quand le malin descendra tes gosse, v'la qu'on le désosse (dit alors l'orc)"
+            ,maxJoueur : 8
+            ,nombreInscrit : 3
+            ,categorieDeJoueur : "Vétéran"
+            ,univers : "Starfinder 1ere édition"
+            ,langue : "EN"
+            ,matureContent : "KO"
+            ,region : "Région Parisienne"
+            ,date : "21/08/2020 16:30"
+            ,actualUser : {
+              inscrit : 1
+              ,passés : 1
+            }
+          },
+          {
+            id: 2
+            ,avatarImg : ""
+            ,avatarAlt : ".L."
+            ,title : "La relique du conquérent"
+            ,mj : "Aliaksandr Legrand"
+            ,description : "Terre, mer et cieux ne sont que propriété du conquérent et que nul n'en doute, mais serez vous au rendez-vous."
+            ,maxJoueur : 5
+            ,nombreInscrit : 5
+            ,categorieDeJoueur : "Initié"
+            ,univers : "Shadowrun Sixth World"
+            ,langue : "FR"
+            ,matureContent : "OK"
+            ,region : "Paris"
+            ,date : "21/08/2020 16:30"
+            ,actualUser : {
+              inscrit : 0
+              ,passés : 0
+            }
+          },
+          {
             id: 3
             ,avatarImg : ""
             ,avatarAlt : ".T."
@@ -65,7 +106,33 @@ class Home extends Component {
               inscrit : 1
               ,passés : 0
             }
-          },*/
+          },
+          {
+            "id": 4,
+            "avatarImg": "http://127.0.0.1:8000/images/5f48fe8f71a45670289505.jpeg",
+            "avatarAlt": " t ",
+            "title": "ma_seconde_game",
+            "mj": "test@test.com",
+            "description": "Faux!",
+            "maxJoueur": 9,
+            "nombreInscrit": 1,
+            "categorieDeJoueur": "Initié",
+            "univers": "Starfinder 1ere édition",
+            "langue": "EN",
+            "matureContent": "OK",
+            "region": "Paris",
+            "date": {
+              "date": "2021-05-02 01:23:56.000000",
+              "timezone_type": 3,
+              "timezone": "Europe/Berlin"
+            },
+            "actualUser": {
+              "inscrit": 0,
+              "passés": 0
+            }
+          }
+
+          */
         ],
       Refresher: 0,
       homeStats : 
@@ -94,7 +161,10 @@ class Home extends Component {
 	async componentDidMount() {
     let response = await OrganisatorService.getCalandar();
     let json = await response.json();
-    json.forEach(e => this.state.homeOrganisator.push(e));
+    json.forEach(e => {
+        e.date.date = e.date.date.substr(0,10);
+        this.state.homeOrganisator.push(e);
+      });
     this.setState({Refresher: this.state.Refresher+1})
 	}
 
