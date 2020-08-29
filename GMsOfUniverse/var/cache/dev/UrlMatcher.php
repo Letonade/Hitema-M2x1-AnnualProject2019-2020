@@ -14,6 +14,7 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/game/get_Calendar' => [[['_route' => 'getCalendar', '_controller' => 'App\\Controller\\GameController::getCalendar'], null, ['POST' => 0], null, false, false, null]],
+        '/game/get_Types' => [[['_route' => 'getTypes', '_controller' => 'App\\Controller\\GameController::getTypes'], null, ['POST' => 0], null, false, false, null]],
         '/game/create_campagne' => [[['_route' => 'createCampagne', '_controller' => 'App\\Controller\\GameController::createCampagne'], null, ['POST' => 0], null, false, false, null]],
         '/game/create_game' => [[['_route' => 'createGame', '_controller' => 'App\\Controller\\GameController::createGame'], null, ['POST' => 0], null, false, false, null]],
         '/game/participe' => [[['_route' => 'participe', '_controller' => 'App\\Controller\\GameController::participe'], null, ['POST' => 0], null, false, false, null]],

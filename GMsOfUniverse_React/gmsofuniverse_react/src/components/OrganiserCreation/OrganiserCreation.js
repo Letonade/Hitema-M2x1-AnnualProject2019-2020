@@ -56,7 +56,7 @@ class OrganiserCreation extends Component {
 
   handleDatePickerChange (e) {
     const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
-    console.log(dateAsTxt);
+    //console.log(dateAsTxt);
     this.setState((prevState) => ({
       game : {...prevState.game, 
         date : e.toString()
@@ -76,7 +76,7 @@ class OrganiserCreation extends Component {
   }
 
   changeGameDescriptionForm(e){
-    console.log(e.target);
+    //console.log(e.target);
     let {id, value, validity} = e.target;
     if(validity.valid){
       this.setState((prevState) => ({

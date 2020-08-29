@@ -17,7 +17,7 @@ class GameController extends AbstractController
 {
 
     /**
-     * @Route("/game/get_Calendar", name="getCalendar", methods={"POST"})
+     * @Route("/game/get_Calendar", name="getCalendar", methods={"GET"})
      */
     public function getCalendar(Request $request)
     {
@@ -80,6 +80,28 @@ class GameController extends AbstractController
 
              $datas[] = $data;
          }
+
+
+        return new JsonResponse($datas, 201);
+
+    }
+
+    /**
+     * @Route("/game/get_Types", name="getTypes", methods={"POST"})
+     */
+    public function getTypes(Request $request)
+    {
+        $user = $this->getUser();
+
+        $types = $this->getDoctrine()->getRepository(Type::class)->findAll();
+        $datas =array();
+        foreach ($types as $type)
+        {
+            $data =array();
+            $data['id'] = $type->getId();
+            $data['name'] = $type->getName();
+            $datas[] = $data;
+        }
 
 
         return new JsonResponse($datas, 201);
