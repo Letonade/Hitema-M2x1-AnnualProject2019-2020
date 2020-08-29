@@ -94,7 +94,7 @@ class Home extends Component {
 
       let {value, id} = await response.json();
 
-      this.setState((prevState) => ({
+      await this.setState((prevState) => ({
         game: {
           ...prevState.game,
           campagne_id: id,
