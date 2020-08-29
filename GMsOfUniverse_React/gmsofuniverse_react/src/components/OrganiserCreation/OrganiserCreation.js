@@ -21,8 +21,9 @@ class OrganiserCreation extends Component {
       id : null,
       name: "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent",
       campagne_id: 1,
-      date: "2020-05-02 01:23:56",
+      date: "2020-05-02 01:40:56",
       type_id: 1,
+      maxJoueur: 7,
       description: {
         description: "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits.",
         categorieDeJoueur: "Confirmé",
@@ -33,10 +34,60 @@ class OrganiserCreation extends Component {
     }
   }
 
-  changeForm(e){
-    this.setState(
-      {[e.target.id]: e.target.value}
-    )
+//utility
+  dualDigit(e) {
+    return e = (e < 10) ? "0"+e : e;
+  }
+// les changers
+  handleQuillChangeTitle (e) {
+    e = e.slice(4,-5);
+    this.setState((prevState) => ({game : {...prevState.game, name: e}}));
+  }
+
+  handleQuillChangeDescription (e) {
+    this.setState((prevState) => ({
+      game : {...prevState.game, 
+      description : {
+          ...prevState.game.description, 
+          description : e
+      } }
+    }));
+  }
+
+  handleDatePickerChange (e) {
+    const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
+    console.log(dateAsTxt);
+    this.setState((prevState) => ({
+      game : {...prevState.game, 
+        date : e.toString()
+      }
+    }));
+  }
+
+  changeGameForm(e){
+    let {id, value, validity} = e.target;
+    if(validity.valid){
+      this.setState((prevState) => ({
+        game : {...prevState.game, 
+          [id] : value
+        }
+      }));
+    }
+  }
+
+  changeGameDescriptionForm(e){
+    console.log(e.target);
+    let {id, value, validity} = e.target;
+    if(validity.valid){
+      this.setState((prevState) => ({
+        game : {...prevState.game, 
+          description : {
+            ...prevState.game.description, 
+            [id] : value
+          }
+        }
+      }));
+    }
   }
 
   componentDidMount() {
@@ -77,7 +128,8 @@ class OrganiserCreation extends Component {
                       <div className="flex-grow">
                           <ReactQuill theme="bubble"
                             modules={{toolbar : false}}
-                            value="<h2>{this.state.game.name}</h2>"                     
+                            onChange={(e) => {this.handleQuillChangeTitle(e)}}
+                            value={"<h2>"+this.state.game.name+"</h2>"}
                           />
                         <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                           <div className="file-group file-group-inline">
@@ -102,7 +154,8 @@ class OrganiserCreation extends Component {
                         dateFormat="dd/MM/yyyy" 
                         showMonthDropdown
                         withPortal
-                        selected={new Date("2020-05-02 01:23:56")}/>
+                        id="date" onChange={(e) => this.handleDatePickerChange(e)}
+                        selected={new Date(this.state.game.date)}/>
                       <label>Date</label>
                     </div>
                   </div>
@@ -111,25 +164,28 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
-                      <input className="form-control" type="text" value="Leton Bebug" disabled/>
+                      <input id="" className="form-control" type="text" value="Leton Bebug" disabled/>
                       <label>Maître du jeu</label>
                     </div>
                   </div>
 
                   <div className="col-md-3">
                     <div className="form-group">
-                      <input className="form-control" type="text" value="7"/>
+                      <input className="form-control" type="text" value={this.state.game.maxJoueur} pattern="[0-9]*"
+                      id="maxJoueur" onChange={(e) => this.changeGameForm(e)} />
                       <label>Maximum de joueurs</label>
                     </div>
                   </div>
 
                   <div className="col-md-3">
                     <div className="form-group">
-                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option value="Interessé">Interessé</option>
-                        <option value="Initié">Initié</option>
-                        <option value="Confirmé" selected>Confirmé</option>
-                        <option value="Vétérans">Vétérans</option>
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
+                      id="categorieDeJoueur" onChange={(e) => {this.changeGameDescriptionForm(e)}}
+                      value={this.state.game.description.categorieDeJoueur}>
+                        <option value="Interessé" >Interessé</option>
+                        <option value="Initié"    >Initié</option>
+                        <option value="Confirmé"  >Confirmé</option>
+                        <option value="Vétérans"  >Vétérans</option>
                       </select>
                       <label>Catégorie</label>
                     </div>
@@ -156,7 +212,9 @@ class OrganiserCreation extends Component {
 
                   <div className="col-md-2">
                     <div className="form-group">                      
-                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker"
+                      id="matureContent" onChange={(e) => {this.changeGameDescriptionForm(e)}}
+                      value={this.state.game.description.matureContent}>
                         <option value="1" selected>OK</option>
                         <option value="2">KO</option>
                       </select>
@@ -166,7 +224,9 @@ class OrganiserCreation extends Component {
 
                   <div className="col-md-2">
                     <div className="form-group">
-                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker"
+                      id="langue" onChange={(e) => {this.changeGameDescriptionForm(e)}}
+                      value={this.state.game.description.langue}>
                         <option value="FR" selected>FR</option>
                         <option value="EN">EN</option>
                       </select>
@@ -176,10 +236,12 @@ class OrganiserCreation extends Component {
 
                   <div className="col-md-2">
                     <div className="form-group">
-                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option value="1">Campagne (selon la facon de voir des parisien)</option>
-                        <option value="2">Paris</option>
-                        <option value="3" selected>Région parisienne</option>
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker"
+                      id="region" onChange={(e) => {this.changeGameDescriptionForm(e)}}
+                      value={this.state.game.description.region}>
+                        <option value="Campagne">Campagne</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Région parisienne" selected>Région parisienne</option>
                       </select>
                       <label>Région</label>
                     </div>
@@ -190,7 +252,8 @@ class OrganiserCreation extends Component {
                   <div className="col-md-12">
                     <div className="form-group">
                       <ReactQuill theme="bubble"
-                        value= "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits."
+                        value= {this.state.game.description.description}
+                        onChange={(e) => {this.handleQuillChangeDescription(e)}}
                       />
                       <label>Description</label>
                     </div>
