@@ -12,6 +12,8 @@ import Slider3                from '../../assets/img/banner/ShadowrunBanner.png'
 
 import OrganiserApp           from './Organiser'
 
+import OrganisatorService   from "../../services/organisator.service";
+
 class Home extends Component {
 
     state = {
@@ -44,47 +46,7 @@ class Home extends Component {
         ],
       homeOrganisator :
         [
-          {
-            id: 1
-            ,avatarImg : ""
-            ,avatarAlt : ".G."
-            ,title : "La penitence de John Rakan Lerouge"
-            ,mj : "Gabrielle Archangéli"
-            ,description : "Quand les cieux s'abatte sur les péons nous répliquerons et quand le malin descendra tes gosse, v'la qu'on le désosse (dit alors l'orc)"
-            ,maxJoueur : 8
-            ,nombreInscrit : 3
-            ,categorieDeJoueur : "Vétéran"
-            ,univers : "Starfinder 1ere édition"
-            ,langue : "EN"
-            ,matureContent : "KO"
-            ,region : "Région Parisienne"
-            ,date : "21/08/2020 16:30"
-            ,actualUser : {
-              inscrit : 1
-              ,passés : 1
-            }
-          },
-          {
-            id: 2
-            ,avatarImg : ""
-            ,avatarAlt : ".L."
-            ,title : "La relique du conquérent"
-            ,mj : "Aliaksandr Legrand"
-            ,description : "Terre, mer et cieux ne sont que propriété du conquérent et que nul n'en doute, mais serez vous au rendez-vous."
-            ,maxJoueur : 5
-            ,nombreInscrit : 5
-            ,categorieDeJoueur : "Initié"
-            ,univers : "Shadowrun Sixth World"
-            ,langue : "FR"
-            ,matureContent : "OK"
-            ,region : "Paris"
-            ,date : "21/08/2020 16:30"
-            ,actualUser : {
-              inscrit : 0
-              ,passés : 0
-            }
-          },
-          {
+          /* {
             id: 3
             ,avatarImg : ""
             ,avatarAlt : ".T."
@@ -103,8 +65,9 @@ class Home extends Component {
               inscrit : 1
               ,passés : 0
             }
-          },
+          },*/
         ],
+      homeOrganisatorRefresh: 0,
       homeStats : 
         [
           {
@@ -128,9 +91,12 @@ class Home extends Component {
         ]
     }
 
-	 componentDidMount() {
-		
-	 }
+	async componentDidMount() {
+    let response = await OrganisatorService.getCalandar();
+    let json = await response.json();
+    json.forEach(e => this.state.homeOrganisator.push(e));
+    this.setState({homeOrganisatorRefresh: this.state.homeOrganisatorRefresh+1})
+	}
 
  render(){
   return (
@@ -139,6 +105,14 @@ class Home extends Component {
     <Navbar/>
 
     <main className="main-container">
+
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
+            href="# " onClick={() => {console.log(this.state)}}>
+              State
+          </a>
+        </div>
+
       <div className="main-content">
         <div className="card">
           <Carousel>
@@ -195,7 +169,7 @@ class Home extends Component {
     <div className="divider text-uppercase fw-500">Games</div>
   </div>
 
-  <OrganiserApp>
+  <OrganiserApp key={this.state.homeOrganisatorRefresh}>
     {this.state.homeOrganisator}
   </OrganiserApp>
 

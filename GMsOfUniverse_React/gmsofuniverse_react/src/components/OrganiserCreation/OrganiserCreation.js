@@ -102,7 +102,6 @@ class OrganiserCreation extends Component {
 
     <Navbar/>
 
-        
     <main className="main-container">
         <div className="col-md-4 text-center">
           <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 

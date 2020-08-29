@@ -24,13 +24,19 @@ class Organiser extends Component {
     return (Sorted)
   }
 
-  // componentDidMount() {
-    
-  // }
+/*  componentDidMount() {
+  
+  }*/
 
  render(){
   return (
   <div className="main-content">
+          <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
+            href="# " onClick={() => {console.log(this)}}>
+              this Orga
+          </a>
+        </div>
     <div className="row">
       <div className="col-md-12 col-lg-12">
         <div className="card">

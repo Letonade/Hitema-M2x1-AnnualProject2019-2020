@@ -30,6 +30,18 @@ class OrganisatorService {
 		return call;
 	}
 
+	static async getCalandar (body) {
+		let init = {
+			method : "GET",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/get_Calendar`, init)
+		return call;
+	}
 	
 }
 

@@ -1,7 +1,7 @@
 import {connect} 					from 'react-redux';
 import React, { Component } 		from 'react';
-import UserService					from '../../services/user.service';
 
+import UserService					from '../../services/user.service';
 
 class LoginApp extends Component{
 
@@ -81,11 +81,11 @@ class LoginApp extends Component{
 							<div className="card-footer">
 								<div className="d-flex justify-content-center links">
 									{processing && 
-										<div class="text-center">Processing
-											<span class="ml-3 spinner-dots">
-												<span class="dot1"></span>
-												<span class="dot2"></span>
-												<span class="dot3"></span>
+										<div className="text-center">Processing
+											<span className="ml-3 spinner-dots">
+												<span className="dot1"></span>
+												<span className="dot2"></span>
+												<span className="dot3"></span>
 											</span>
 										</div>}
 									{success && <div>Success</div>}

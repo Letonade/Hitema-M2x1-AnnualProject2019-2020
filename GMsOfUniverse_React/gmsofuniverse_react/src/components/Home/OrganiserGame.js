@@ -7,13 +7,12 @@ class OrganiserGame extends Component {
   redirectToDetail () {
     this.props.history.push('/OrganiserCreationApp', {gameId : this.props.children.id});
   }
-  // componentDidMount() {
-    
-  // }
+/*  componentDidMount() {
+    console.log(this.props.children);
+  }*/
 
  render(){
   return (
-    <div className="media media-single">
       <a href="# ">
         <img className="avatar" src={this.props.children.avatarImg} alt={this.props.children.avatarAlt}/>
       </a>
@@ -30,7 +29,7 @@ class OrganiserGame extends Component {
           </p>
         </div>
         <div className="col-md-3 col-lg-3">
-          <h6 className="text-fader">{this.props.children.date}</h6>
+          <h6 className="text-fader">{this.props.children.date.date}</h6>
           <h6 className="text-fader">{this.props.children.nombreInscrit} / {this.props.children.maxJoueur} Joueurs {this.props.children.langue}</h6>
           <h6 className="text-fader">{this.props.children.univers}</h6>
         </div>
