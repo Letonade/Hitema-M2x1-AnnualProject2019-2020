@@ -61,6 +61,10 @@ security:
             pattern: ^/register
             stateless: true
             anonymous: true
+        calendar:
+            pattern: ^/game/get_Calendar_anon
+            stateless: true
+            anonymous: true
         api:
             pattern:   ^/
             stateless: true
