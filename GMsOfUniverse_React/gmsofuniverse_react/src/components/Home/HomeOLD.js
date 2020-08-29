@@ -88,7 +88,7 @@ class Home extends Component {
   //c'est le test de creation d'une game
   async TestFunc2(){
     console.log('LANCEMENT...TestFunc2');
-    let response = await OrganisatorService.create_campagne(this.state.campagne);
+    let response = await OrganisatorService.createCampagne(this.state.campagne);
     if (response.ok) {
       console.log('EFFICIENT TEST ! TestFunc2.1');
 
@@ -105,7 +105,7 @@ class Home extends Component {
     }else {
       console.log('ERROR TEST SUBJECT ! TestFunc2.1');
     }
-    let response2 = await OrganisatorService.create_game(this.state.game);
+    let response2 = await OrganisatorService.createGame(this.state.game);
     if (response2.ok) {
     console.log('EFFICIENT TEST ! TestFunc2.2');
     }else {
