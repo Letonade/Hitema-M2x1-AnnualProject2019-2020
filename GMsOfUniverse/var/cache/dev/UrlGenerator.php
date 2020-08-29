@@ -18,6 +18,7 @@ return [
     'getCalendar' => [[], ['_controller' => 'App\\Controller\\GameController::getCalendar'], [], [['text', '/game/get_Calendar']], [], []],
     'getCalendarAnon' => [[], ['_controller' => 'App\\Controller\\GameController::getCalendarAnon'], [], [['text', '/game/get_Calendar_anon']], [], []],
     'getTypes' => [[], ['_controller' => 'App\\Controller\\GameController::getTypes'], [], [['text', '/game/get_Types']], [], []],
+    'getParticipants' => [[], ['_controller' => 'App\\Controller\\GameController::getParticipants'], [], [['text', '/game/get_Participants']], [], []],
     'createCampagne' => [[], ['_controller' => 'App\\Controller\\GameController::createCampagne'], [], [['text', '/game/create_campagne']], [], []],
     'createGame' => [[], ['_controller' => 'App\\Controller\\GameController::createGame'], [], [['text', '/game/create_game']], [], []],
     'participe' => [[], ['_controller' => 'App\\Controller\\GameController::participe'], [], [['text', '/game/participe']], [], []],

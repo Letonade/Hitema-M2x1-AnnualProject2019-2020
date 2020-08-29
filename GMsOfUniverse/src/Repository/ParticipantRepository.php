@@ -87,34 +87,13 @@ class ParticipantRepository extends ServiceEntityRepository
     }
 
 
-    public function getParticipantId($id_game,$id_user, $date)
+    public function getParticipantId($id_game)
     {
         $qb = $this->createQueryBuilder('p');
-        $qb->where('p.id_game = :id_game')->andWhere('p.id_user = :id_user')->setParameter('id_game', $id_game)->setParameter('id_user', $id_user);
-        $result =  $qb->getQuery()->getOneOrNullResult();
-        $data = array();
-        if(isset($result)) {
-            if ($result->getStatus() == 1) {
-                $data['inscrit'] = 1;
-            } else {
-                $data['inscrit'] = 0;
-            }
+        $qb->where('p.id_game = :id_game')->setParameter('id_game', $id_game);
+        $result =  $qb->getQuery()->getResult();
 
-        }
-        else{
 
-            $data['inscrit'] = 0;
-        }
-        $newDate = new \DateTime('now');
-        if($date>$newDate)
-        {
-            $data['passés'] = 0;
-        }
-        else
-        {
-            $data['passés'] = 1;
-        }
-
-        return $data;
+        return $result;
     }
 }

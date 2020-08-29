@@ -56,7 +56,7 @@ class GameController extends AbstractController
              $data['maxJoueur'] = $description_data["maxJoueur"];
             //nombreInscrit
 
-             $data['nombreInscrit'] = $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id);
+             $data['nombreInscrit'] = (int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id);
             //categorieDeJoueur
              $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
             //univers
@@ -127,7 +127,7 @@ class GameController extends AbstractController
             $data['maxJoueur'] = $description_data["maxJoueur"];
             //nombreInscrit
 
-            $data['nombreInscrit'] = $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id);
+            $data['nombreInscrit'] = (int) $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id);
             //categorieDeJoueur
             $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
             //univers
@@ -155,6 +155,31 @@ class GameController extends AbstractController
      * @Route("/game/get_Types", name="getTypes", methods={"GET"})
      */
     public function getTypes(Request $request)
+    {
+        $user = $this->getUser();
+
+        $types = $this->getDoctrine()->getRepository(Type::class)->findAll();
+        $datas =array();
+        foreach ($types as $type)
+        {
+            $data =array();
+            $data['id'] = $type->getId();
+            $data['name'] = $type->getName();
+            $datas[] = $data;
+        }
+
+
+        return new JsonResponse($datas, 201);
+
+    }
+
+
+
+
+    /**
+     * @Route("/game/get_Participants", name="getParticipants", methods={"GET"})
+     */
+    public function getParticipants(Request $request)
     {
         $user = $this->getUser();
 
