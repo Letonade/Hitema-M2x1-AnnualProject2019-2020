@@ -86,8 +86,73 @@ class GameController extends AbstractController
 
     }
 
+
     /**
-     * @Route("/game/get_Types", name="getTypes", methods={"POST"})
+     * @Route("/game/get_Calendar_anon", name="getCalendarAnon", methods={"GET"})
+     */
+    public function getCalendarAnon(Request $request)
+    {
+
+
+        $games = $this->getDoctrine()->getRepository(Game::class)->findAll();
+        $datas =array();
+        foreach ($games as $game)
+        {
+            $data =array();
+            $description_data = $game->getDescription();
+            //id
+            $id = $game->getId();
+            $data['id'] = $id;
+            // avatarImg
+            $avatar = $game->getProprietaire()->getAvatar();
+            if(isset($avatar))
+            {
+                $avatar = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$game->getProprietaire()->getAvatar()->getImageName();
+
+            }
+            else
+            {
+                $avatar = ' '.$game->getProprietaire()->getUsername()[0].' ';
+            }
+            $data['avatarImg'] = $avatar;
+            //avatarAlt
+            $data['avatarAlt'] = ' '.$game->getProprietaire()->getUsername()[0].' ';
+            //title
+            $data['title'] = $game->getName();
+            //mj
+            $data['mj'] = $game->getProprietaire()->getUsername();
+            //description
+            $data['description'] = $description_data["description"];
+            //maxJoueur
+            $data['maxJoueur'] = $description_data["maxJoueur"];
+            //nombreInscrit
+
+            $data['nombreInscrit'] = $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id);
+            //categorieDeJoueur
+            $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
+            //univers
+            $data['univers'] = $game->getType()->getName();
+            //langue
+            $data['langue'] = $description_data["langue"];
+            //matureContent
+            $data['matureContent'] = $description_data["matureContent"];
+            //region
+            $data['region'] = $description_data["region"];
+            //date
+            $data['date'] = $game->getDate();
+
+
+
+            $datas[] = $data;
+        }
+
+
+        return new JsonResponse($datas, 201);
+
+    }
+
+    /**
+     * @Route("/game/get_Types", name="getTypes", methods={"GET"})
      */
     public function getTypes(Request $request)
     {

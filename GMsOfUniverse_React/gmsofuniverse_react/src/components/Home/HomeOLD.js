@@ -28,12 +28,12 @@ class Home extends Component {
       campagne_id: 1,
       date: "1998-05-02 01:23:56",
       type_id: 1,
-      maxJoueur: 7,
       description: {
         description: "c'est ma premiere game body !",
         categorieDeJoueur: "Initié",
         langue: "FR",
         matureContent: "KO",
+        maxJoueur: 7,
         region: "Paris"
       }
     },

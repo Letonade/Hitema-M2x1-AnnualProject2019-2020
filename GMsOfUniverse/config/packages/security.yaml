@@ -80,4 +80,5 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/game/get_Calendar_anon, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/,      roles: IS_AUTHENTICATED_FULLY }

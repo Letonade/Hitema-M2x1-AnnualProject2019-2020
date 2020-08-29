@@ -16,6 +16,7 @@ return [
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'getCalendar' => [[], ['_controller' => 'App\\Controller\\GameController::getCalendar'], [], [['text', '/game/get_Calendar']], [], []],
+    'getCalendarAnon' => [[], ['_controller' => 'App\\Controller\\GameController::getCalendarAnon'], [], [['text', '/game/get_Calendar_anon']], [], []],
     'getTypes' => [[], ['_controller' => 'App\\Controller\\GameController::getTypes'], [], [['text', '/game/get_Types']], [], []],
     'createCampagne' => [[], ['_controller' => 'App\\Controller\\GameController::createCampagne'], [], [['text', '/game/create_campagne']], [], []],
     'createGame' => [[], ['_controller' => 'App\\Controller\\GameController::createGame'], [], [['text', '/game/create_game']], [], []],
