@@ -54,6 +54,32 @@ class OrganisatorService {
 		let call = await fetch(`${apiUrl}/get_Calendar_anon`, init)
 		return call;
 	}
+
+	static async participe (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/participe`, init)
+		return call;
+	}
+
+	static async noParticipe (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/no_participe`, init)
+		return call;
+	}
 	
 }
 

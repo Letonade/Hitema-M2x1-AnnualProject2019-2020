@@ -179,7 +179,12 @@ class Home extends Component {
 
   childInsc(id,inscrit) {
     let changement = {inscrit : 0 ,passés : 0}
-    if (inscrit) {changement = {inscrit : 1 ,passés : 0}}
+    if (inscrit) {
+      changement = {inscrit : 1 ,passés : 0}
+      OrganisatorService.participe({id:id});
+    }else {
+      OrganisatorService.noParticipe({id:id});
+    }
     this.setState(prevState => ({
         homeOrganisator: prevState.homeOrganisator.map(
         elem => (elem.id === id ? Object.assign(elem, { actualUser : changement}) : elem)

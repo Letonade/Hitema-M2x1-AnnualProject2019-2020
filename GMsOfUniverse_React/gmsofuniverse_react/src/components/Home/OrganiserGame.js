@@ -14,31 +14,42 @@ class OrganiserGame extends Component {
 
  render(){
   let statusButton = null;
-  if (this.props.Connected)
-    statusButton = (
-      <div className="media-right">
-        {this.props.children.actualUser.inscrit === 1
-          && this.props.children.actualUser.passés === 0
-          && <a className="btn btn-sm btn-bold btn-round btn-outline btn-success w-100px" 
-                  href="# " onClick={(e) => this.props.childInsc(this.props.children.id, false)}>
-                    Inscrit
-                </a>
-        }
-        {this.props.children.actualUser.inscrit === 0
-          && this.props.children.actualUser.passés === 0
-          && <a className="btn btn-sm btn-bold btn-round btn-info w-100px" 
-                  href="# " onClick={(e) => this.props.childInsc(this.props.children.id, true)}>
-                    Non-Inscrit
-                </a>
-        }
-        {this.props.children.actualUser.passés === 1
-          && this.props.children.actualUser.inscrit === 1
-          && <p className="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px active">
-                    Passé
-                </p>
-        }
-      </div>
-  );
+  if (this.props.Connected) 
+  {
+      let gameMaster = (localStorage.getItem("TokenAuthMail") === this.props.children.mj);
+      statusButton = (
+        <div className="media-right">
+          {gameMaster
+            && <p className="btn btn-sm btn-bold btn-round btn-danger w-100px active">
+                      M.J.
+                  </p>
+          }
+          {this.props.children.actualUser.inscrit === 1
+            && this.props.children.actualUser.passés === 0
+            && !gameMaster
+            && <a className="btn btn-sm btn-bold btn-round btn-outline btn-success w-100px" 
+                    href="# " onClick={(e) => this.props.childInsc(this.props.children.id, false)}>
+                      Inscrit
+                  </a>
+          }
+          {this.props.children.actualUser.inscrit === 0
+            && this.props.children.actualUser.passés === 0
+            && !gameMaster
+            && <a className="btn btn-sm btn-bold btn-round btn-info w-100px" 
+                    href="# " onClick={(e) => this.props.childInsc(this.props.children.id, true)}>
+                      S' inscrire
+                  </a>
+          }
+          {this.props.children.actualUser.passés === 1
+            && this.props.children.actualUser.inscrit === 1
+            && !gameMaster
+            && <p className="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px active">
+                      Passé
+                  </p>
+          }
+        </div>
+    );
+  }
   
   return (
     <div className="media media-single">
