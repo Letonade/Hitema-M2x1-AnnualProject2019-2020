@@ -4,7 +4,7 @@ class OrganisatorService {
 
 	// register
 
-	static async create_campagne (body) {
+	static async createCampagne (body) {
 		let init = {
 			method : "POST",
 			headers : {
@@ -17,7 +17,7 @@ class OrganisatorService {
 		return call;
 	}
 
-	static async create_game (body) {
+	static async createGame (body) {
 		let init = {
 			method : "POST",
 			headers : {
