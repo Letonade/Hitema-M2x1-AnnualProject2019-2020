@@ -67,7 +67,7 @@ class Home extends Component {
             }
           },*/
         ],
-      homeOrganisatorRefresh: 0,
+      Refresher: 0,
       homeStats : 
         [
           {
@@ -95,7 +95,7 @@ class Home extends Component {
     let response = await OrganisatorService.getCalandar();
     let json = await response.json();
     json.forEach(e => this.state.homeOrganisator.push(e));
-    this.setState({homeOrganisatorRefresh: this.state.homeOrganisatorRefresh+1})
+    this.setState({Refresher: this.state.Refresher+1})
 	}
 
  render(){
@@ -169,7 +169,7 @@ class Home extends Component {
     <div className="divider text-uppercase fw-500">Games</div>
   </div>
 
-  <OrganiserApp key={this.state.homeOrganisatorRefresh}>
+  <OrganiserApp key={this.state.Refresher}>
     {this.state.homeOrganisator}
   </OrganiserApp>
 

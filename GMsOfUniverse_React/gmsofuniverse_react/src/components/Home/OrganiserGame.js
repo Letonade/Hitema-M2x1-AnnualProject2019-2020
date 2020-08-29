@@ -13,6 +13,7 @@ class OrganiserGame extends Component {
 
  render(){
   return (
+    <div className="media media-single">
       <a href="# ">
         <img className="avatar" src={this.props.children.avatarImg} alt={this.props.children.avatarAlt}/>
       </a>
