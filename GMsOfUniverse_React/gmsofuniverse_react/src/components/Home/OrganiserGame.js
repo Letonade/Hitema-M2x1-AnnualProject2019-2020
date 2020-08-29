@@ -20,14 +20,14 @@ class OrganiserGame extends Component {
         {this.props.children.actualUser.inscrit === 1
           && this.props.children.actualUser.passés === 0
           && <a className="btn btn-sm btn-bold btn-round btn-outline btn-success w-100px" 
-                  href="# ">
+                  href="# " onClick={(e) => this.props.childInsc(this.props.children.id, false)}>
                     Inscrit
                 </a>
         }
         {this.props.children.actualUser.inscrit === 0
           && this.props.children.actualUser.passés === 0
           && <a className="btn btn-sm btn-bold btn-round btn-info w-100px" 
-                  href="# ">
+                  href="# " onClick={(e) => this.props.childInsc(this.props.children.id, true)}>
                     Non-Inscrit
                 </a>
         }

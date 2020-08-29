@@ -174,8 +174,18 @@ class Home extends Component {
             e.date.date = e.date.date.substr(0,10);
             this.state.homeOrganisator.push(e);
           });
-        this.setState({Refresher: this.state.Refresher+1})
+        this.setState({Refresher: this.state.Refresher+1});
 	}
+
+  childInsc(id,inscrit) {
+    let changement = {inscrit : 0 ,passés : 0}
+    if (inscrit) {changement = {inscrit : 1 ,passés : 0}}
+    this.setState(prevState => ({
+        homeOrganisator: prevState.homeOrganisator.map(
+        elem => (elem.id === id ? Object.assign(elem, { actualUser : changement}) : elem)
+      )
+    }));
+  }
 
  render(){
   return (
@@ -248,7 +258,7 @@ class Home extends Component {
     <div className="divider text-uppercase fw-500">Games</div>
   </div>
 
-  <OrganiserApp key={this.state.Refresher} Connected={this.state.Connected}>
+  <OrganiserApp key={this.state.Refresher} Connected={this.state.Connected} childInsc={this.childInsc.bind(this)}>
     {this.state.homeOrganisator}
   </OrganiserApp>
 

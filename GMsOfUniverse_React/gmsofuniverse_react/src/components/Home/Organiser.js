@@ -72,7 +72,7 @@ class Organiser extends Component {
                   elem.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
                 ).map((elem,x) => { // resultat de tous le filtrage
                   return (
-                    <OrganiserGameApp key={x} Connected={conn}>
+                    <OrganiserGameApp key={x} Connected={conn} childInsc={this.props.childInsc}>
                       {elem}
                     </OrganiserGameApp>
                   )
