@@ -70,7 +70,7 @@ class SecurityController extends AbstractController
 
             $data = [
                 'status' => 201,
-                'data' => [ 'mail' => $user->getUsername(), 'avatar' =>  $avatar, 'roles' => $user->getRoles() ]
+                'data' => [ 'mail' => $user->getUsername(), 'avatar' =>  $avatar, 'roles' => $user->getRoles(), 'avatarAlt' =>  ' '.$user->getUsername()[0].' ']
             ];
 
             return new JsonResponse($data, 201);

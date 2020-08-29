@@ -82,7 +82,7 @@ class Home extends Component {
   }
 
   }
-  //c'est le test de creation d'une game
+  //c'est le test de creation d'une game , il faut aussi ajouter les types dans la bdd
   async TestFunc2(){
     console.log('LANCEMENT...TestFunc2');
     let response = await OrganisatorService.createCampagne(this.state.campagne);
