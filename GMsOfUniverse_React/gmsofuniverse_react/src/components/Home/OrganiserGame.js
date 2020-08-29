@@ -3,6 +3,10 @@ import { withRouter }       from 'react-router-dom';
 
 class OrganiserGame extends Component {
 
+
+  redirectToDetail () {
+    this.props.history.push('/OrganiserCreationApp', {gameId : this.props.children.id});
+  }
   // componentDidMount() {
     
   // }
@@ -15,7 +19,7 @@ class OrganiserGame extends Component {
       </a>
       <div className="media-body row">
         <div className="col-md-4 col-lg-3">
-          <h6><a href="# ">{this.props.children.title}</a></h6>
+          <h6><a href="# " onClick={() => this.redirectToDetail()}>{this.props.children.title}</a></h6>
           <small className="text-fader">{this.props.children.mj}</small>
         </div>
         <div className="col-md-5 col-lg-4">

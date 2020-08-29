@@ -23,6 +23,15 @@ class OrganiserCreation extends Component {
  render(){
   return (
   <div className="OrganiserCreation">
+  
+        <div className="row">
+        <div className="col-md-12 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
+            href="# " onClick={() => {console.log(this)}}>
+              State
+          </a>
+        </div>
+      </div>
 
     <Navbar/>
 

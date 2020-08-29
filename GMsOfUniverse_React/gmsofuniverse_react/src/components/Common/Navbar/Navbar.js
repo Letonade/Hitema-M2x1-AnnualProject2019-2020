@@ -6,6 +6,8 @@ import UserService          from '../../../services/user.service';
 import logo         from '../../../assets/img/OurLogo.png';
 
 class Navbar extends Component {
+  _isMounted = false;
+
   state = {
     logged : null,
     user :{
@@ -22,17 +24,26 @@ class Navbar extends Component {
   }
 
   async componentDidMount() {
+    this._isMounted = true;
     if (await UserService.VerificationToken())
       {await UserService.getProfil();
-        this.setState({logged : 1})}
-        this.setState((prevState,currentprops) => {return ({
-        user : {
-            mail : (localStorage.getItem("ProfilMail") != null)         ? localStorage.getItem("ProfilMail")   : null,
-            avatar : (localStorage.getItem("ProfilAvatar") != null)     ? localStorage.getItem("ProfilAvatar") : null,
-            avatarAlt : (localStorage.getItem("ProfilAvatar") != null)  ? localStorage.getItem("ProfilAvatarAlt") : " 0 ",
-          }
-        })})
+        if (this._isMounted === true)
+        {// gestion de l'asynchrone
+          this.setState({logged : 1})}
+          this.setState((prevState,currentprops) => {return ({
+          user : {
+              mail : (localStorage.getItem("ProfilMail") != null)         ? localStorage.getItem("ProfilMail")   : null,
+              avatar : (localStorage.getItem("ProfilAvatar") != null)     ? localStorage.getItem("ProfilAvatar") : null,
+              avatarAlt : (localStorage.getItem("ProfilAvatar") != null)  ? localStorage.getItem("ProfilAvatarAlt") : " 0 ",
+            }
+          })})
+        }
   }
+
+  async componentWillUnmount() {
+    this._isMounted = false;
+  }
+
 
   render (){
 

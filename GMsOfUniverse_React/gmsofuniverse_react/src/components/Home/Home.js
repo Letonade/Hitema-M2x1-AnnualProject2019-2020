@@ -45,7 +45,8 @@ class Home extends Component {
       homeOrganisator :
         [
           {
-            avatarImg : ""
+            id: 1
+            ,avatarImg : ""
             ,avatarAlt : ".G."
             ,title : "La penitence de John Rakan Lerouge"
             ,mj : "Gabrielle Archangéli"
@@ -57,14 +58,15 @@ class Home extends Component {
             ,langue : "EN"
             ,matureContent : "KO"
             ,region : "Région Parisienne"
-            ,"date" : "21/08/2020 16:30"
+            ,date : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 1
               ,passés : 1
             }
           },
           {
-            avatarImg : ""
+            id: 2
+            ,avatarImg : ""
             ,avatarAlt : ".L."
             ,title : "La relique du conquérent"
             ,mj : "Aliaksandr Legrand"
@@ -76,14 +78,15 @@ class Home extends Component {
             ,langue : "FR"
             ,matureContent : "OK"
             ,region : "Paris"
-            ,"date" : "21/08/2020 16:30"
+            ,date : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 0
               ,passés : 0
             }
           },
           {
-            avatarImg : ""
+            id: 3
+            ,avatarImg : ""
             ,avatarAlt : ".T."
             ,title : "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent"
             ,mj : "Leton Bebug"
@@ -95,7 +98,7 @@ class Home extends Component {
             ,langue : "FR"
             ,matureContent : "OK"
             ,region : "Région Parisienne"
-            ,"date" : "21/08/2020 16:30"
+            ,date : "21/08/2020 16:30"
             ,actualUser : {
               inscrit : 1
               ,passés : 0
