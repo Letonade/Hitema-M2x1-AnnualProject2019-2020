@@ -42,6 +42,18 @@ class OrganisatorService {
 		let call = await fetch(`${apiUrl}/get_Calendar`, init)
 		return call;
 	}
+
+	static async getCalandarAnon (body) {
+		let init = {
+			method : "GET",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/get_Calendar_anon`, init)
+		return call;
+	}
 	
 }
 

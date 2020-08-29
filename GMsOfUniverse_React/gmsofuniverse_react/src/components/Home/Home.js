@@ -1,6 +1,5 @@
 import React, { Component }	from 'react';
 import { withRouter }       from 'react-router-dom';
-// import UserService           from '../../services/user.service';
 
 import Navbar                 from '../../components/Common/Navbar/Navbar'
 import Footer                 from '../../components/Common/Footer/Footer'
@@ -12,11 +11,14 @@ import Slider3                from '../../assets/img/banner/ShadowrunBanner.png'
 
 import OrganiserApp           from './Organiser'
 
-import OrganisatorService   from "../../services/organisator.service";
+import UserService            from '../../services/user.service';
+import OrganisatorService     from "../../services/organisator.service";
 
 class Home extends Component {
 
     state = {
+      Refresher: 0,
+      Connected: false,
       homeCarroussel : 
         [
           {
@@ -134,7 +136,6 @@ class Home extends Component {
 
           */
         ],
-      Refresher: 0,
       homeStats : 
         [
           {
@@ -159,13 +160,21 @@ class Home extends Component {
     }
 
 	async componentDidMount() {
-    let response = await OrganisatorService.getCalandar();
-    let json = await response.json();
-    json.forEach(e => {
-        e.date.date = e.date.date.substr(0,10);
-        this.state.homeOrganisator.push(e);
-      });
-    this.setState({Refresher: this.state.Refresher+1})
+    let response = null;
+    if (await UserService.VerificationToken())
+      {
+        response = await OrganisatorService.getCalandar();
+        this.setState({Connected : true});
+      }else{
+        response = await OrganisatorService.getCalandarAnon();
+        this.setState({Connected : false});
+      }
+        let json = await response.json();
+        json.forEach(e => {
+            e.date.date = e.date.date.substr(0,10);
+            this.state.homeOrganisator.push(e);
+          });
+        this.setState({Refresher: this.state.Refresher+1})
 	}
 
  render(){
@@ -239,7 +248,7 @@ class Home extends Component {
     <div className="divider text-uppercase fw-500">Games</div>
   </div>
 
-  <OrganiserApp key={this.state.Refresher}>
+  <OrganiserApp key={this.state.Refresher} Connected={this.state.Connected}>
     {this.state.homeOrganisator}
   </OrganiserApp>
 

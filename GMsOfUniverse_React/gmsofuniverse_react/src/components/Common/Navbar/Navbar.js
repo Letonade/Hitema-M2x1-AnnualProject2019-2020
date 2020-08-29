@@ -21,6 +21,7 @@ class Navbar extends Component {
     UserService.Deconnexion();
     this.setState({logged : 0});
     this.props.history.push('/', /*OBJ*/);
+    window.location.reload();
   }
 
   async componentDidMount() {

@@ -7,11 +7,39 @@ class OrganiserGame extends Component {
   redirectToDetail () {
     this.props.history.push('/OrganiserCreationApp', {gameId : this.props.children.id});
   }
+
 /*  componentDidMount() {
     console.log(this.props.children);
   }*/
 
  render(){
+  let statusButton = null;
+  if (this.props.Connected)
+    statusButton = (
+      <div className="media-right">
+        {this.props.children.actualUser.inscrit === 1
+          && this.props.children.actualUser.passés === 0
+          && <a className="btn btn-sm btn-bold btn-round btn-outline btn-success w-100px" 
+                  href="# ">
+                    Inscrit
+                </a>
+        }
+        {this.props.children.actualUser.inscrit === 0
+          && this.props.children.actualUser.passés === 0
+          && <a className="btn btn-sm btn-bold btn-round btn-info w-100px" 
+                  href="# ">
+                    Non-Inscrit
+                </a>
+        }
+        {this.props.children.actualUser.passés === 1
+          && this.props.children.actualUser.inscrit === 1
+          && <p className="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px active">
+                    Passé
+                </p>
+        }
+      </div>
+  );
+  
   return (
     <div className="media media-single">
       <a href="# ">
@@ -41,29 +69,8 @@ class OrganiserGame extends Component {
         </div>
       </div>
 
-      <div className="media-right">
+      {statusButton}
 
-        {this.props.children.actualUser.inscrit === 1 
-          && this.props.children.actualUser.passés === 0
-          && <a className="btn btn-sm btn-bold btn-round btn-outline btn-success w-100px" 
-                  href="# ">
-                    Inscrit
-                </a>
-        }
-        {this.props.children.actualUser.inscrit === 0
-          && this.props.children.actualUser.passés === 0 
-          && <a className="btn btn-sm btn-bold btn-round btn-info w-100px" 
-                  href="# ">
-                    Non-Inscrit
-                </a>
-        }
-        {this.props.children.actualUser.passés === 1 
-          && this.props.children.actualUser.inscrit === 1 
-          && <p className="btn btn-sm btn-bold btn-round btn-outline btn-secondary w-100px active">
-                    Passé
-                </p>
-        }
-      </div>
     </div>
   );
  }
