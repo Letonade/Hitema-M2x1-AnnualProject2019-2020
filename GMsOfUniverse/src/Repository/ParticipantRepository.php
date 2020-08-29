@@ -96,4 +96,11 @@ class ParticipantRepository extends ServiceEntityRepository
 
         return $result;
     }
+
+    public function getParticipateByGameAndUser($id_game,$id_user)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb->where('p.id_game = :id_game')->andWhere('p.id_user = :id_user')->setParameter('id_game', $id_game)->setParameter('id_user', $id_user);
+        return  $qb->getQuery()->getResult();
+    }
 }

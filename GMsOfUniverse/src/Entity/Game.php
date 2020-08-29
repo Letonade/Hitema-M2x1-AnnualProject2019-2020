@@ -33,6 +33,13 @@ class Game
      */
     private $date;
 
+
+    /**
+     * @ORM\OneToOne(targetEntity="Image")
+     * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
+     */
+    private $image;
+
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="games")
      * @ORM\JoinColumn(nullable=false)
@@ -59,6 +66,17 @@ class Game
     public function __construct()
     {
         $this->participants = new ArrayCollection();
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+
+    public function setImage(Image $image): void
+    {
+        $this->image = $image;
     }
 
     public function getId(): ?int
