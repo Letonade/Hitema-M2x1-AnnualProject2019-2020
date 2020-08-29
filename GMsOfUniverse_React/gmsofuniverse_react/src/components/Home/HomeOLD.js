@@ -91,7 +91,9 @@ class Home extends Component {
     let response = await OrganisatorService.create_campagne(this.state.campagne);
     if (response.ok) {
       console.log('EFFICIENT TEST ! TestFunc2.1');
-      let {value, id} = response.json;
+
+      let {value, id} = await response.json();
+
       this.setState((prevState) => ({
         game: {
           ...prevState.game,
