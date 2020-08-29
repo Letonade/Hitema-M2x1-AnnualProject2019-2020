@@ -42,7 +42,7 @@ class GameController extends AbstractController
             $entityManager->flush();
 
 
-            return new JsonResponse(['value' => 'create_campagne'], 200);
+            return new JsonResponse(['value' => 'create_campagne', 'id' => $campagne->getId()], 200);
 
 
         }
