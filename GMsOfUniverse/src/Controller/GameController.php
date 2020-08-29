@@ -427,7 +427,7 @@ class GameController extends AbstractController
                 $entityManager->flush();
             }
 
-            return new JsonResponse(['value' =>'create_post'], 200);
+            return new JsonResponse(['value' =>'delete_post'], 200);
         }
 
 
