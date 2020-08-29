@@ -16,27 +16,49 @@ import banner               from '../../assets/img/banner/ShadowrunBanner.png';
 
 class OrganiserCreation extends Component {
 
-  // componentDidMount() {
+  state = {
+    game : {
+      id : null,
+      name: "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent",
+      campagne_id: 1,
+      date: "2020-05-02 01:23:56",
+      type_id: 1,
+      description: {
+        description: "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits.",
+        categorieDeJoueur: "Confirmé",
+        langue: "FR",
+        matureContent: "KO",
+        region: "Paris"
+      }
+    }
+  }
+
+  changeForm(e){
+    this.setState(
+      {[e.target.id]: e.target.value}
+    )
+  }
+
+  componentDidMount() {
+    ////récupérer l'Id
+    //this.props.location.state
     
-  // }
+  }
 
  render(){
   return (
   <div className="OrganiserCreation">
-  
-        <div className="row">
-        <div className="col-md-12 text-center">
-          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
-            href="# " onClick={() => {console.log(this)}}>
-              State
-          </a>
-        </div>
-      </div>
 
     <Navbar/>
 
+        
     <main className="main-container">
-
+        <div className="col-md-4 text-center">
+          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
+            href="# " onClick={() => {console.log(this.state)}}>
+              State
+          </a>
+        </div>
       <div className="main-content">
         <div className="row">
 
@@ -55,7 +77,7 @@ class OrganiserCreation extends Component {
                       <div className="flex-grow">
                           <ReactQuill theme="bubble"
                             modules={{toolbar : false}}
-                            value="<h2>The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent</h2>"                      
+                            value="<h2>{this.state.game.name}</h2>"                     
                           />
                         <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                           <div className="file-group file-group-inline">
@@ -80,7 +102,7 @@ class OrganiserCreation extends Component {
                         dateFormat="dd/MM/yyyy" 
                         showMonthDropdown
                         withPortal
-                        selected={new Date()}/>
+                        selected={new Date("2020-05-02 01:23:56")}/>
                       <label>Date</label>
                     </div>
                   </div>
@@ -104,10 +126,10 @@ class OrganiserCreation extends Component {
                   <div className="col-md-3">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option value="1">Interessé</option>
-                        <option value="2">Initié</option>
-                        <option value="3" selected>Confirmé</option>
-                        <option value="4">Vétérans</option>
+                        <option value="Interessé">Interessé</option>
+                        <option value="Initié">Initié</option>
+                        <option value="Confirmé" selected>Confirmé</option>
+                        <option value="Vétérans">Vétérans</option>
                       </select>
                       <label>Catégorie</label>
                     </div>
@@ -145,8 +167,8 @@ class OrganiserCreation extends Component {
                   <div className="col-md-2">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option value="1" selected>FR</option>
-                        <option value="2">EN</option>
+                        <option value="FR" selected>FR</option>
+                        <option value="EN">EN</option>
                       </select>
                       <label>Langue</label>
                     </div>

@@ -24,19 +24,18 @@ class Home extends Component {
       "name" : "ma_premiere campagne"
     },
     game : {
-
       name: "ma_premiere game",
       campagne_id: 1,
       date: "1998-05-02 01:23:56",
       type_id: 1,
+      maxJoueur: 7,
       description: {
-        description: "c'est ma premiere game biatch",
+        description: "c'est ma premiere game body !",
         categorieDeJoueur: "Initié",
         langue: "FR",
         matureContent: "KO",
         region: "Paris"
       }
-
     },
     user :{
       mail : null,
@@ -48,8 +47,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.setState({user : {mail : "test"}})// = (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null
-    this.setState({user : {avatar : "test"}})// = (localStorage.getItem("ProfilAvatar") != null) ? localStorage.getItem("ProfilAvatar") : null
     this.setState((prevState,currentprops) => {return ({
         user : {
           mail : (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null,
@@ -100,14 +97,12 @@ class Home extends Component {
           campagne_id: id,
         }
       }));
-
-
     }else {
       console.log('ERROR TEST SUBJECT ! TestFunc2.1');
     }
-    let response2 = await OrganisatorService.createGame(this.state.game);
-    if (response2.ok) {
-    console.log('EFFICIENT TEST ! TestFunc2.2');
+    response = await OrganisatorService.createGame(this.state.game);
+    if (response.ok) {
+      console.log('EFFICIENT TEST ! TestFunc2.2');
     }else {
       console.log('ERROR TEST SUBJECT ! TestFunc2.2');
     }
@@ -391,14 +386,6 @@ class Home extends Component {
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
       <div className="col-md-4">
         <div className="card">
           <div className="card-header">
@@ -458,19 +445,9 @@ class Home extends Component {
         </div>
       </div>
 
-
-
-
-
-
-
       <div className="col-12">
         <div className="divider text-uppercase fw-500">Social</div>
       </div>
-
-
-
-
 
       <div className="col-md-6 col-lg-4">
         <div className="card p-30 pt-50 text-center">
