@@ -13,6 +13,7 @@ class LoginApp extends Component{
 
 		success: false,
 		error: false,
+		processing: false,
 	}
 
 	changeForm(e){
@@ -27,6 +28,7 @@ class LoginApp extends Component{
 	}
 
 	async handleSubmit(e){
+		this.setState({success: false, error: false, processing: true});
 		e.preventDefault();
 		let {email, password, button} = this.state;
 		let response;
@@ -34,10 +36,10 @@ class LoginApp extends Component{
 			{response = await UserService.register({'_username': email, '_password': password});}
 		response = await UserService.authenticate({'username': email, 'password': password});
 		if (response.ok) {
-			this.setState({success: true, error: false})
+			this.setState({success: true, error: false, processing: false});
 			this.props.history.push('/', /*OBJ*/);
 		}else{
-			return (this.setState({success: false, error: true}))
+			return (this.setState({success: false, error: true, processing: false}));
 		}
 	}
 
@@ -48,7 +50,7 @@ class LoginApp extends Component{
 	}
 
   	render() {
-		let {error, success} = this.state;
+		let {error, success, processing} = this.state;
 		return (
 			<div className="LoginApp" style= {{"paddingTop": "100px"}} >
 				<div className="container LoginCenter">
@@ -78,6 +80,14 @@ class LoginApp extends Component{
 							</div>
 							<div className="card-footer">
 								<div className="d-flex justify-content-center links">
+									{processing && 
+										<div class="text-center">Processing
+											<span class="ml-3 spinner-dots">
+												<span class="dot1"></span>
+												<span class="dot2"></span>
+												<span class="dot3"></span>
+											</span>
+										</div>}
 									{success && <div>Success</div>}
 									{error && <div>Errors</div>}
 								</div>
