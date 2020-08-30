@@ -27,64 +27,62 @@ class GameController extends AbstractController
     {
         $user = $this->getUser();
 
-         $games = $this->getDoctrine()->getRepository(Game::class)->findAll();
+         $games = $this->getDoctrine()->getRepository(Participant::class)->calendar($user->getId());
          $datas =array();
-         foreach ($games as $game)
-         {
-             $data =array();
-             $description_data = $game->getDescription();
-             //id
-             $id = $game->getId();
-             $data['id'] = $id;
-             // avatarImg
-             $avatar = $game->getProprietaire()->getAvatar();
-             if(isset($avatar))
-             {
-                    $avatar = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath().'/images/'.$game->getProprietaire()->getAvatar()->getImageName();
+         if(isset($games)) {
+             foreach ($games as $gamen) {
+                 $game = $gamen->getIdGame();
+                 $data = array();
+                 $description_data = $game->getDescription();
+                 //id
+                 $id = $game->getId();
+                 $data['id'] = $id;
+                 // avatarImg
+                 $avatar = $game->getProprietaire()->getAvatar();
+                 if (isset($avatar)) {
+                     $avatar = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $game->getProprietaire()->getAvatar()->getImageName();
 
+                 } else {
+                     $avatar = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
+                 }
+                 $data['avatarImg'] = $avatar;
+                 //avatarAlt
+                 $data['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
+                 //title
+                 $data['title'] = $game->getName();
+                 //mj
+                 $data['mj'] = $game->getProprietaire()->getUsername();
+                 //description
+                 $data['description'] = $description_data["description"];
+                 //maxJoueur
+                 $data['maxJoueur'] = $description_data["maxJoueur"];
+                 //nombreInscrit
+
+                 $data['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id)) + 1;
+                 //categorieDeJoueur
+                 $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
+                 //univers
+                 $data['univers'] = $game->getType()->getName();
+                 //langue
+                 $data['langue'] = $description_data["langue"];
+                 //matureContent
+                 $data['matureContent'] = $description_data["matureContent"];
+                 //region
+                 $data['region'] = $description_data["region"];
+                 //date
+                 $data['date'] = $game->getDate();
+                 //actualUser
+                 $data['actualUser'] = $this->getDoctrine()->getRepository(Participant::class)->getGameParticipation($id, $user->getId(), $game->getDate());
+
+                 //[
+                 //inscrit : 1
+
+                 //passés : 1
+                 //]
+
+                 $datas[] = $data;
              }
-            else
-            {
-                $avatar = ' '.$game->getProprietaire()->getUsername()[0].' ';
-             }
-             $data['avatarImg'] = $avatar;
-             //avatarAlt
-             $data['avatarAlt'] = ' '.$game->getProprietaire()->getUsername()[0].' ';
-            //title
-             $data['title'] = $game->getName();
-            //mj
-             $data['mj'] = $game->getProprietaire()->getUsername();
-            //description
-             $data['description'] = $description_data["description"];
-            //maxJoueur
-             $data['maxJoueur'] = $description_data["maxJoueur"];
-            //nombreInscrit
-
-             $data['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id))+1;
-            //categorieDeJoueur
-             $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
-            //univers
-             $data['univers'] = $game->getType()->getName();
-            //langue
-             $data['langue'] = $description_data["langue"];
-            //matureContent
-             $data['matureContent'] = $description_data["matureContent"];
-            //region
-             $data['region'] = $description_data["region"];
-            //date
-             $data['date'] = $game->getDate();
-            //actualUser
-             $data['actualUser'] = $this->getDoctrine()->getRepository(Participant::class)->getGameParticipation($id, $user->getId(), $game->getDate());
-
-             //[
-             //inscrit : 1
-
-             //passés : 1
-            //]
-
-             $datas[] = $data;
          }
-
 
         return new JsonResponse($datas, 201);
 

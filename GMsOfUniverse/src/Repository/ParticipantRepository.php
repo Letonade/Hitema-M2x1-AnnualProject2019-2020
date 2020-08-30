@@ -103,4 +103,27 @@ class ParticipantRepository extends ServiceEntityRepository
         $qb->where('p.id_game = :id_game')->andWhere('p.id_user = :id_user')->setParameter('id_game', $id_game)->setParameter('id_user', $id_user);
         return  $qb->getQuery()->getResult();
     }
+
+
+    public function calendar($user_id)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $newDate = new \DateTime('now');
+        $qb ->innerJoin('p.id_game','g')
+            ->where(
+                $qb->expr()->orX(
+                    $qb->expr()->orX(
+                        $qb->expr()->gte('g.date',':date'),
+                        $qb->expr()->andX(
+                            $qb->expr()->eq('p.id_user',':user_id'),
+                            $qb->expr()->lt('g.date',':date2'))),
+                $qb->expr()->eq('g.proprietaire',':user_id2'))
+            )
+            ->setParameter('date', $newDate)
+            ->setParameter('date2', $newDate)
+            ->setParameter('user_id', $user_id)
+            ->setParameter('user_id2', $user_id);
+        return  $qb->getQuery()->getResult();
+    }
+
 }
