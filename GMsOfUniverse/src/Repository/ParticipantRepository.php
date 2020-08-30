@@ -114,13 +114,11 @@ class ParticipantRepository extends ServiceEntityRepository
                 $qb->expr()->orX(
                     $qb->expr()->orX(
                         $qb->expr()->gte('g.date',':date'),
-                        $qb->expr()->andX(
-                            $qb->expr()->eq('p.id_user',':user_id'),
-                            $qb->expr()->lt('g.date',':date2'))),
+                        $qb->expr()->eq('p.id_user',':user_id')
+                           ),
                 $qb->expr()->eq('g.proprietaire',':user_id2'))
             )
             ->setParameter('date', $newDate)
-            ->setParameter('date2', $newDate)
             ->setParameter('user_id', $user_id)
             ->setParameter('user_id2', $user_id);
         return  $qb->getQuery()->getResult();

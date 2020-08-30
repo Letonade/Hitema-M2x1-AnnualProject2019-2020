@@ -58,7 +58,7 @@ class GameController extends AbstractController
                  $data['maxJoueur'] = $description_data["maxJoueur"];
                  //nombreInscrit
 
-                 $data['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id)) + 1;
+                 $data['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id)) ;
                  //categorieDeJoueur
                  $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
                  //univers
@@ -129,7 +129,7 @@ class GameController extends AbstractController
             $data['maxJoueur'] = $description_data["maxJoueur"];
             //nombreInscrit
 
-            $data['nombreInscrit'] = ((int) $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id))+1;
+            $data['nombreInscrit'] = ((int) $this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id));
             //categorieDeJoueur
             $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
             //univers
@@ -202,7 +202,7 @@ class GameController extends AbstractController
             //categorieDeJoueur
             $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
             //univers
-            $data['univers'] = $game->getType()->getName();
+            $data['univers'] = $game->getType()->getId();
             //langue
             $data['langue'] = $description_data["langue"];
             //matureContent
