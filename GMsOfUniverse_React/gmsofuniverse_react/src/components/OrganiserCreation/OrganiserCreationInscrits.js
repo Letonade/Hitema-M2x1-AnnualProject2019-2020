@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import avatar1       from '../../assets/img/avatar/5.jpg';
-import avatar2       from '../../assets/img/avatar/1.jpg';
-import avatar3       from '../../assets/img/avatar/6.jpg';
 
 class OrganiserCreationInscrits extends Component {
 
-  // componentDidMount() {
-    
-  // }
+  state = {
+
+  }
+
+/*  componentDidMount() {
+    //this.setState(this.props.children)
+  }*/
 
  render(){
   return (
@@ -18,7 +19,36 @@ class OrganiserCreationInscrits extends Component {
         <div className="card p-30 pt-50 text-center">
           <div className="row">
 
-            {/*first card*/}
+              {
+                this.props.children.map((elem,x) => { // resultat de tous le filtrage
+                  return (
+                     <div className="col-md-2" key={x}>
+                      <div>
+                        <a className="avatar avatar-xxl status-success mb-3" href=" #">
+                          <img src={elem.avatarImg} alt={elem.avatarAlt}/>
+                        </a>
+                      </div>
+                      <h6 className={""+ (this.props.mj === elem.name) && "goldShadow"}>
+                        <a href="../page/profile.html">
+                          {elem.name}
+                        </a>
+                      </h6>
+                    </div>
+                  )
+                })
+              }
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+ }
+}
+
+export default (OrganiserCreationInscrits)
+
+
+/*          
             <div className="col-md-2">
               <div>
                 <a className="avatar avatar-xxl status-success mb-3" href="../page/profile.html">
@@ -37,7 +67,7 @@ class OrganiserCreationInscrits extends Component {
               </p>
             </div>
 
-            {/*second card*/}
+            
             <div className="col-md-2">
               <div>
                 <a className="avatar avatar-xxl status-dark mb-3" href="../page/profile.html">
@@ -56,7 +86,7 @@ class OrganiserCreationInscrits extends Component {
               </p>
             </div>
 
-            {/*third card*/}
+            
             <div className="col-md-2">
               <div>
                 <a className="avatar avatar-xxl status-info mb-3" href="../page/profile.html">
@@ -73,14 +103,4 @@ class OrganiserCreationInscrits extends Component {
                   Confirmé
                 </small>
               </p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  );
- }
-}
-
-export default (OrganiserCreationInscrits)
+            </div>*/

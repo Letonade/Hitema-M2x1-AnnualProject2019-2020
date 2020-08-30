@@ -23,12 +23,16 @@ class OrganiserCreation extends Component {
     Connected : false,
     AmIMJ : false,
     ModeCreation: true,
+    InPast : false,
+
+    Activated : false,
+    Processing : false,
 
     gametypes : null, //liste
     game : 
     {
       id : null,
-      title: "Name",
+      title: "New",
       campagne_id: null,
       date: {
           date : new Date(),
@@ -52,8 +56,9 @@ class OrganiserCreation extends Component {
       "gameImg": null,
       "mj": null,
       "nombreInscrit": 0
-    }
+    },
 
+    participants : [] // liste des participants
     /*
     {
       "game": {
@@ -110,15 +115,17 @@ class OrganiserCreation extends Component {
   }
 
   handleDatePickerChange (e) {
-    const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
-    //console.log(dateAsTxt);
-    this.setState((prevState) => ({
-      game : {...prevState.game, 
-        date : {...prevState.game.date,
-          date : dateAsTxt 
+    if (e >= new Date((new Date()).valueOf() - 1000*3600*24)){
+      const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
+      //console.log(dateAsTxt);
+      this.setState((prevState) => ({
+        game : {...prevState.game, 
+          date : {...prevState.game.date,
+            date : dateAsTxt 
+          }
         }
-      }
-    }));
+      }));
+    }
   }
 
   changeGameForm(e){
@@ -146,9 +153,35 @@ class OrganiserCreation extends Component {
       }));
     }
   }
+//handleSubmit
+  async handleSubmit(e){
+    e.preventDefault();
+    await this.setState({Processing : true});
+    if (this.state.ModeCreation) {//submit en creation
+      let {id, ...game} = this.state.game;
+      let response = await OrganisatorService.createCampagne({name: game.title});
+      if (response.ok) {
+        let {value, id} = await response.json();
+        await this.setState((prevState) => ({
+          game: {
+            ...game,
+            campagne_id: id,
+          }
+        }));
+      response = await OrganisatorService.createGame(this.state.game);
+      console.log(this.state.game);
+      }
+    }else{// submit en mode modification
+      console.log(this.state.game);
+      let response = await OrganisatorService.modifyGame(this.state.game);
+    }
+    await this.setState({Processing : false});
+    
+  }
+
 //EVENT
   async componentDidMount() {
-    ////récupérer l'Id
+    // gestion du mode modification
     let ephemera = this.props.location.state;
     if(ephemera){
       this.setState({ModeCreation : false});
@@ -166,20 +199,48 @@ class OrganiserCreation extends Component {
       }else{
         this.props.history.push('/', /*OBJ*/);
       }
+      response = await OrganisatorService.getParticipants({id : ephemera.gameId});
+      if (response.ok) {
+        let json = await response.json();
+        json.forEach(e => {this.state.participants.push(e);
+          });
+      }else{
+        this.props.history.push('/', /*OBJ*/);
+      }
     }
+    else{// gestion du mode creation
+      this.setState((prev)=> ({    
+      OtherGameInfo: {
+        ...prev.OtherGameInfo,
+        avatarImg: localStorage.getItem("ProfilAvatar"),
+        avatarAlt: localStorage.getItem("ProfilAvatarAlt"),
+        mj: localStorage.getItem("ProfilMail"),
+        },
+      }));
+    }
+    // récupération des données pour les selects
     let response = await OrganisatorService.getTypes();
     let json = await response.json();
     this.setState({gametypes : json});
     response = null;
     json = null;
+    // gestion de la connexion
     if (await UserService.VerificationToken())
       {
         this.setState({Connected : true});
-        if (this.state.ModeCreation && (localStorage.getItem("TokenAuthMail") === this.state.OtherGameInfo.mj))
+        if (this.state.ModeCreation || (localStorage.getItem("TokenAuthMail") === this.state.OtherGameInfo.mj))
           this.setState({AmIMJ : true});
       }else{
         this.setState({Connected : false});
       }
+    if (this.state.game.date.date < new Date((new Date()).valueOf() - 1000*3600*24))
+      this.setState({InPast : true})
+    else
+      this.setState({InPast : false})
+
+    this.state.Connected && this.state.AmIMJ && !this.state.InPast && this.setState({Activated : true});
+    this.state.Connected && this.state.ModeCreation && !this.state.InPast && this.setState({Activated : true});
+
     console.log("initial State of creation/modif");
     console.log(this.state);
   }
@@ -194,7 +255,7 @@ class OrganiserCreation extends Component {
         <div className="col-md-4 text-center">
           <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
             href="# " onClick={() => {console.log(this.state)}}>
-              State
+              State {this.state.Activated && "OK"}
           </a>
         </div>
       <div className="main-content">
@@ -202,7 +263,7 @@ class OrganiserCreation extends Component {
 
           {/*Pannel*/}
           <div className="col-lg-12 tab-content">
-            <form className="card form-type-material tab-pane fade active show" id="tab1">
+            <form className="card form-type-material tab-pane fade active show" id="tab1" onSubmit={(e) => this.handleSubmit(e)}>
               <h4 className="card-title fw-400">Game Details</h4>
 
               <div className="card-body">
@@ -251,7 +312,7 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
-                      <input id="" className="form-control" type="text" value="Leton Bebug" disabled/>
+                      <input id="" className="form-control" type="text" placeholder={this.state.OtherGameInfo.mj} disabled/>
                       <label>Maître du jeu</label>
                     </div>
                   </div>
@@ -344,13 +405,27 @@ class OrganiserCreation extends Component {
                   </div>
                 </div>
 
-                <OrganiserCreationInscrits>
-                </OrganiserCreationInscrits>
+                { (this.state.participants.length > 0) &&
+                  <OrganiserCreationInscrits mj={localStorage.getItem("TokenAuthMail")}>
+                    {this.state.participants}
+                  </OrganiserCreationInscrits>
+                }
 
               </div>
 
               <footer className="card-footer text-right">
-                <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
+                  {
+                    !this.state.Processing && <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
+                  }{
+                    this.state.Processing && 
+                    <div className="text-center">Processing
+                      <span className="ml-3 spinner-dots">
+                        <span className="dot1"></span>
+                        <span className="dot2"></span>
+                        <span className="dot3"></span>
+                      </span>
+                    </div>
+                  }
               </footer>
             </form>
           </div>

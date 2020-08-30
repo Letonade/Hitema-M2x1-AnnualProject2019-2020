@@ -30,6 +30,19 @@ class OrganisatorService {
 		return call;
 	}
 
+	static async modifyGame (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/modify_game`, init)
+		return call;
+	}
+
 	static async getGame (body) {
 		let init = {
 			method : "POST",
@@ -51,6 +64,18 @@ class OrganisatorService {
 			body: JSON.stringify(body),
 		}
 		let call = await fetch(`${apiUrl}/get_Types`, init)
+		return call;
+	}
+
+	static async getParticipants (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/get_Participants`, init)
 		return call;
 	}
 
