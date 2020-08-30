@@ -1,9 +1,7 @@
 const apiUrl = "http://127.0.0.1:8000/game";
 
 class OrganisatorService {
-
-	// register
-
+// pour creation
 	static async createCampagne (body) {
 		let init = {
 			method : "POST",
@@ -40,6 +38,32 @@ class OrganisatorService {
 			body: JSON.stringify(body),
 		}
 		let call = await fetch(`${apiUrl}/modify_game`, init)
+		return call;
+	}
+
+	static async addImg (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/add_img`, init)
+		return call;
+	}
+
+	static async removeImg (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/remove_img`, init)
 		return call;
 	}
 

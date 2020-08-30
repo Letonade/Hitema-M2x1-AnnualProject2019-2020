@@ -13020,7 +13020,7 @@ select.form-control:not([size]):not([multiple]){
 }
 
 .file-group{
-	position:relative;
+	/*position:relative;*/
 	overflow:hidden
 }
 

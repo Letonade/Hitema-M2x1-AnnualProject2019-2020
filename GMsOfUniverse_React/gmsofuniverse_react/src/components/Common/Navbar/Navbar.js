@@ -64,7 +64,7 @@ class Navbar extends Component {
       <header className="topbar">
         <div className="topbar-left">
           <img className="avatar rounded" src={logo} alt="..."/>
-          <a className="topbar-btn d-none d-md-block" href=" #" data-provide="fullscreen tooltip" title="" data-original-title="Gm Universe">
+          <a className="topbar-btn d-none d-md-block" href="/" data-provide="fullscreen tooltip" title="" data-original-title="Gm Universe">
             <i className="material-icons">Gm Universe</i>
           </a>
         </div>

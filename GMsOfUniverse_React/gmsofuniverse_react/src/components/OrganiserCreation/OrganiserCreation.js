@@ -27,6 +27,7 @@ class OrganiserCreation extends Component {
 
     Activated : false,
     Processing : false,
+    imageHaveChanged : false,
 
     gametypes : null, //liste
     game : 
@@ -98,10 +99,11 @@ class OrganiserCreation extends Component {
   dualDigit(e) {
     return e = (e < 10) ? "0"+e : e;
   }
+
 // les changers
   handleQuillChangeTitle (e) {
     e = e.slice(4,-5);
-    this.setState((prevState) => ({game : {...prevState.game, name: e}}));
+    this.setState((prevState) => ({game : {...prevState.game, title: e}}));
   }
 
   handleQuillChangeDescription (e) {
@@ -153,6 +155,35 @@ class OrganiserCreation extends Component {
       }));
     }
   }
+
+  async changeImage(e){//e.target.files[0]
+    e.preventDefault();
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      if (reader.result.indexOf("data:image/") === 0){
+        console.log(reader.result.indexOf("data:image/"));
+        this.setState((prev) => ({
+          OtherGameInfo: {
+            ...prev.OtherGameInfo,
+            gameImg : reader.result
+          },
+          imageHaveChanged : true
+        }));
+      }
+    }
+    reader.readAsDataURL(file)
+  }
+
+  removeBanner(){
+    this.setState((prev) => ({
+      OtherGameInfo : {
+        ...prev.OtherGameInfo,
+        gameImg : null,
+      }
+    }));
+  }
 //handleSubmit
   async handleSubmit(e){
     e.preventDefault();
@@ -161,7 +192,7 @@ class OrganiserCreation extends Component {
       let {id, ...game} = this.state.game;
       let response = await OrganisatorService.createCampagne({name: game.title});
       if (response.ok) {
-        let {value, id} = await response.json();
+        let {id} = await response.json();
         await this.setState((prevState) => ({
           game: {
             ...game,
@@ -169,13 +200,34 @@ class OrganiserCreation extends Component {
           }
         }));
       response = await OrganisatorService.createGame(this.state.game);
-      console.log(this.state.game);
+        if (response.ok) {
+          let {id} = await response.json();
+          await this.setState((prevState) => ({
+            game: {
+              ...prevState.game,
+              id: id,
+            }
+          }));
+        }
       }
     }else{// submit en mode modification
-      console.log(this.state.game);
-      let response = await OrganisatorService.modifyGame(this.state.game);
+      await OrganisatorService.modifyGame(this.state.game);
     }
     await this.setState({Processing : false});
+    
+    if (this.state.imageHaveChanged) {
+      await OrganisatorService.addImg({
+        "game_id" : this.state.game.id,
+        "image": {
+          "name" : "gameBanner",
+          "value" : this.state.OtherGameInfo.gameImg
+        }
+      })
+    }
+    if (this.state.OtherGameInfo.gameImg === null)
+    {
+      OrganisatorService.removeImg({game_id : this.state.game.id});
+    }
     
   }
 
@@ -270,7 +322,7 @@ class OrganiserCreation extends Component {
                 <div className="flexbox gap-items-4">
                   <div className="row">
                     <div className="col-md-7 col-sm-0 ">
-                      <img className="img-fluid" src={banner} alt="..."/>
+                      <img className="img-fluid" src={this.state.OtherGameInfo.gameImg ? this.state.OtherGameInfo.gameImg : banner} alt="..."/>
                     </div>
                     <div className="col-md-5 col-sm-12 ">
                       <div className="flex-grow">
@@ -281,11 +333,11 @@ class OrganiserCreation extends Component {
                           />
                         <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                           <div className="file-group file-group-inline">
-                            <button className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary file-browser" type="button">Change Picture</button>
-                            <input type="file"/>
+                            <label htmlFor="banner" className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary">Change Picture</label>
+                            <input id="banner" type="file" onChange={(e) => this.changeImage(e)}/>
                           </div>
 
-                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# ">Delete Picture</a>
+                          <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# " onClick={() => {this.removeBanner()}}>Delete Picture</a>
                         </div>
                       </div>
                     </div>
