@@ -22,6 +22,7 @@ return [
     'getParticipants' => [[], ['_controller' => 'App\\Controller\\GameController::getParticipants'], [], [['text', '/game/get_Participants']], [], []],
     'createCampagne' => [[], ['_controller' => 'App\\Controller\\GameController::createCampagne'], [], [['text', '/game/create_campagne']], [], []],
     'createGame' => [[], ['_controller' => 'App\\Controller\\GameController::createGame'], [], [['text', '/game/create_game']], [], []],
+    'modifyGame' => [[], ['_controller' => 'App\\Controller\\GameController::modifyGame'], [], [['text', '/game/modify_game']], [], []],
     'addImg' => [[], ['_controller' => 'App\\Controller\\GameController::addImg'], [], [['text', '/game/add_img']], [], []],
     'participe' => [[], ['_controller' => 'App\\Controller\\GameController::participe'], [], [['text', '/game/participe']], [], []],
     'noParticipe' => [[], ['_controller' => 'App\\Controller\\GameController::noParticipe'], [], [['text', '/game/no_participe']], [], []],

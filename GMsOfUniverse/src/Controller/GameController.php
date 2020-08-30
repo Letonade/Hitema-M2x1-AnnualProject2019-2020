@@ -181,7 +181,7 @@ class GameController extends AbstractController
             $data['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
             //gameImg
             $gameImg = $game->getImage();
-            if (isset($avatar)) {
+            if (isset($gameImg)) {
                 $gameImg = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $game->getImage()->getImageName();
 
             } else {
@@ -318,6 +318,44 @@ class GameController extends AbstractController
         if(isset($values->type_id,$values->campagne_id,$values->name,$values->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
 
             $game = new Game();
+            $game->setName($values->name);
+            $game->setCampagneId($this->getDoctrine()->getRepository(Campagne::class)->find($values->campagne_id));
+            $game->setDate(new \DateTime($values->date));
+            $game->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
+            $game->setDescription([
+                'description' => $values->description->description,
+                'categorieDeJoueur'=>$values->description->categorieDeJoueur,
+                'langue'=>$values->description->langue,
+                'matureContent'=>$values->description->matureContent,
+                'region'=>$values->description->region,
+                'maxJoueur'=>$values->description->maxJoueur]);
+            $game->setProprietaire($user);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($game);
+            $entityManager->flush();
+
+
+            return new JsonResponse(['value' => 'create_game'], 200);
+
+
+        }
+
+
+        return new JsonResponse(['value' => 'bad json. You are a bad boy, bad json bad boy'], 500);
+    }
+
+    /**
+     * @Route("/game/modify_game", name="modifyGame", methods={"POST"})
+     */
+    public function modifyGame(Request $request)
+    {
+        $user = $this->getUser();
+
+        $values = json_decode($request->getContent());
+
+        if(isset($values->id,$values->type_id,$values->campagne_id,$values->name,$values->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
+
+            $game = $this->getDoctrine()->getRepository(Game::class)->find($values->id);
             $game->setName($values->name);
             $game->setCampagneId($this->getDoctrine()->getRepository(Campagne::class)->find($values->campagne_id));
             $game->setDate(new \DateTime($values->date));

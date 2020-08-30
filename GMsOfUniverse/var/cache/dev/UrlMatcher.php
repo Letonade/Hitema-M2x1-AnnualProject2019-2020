@@ -20,6 +20,7 @@ return [
         '/game/get_Participants' => [[['_route' => 'getParticipants', '_controller' => 'App\\Controller\\GameController::getParticipants'], null, ['POST' => 0], null, false, false, null]],
         '/game/create_campagne' => [[['_route' => 'createCampagne', '_controller' => 'App\\Controller\\GameController::createCampagne'], null, ['POST' => 0], null, false, false, null]],
         '/game/create_game' => [[['_route' => 'createGame', '_controller' => 'App\\Controller\\GameController::createGame'], null, ['POST' => 0], null, false, false, null]],
+        '/game/modify_game' => [[['_route' => 'modifyGame', '_controller' => 'App\\Controller\\GameController::modifyGame'], null, ['POST' => 0], null, false, false, null]],
         '/game/add_img' => [[['_route' => 'addImg', '_controller' => 'App\\Controller\\GameController::addImg'], null, ['POST' => 0], null, false, false, null]],
         '/game/participe' => [[['_route' => 'participe', '_controller' => 'App\\Controller\\GameController::participe'], null, ['POST' => 0], null, false, false, null]],
         '/game/no_participe' => [[['_route' => 'noParticipe', '_controller' => 'App\\Controller\\GameController::noParticipe'], null, ['POST' => 0], null, false, false, null]],
