@@ -60,6 +60,25 @@ class PostRepository extends ServiceEntityRepository
 
     }
 
+    public function posts_spo()
+    {
+        $qb = $this->createQueryBuilder('p');
+        $newDate = new \DateTime('now');
+        $qb->where('p.sponsored = 1')
+            ->andWhere($qb->expr()->lt('p.date',':now'))
+            ->setParameter('now', $newDate);
+        return $qb->getQuery()->getResult();
 
+    }
+
+    public function posts()
+    {
+        $qb = $this->createQueryBuilder('p');
+        $newDate = new \DateTime('now');
+        $qb->where($qb->expr()->lt('p.date',':now'))
+            ->setParameter('now', $newDate);
+        return $qb->getQuery()->getResult();
+
+    }
 
 }
