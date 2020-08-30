@@ -4,8 +4,12 @@
 namespace App\Controller;
 
 
+use App\Entity\Game;
+use App\Entity\Image;
 use App\Entity\Post;
 use App\Entity\Type;
+use App\Type\ImageType;
+use App\Utils\UploadedBase64File;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,18 +26,31 @@ class PostController extends AbstractController
         $values = json_decode($request->getContent());
 
 
-        if(isset($values->type_id,$values->name,$values->content,$values->date->date,$values->sponsored))
+        if(isset($values->type_id,$values->name,$values->content,$values->date->date,$values->sponsored, $values->img->name, $values->img->value))
         {
             $post = new Post();
 
             $post->setName($values->name);
-            $post->setContent($values->content);
+            $post->setContent(["content" => $values->content]);
             $post->setSponsored($values->sponsored);
             $post->setDate(new \DateTime($values->date->date));
             $post->setUserId($user);
             $post->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
 
+            $avatarFile = new UploadedBase64File($values->img->value, $values->img->name);
+            $image = new Image();
+            $form = $this->createForm(ImageType::class, $image, ['csrf_protection' => false]);
+            $form->submit(['imageFile' => $avatarFile]);
+
+            if(!($form->isSubmitted() && $form->isValid())) {
+                return new JsonResponse(['valid' =>$form->isValid(), 'submit' =>$form->isSubmitted()], 200);
+            }
+
+            $post->setImage($image);
+
+
             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($image);
             $entityManager->persist($post);
             $entityManager->flush();
 
