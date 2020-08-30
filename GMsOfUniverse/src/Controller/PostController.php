@@ -26,12 +26,12 @@ class PostController extends AbstractController
         $values = json_decode($request->getContent());
 
 
-        if(isset($values->type_id,$values->name,$values->content,$values->date->date,$values->sponsored, $values->img->name, $values->img->value))
+        if(isset($values->type_id,$values->name,$values->content,$values->message,$values->date->date,$values->sponsored, $values->img->name, $values->img->value))
         {
             $post = new Post();
 
             $post->setName($values->name);
-            $post->setContent(["content" => $values->content]);
+            $post->setContent(["content" => $values->content,"message" =>$values->message]);
             $post->setSponsored($values->sponsored);
             $post->setDate(new \DateTime($values->date->date));
             $post->setUserId($user);
@@ -70,12 +70,12 @@ class PostController extends AbstractController
         $values = json_decode($request->getContent());
 
 
-        if(isset($values->id, $values->type_id,$values->name,$values->content,$values->date->date,$values->sponsored))
+        if(isset($values->id, $values->type_id,$values->name,$values->content,$values->message,$values->date->date,$values->sponsored))
         {
             $post = $this->getDoctrine()->getRepository(Post::class)->find($values->id);
 
             $post->setName($values->name);
-            $post->setContent(["content" => $values->content]);
+            $post->setContent(["content" => $values->content,"message" =>$values->message]);
             $post->setSponsored($values->sponsored);
             $post->setDate(new \DateTime($values->date->date));
             $post->setUserId($user);
@@ -152,8 +152,8 @@ class PostController extends AbstractController
             $data['post']['name'] = $post->getName();
             $data['post']['date'] = $post->getDate();
             $data['post']['type_id'] = $post->getType()->getId();
-            $data['post']['content'] = $content['content'];
-            $data['post']['sponsored'] = $post->getSponsored();
+            $data['post']['message'] = $content['message'];
+            $data['post']['sponsored'] = ($post->getSponsored())?1:0;
             $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
             $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
             $datas[] = $data;
@@ -182,7 +182,8 @@ class PostController extends AbstractController
             $data['post']['date'] = $post->getDate();
             $data['post']['type_id'] = $post->getType()->getId();
             $data['post']['content'] = $content['content'];
-            $data['post']['sponsored'] = $post->getSponsored();
+            $data['post']['message'] = $content['message'];
+            $data['post']['sponsored'] = ($post->getSponsored())?1:0;
             $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
             $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
             $datas[] = $data;
@@ -213,6 +214,7 @@ class PostController extends AbstractController
             $data['post']['date'] = $post->getDate();
             $data['post']['type_id'] = $post->getType()->getId();
             $data['post']['content'] = $content['content'];
+            $data['post']['message'] = $content['message'];
             $data['post']['sponsored'] = $post->getSponsored();
             $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
             $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
