@@ -29,9 +29,13 @@ class PostController extends AbstractController
             $post->setName($values->name);
             $post->setContent($values->content);
             $post->setSponsored($values->sponsored);
-            $post->setDate(new \DateTime($values->date));
+            $post->setDate(new \DateTime($values->date->date));
             $post->setUserId($user);
             $post->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($post);
+            $entityManager->flush();
 
 
             return new JsonResponse(['value' =>'create_post'], 200);

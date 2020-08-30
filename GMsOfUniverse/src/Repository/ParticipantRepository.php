@@ -120,7 +120,8 @@ class ParticipantRepository extends ServiceEntityRepository
             )
             ->setParameter('date', $newDate)
             ->setParameter('user_id', $user_id)
-            ->setParameter('user_id2', $user_id);
+            ->setParameter('user_id2', $user_id)
+            ->groupBy('p.id_game');
         return  $qb->getQuery()->getResult();
     }
 
