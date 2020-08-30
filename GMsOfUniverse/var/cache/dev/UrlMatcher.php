@@ -30,6 +30,7 @@ return [
         '/post/modify_post_img' => [[['_route' => 'modifyPostImg', '_controller' => 'App\\Controller\\PostController::modifyPostImg'], null, ['POST' => 0], null, false, false, null]],
         '/post/get_slider' => [[['_route' => 'getSlider', '_controller' => 'App\\Controller\\PostController::getSlider'], null, ['GET' => 0], null, false, false, null]],
         '/post/get_historique' => [[['_route' => 'getHistorique', '_controller' => 'App\\Controller\\PostController::getHistorique'], null, ['GET' => 0], null, false, false, null]],
+        '/post/get_sponso' => [[['_route' => 'getSponso', '_controller' => 'App\\Controller\\PostController::getSponso'], null, ['GET' => 0], null, false, false, null]],
         '/post/get_post' => [[['_route' => 'getPost', '_controller' => 'App\\Controller\\PostController::getPost'], null, ['POST' => 0], null, false, false, null]],
         '/security' => [[['_route' => 'security', '_controller' => 'App\\Controller\\SecurityController::index'], null, null, null, false, false, null]],
         '/test' => [[['_route' => 'test', '_controller' => 'App\\Controller\\SecurityController::test'], null, ['POST' => 0], null, false, false, null]],

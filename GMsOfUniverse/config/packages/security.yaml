@@ -85,6 +85,14 @@ security:
             pattern: ^/post/get_slider
             stateless: true
             anonymous: true
+        historique:
+            pattern: ^/post/get_historique
+            stateless: true
+            anonymous: true
+        sponso:
+            pattern: ^/post/get_sponso
+            stateless: true
+            anonymous: true
         api:
             pattern:   ^/
             stateless: true
@@ -110,4 +118,6 @@ security:
         - { path: ^/game/get_Types, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/post/get_post, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/post/get_slider, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/post/get_historique, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/post/get_sponso, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/,      roles: IS_AUTHENTICATED_FULLY }

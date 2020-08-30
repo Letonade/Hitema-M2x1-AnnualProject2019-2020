@@ -32,6 +32,7 @@ return [
     'modifyPostImg' => [[], ['_controller' => 'App\\Controller\\PostController::modifyPostImg'], [], [['text', '/post/modify_post_img']], [], []],
     'getSlider' => [[], ['_controller' => 'App\\Controller\\PostController::getSlider'], [], [['text', '/post/get_slider']], [], []],
     'getHistorique' => [[], ['_controller' => 'App\\Controller\\PostController::getHistorique'], [], [['text', '/post/get_historique']], [], []],
+    'getSponso' => [[], ['_controller' => 'App\\Controller\\PostController::getSponso'], [], [['text', '/post/get_sponso']], [], []],
     'getPost' => [[], ['_controller' => 'App\\Controller\\PostController::getPost'], [], [['text', '/post/get_post']], [], []],
     'security' => [[], ['_controller' => 'App\\Controller\\SecurityController::index'], [], [['text', '/security']], [], []],
     'test' => [[], ['_controller' => 'App\\Controller\\SecurityController::test'], [], [['text', '/test']], [], []],

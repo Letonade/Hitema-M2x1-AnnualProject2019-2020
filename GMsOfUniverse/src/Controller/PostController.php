@@ -202,7 +202,7 @@ class PostController extends AbstractController
     {
         $user = $this->getUser();
 
-        $posts = $this->getDoctrine()->getRepository(Post::class)->posts();
+        $posts = $this->getDoctrine()->getRepository(Post::class)->posts_spo();
         $datas = array();
         foreach ($posts as $post)
         {
