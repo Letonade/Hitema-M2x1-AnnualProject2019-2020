@@ -67,8 +67,32 @@ class PostController extends AbstractController
     public function modifyPost(Request $request)
     {
         $user = $this->getUser();
+        $values = json_decode($request->getContent());
 
-        return new JsonResponse(['value' =>'create_post'], 200);
+
+        if(isset($values->id, $values->type_id,$values->name,$values->content,$values->date->date,$values->sponsored))
+        {
+            $post = $this->getDoctrine()->getRepository(Post::class)->find($values->id);
+
+            $post->setName($values->name);
+            $post->setContent(["content" => $values->content]);
+            $post->setSponsored($values->sponsored);
+            $post->setDate(new \DateTime($values->date->date));
+            $post->setUserId($user);
+            $post->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
+
+
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($post);
+            $entityManager->flush();
+
+
+            return new JsonResponse(['value' =>'modify_post'], 200);
+        }
+
+        return new JsonResponse(['value' => 'bad json. You are a bad boy, bad json bad boy'], 500);
     }
 
     /**
