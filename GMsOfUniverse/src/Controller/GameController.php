@@ -179,6 +179,8 @@ class GameController extends AbstractController
             $data['avatarImg'] = $avatar;
             //avatarAlt
             $data['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
+            //CampagneId
+            $data['campagneId'] = $game->getCampagneId()->getId();
             //gameImg
             $gameImg = $game->getImage();
             if (isset($gameImg)) {
@@ -373,7 +375,7 @@ class GameController extends AbstractController
             $entityManager->flush();
 
 
-            return new JsonResponse(['value' => 'create_game'], 200);
+            return new JsonResponse(['value' => 'modify_game'], 200);
 
 
         }
