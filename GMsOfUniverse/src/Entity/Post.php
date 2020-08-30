@@ -22,9 +22,9 @@ class Post
     private $name;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="text")
      */
-    private $content = [];
+    private $content;
 
     /**
      * @ORM\Column(type="datetime")
@@ -71,12 +71,12 @@ class Post
         return $this;
     }
 
-    public function getContent(): ?array
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContent(array $content): self
+    public function setContent(string $content): self
     {
         $this->content = $content;
 
