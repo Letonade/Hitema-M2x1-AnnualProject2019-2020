@@ -10,6 +10,7 @@ import Slider2                from '../../assets/img/banner/StarfinderBanner.png
 
 import UserService          from '../../services/user.service';
 import OrganisatorService   from "../../services/organisator.service";
+import StatistiqueService   from "../../services/statistique.service";
 
 class Home extends Component {
 
@@ -43,7 +44,13 @@ class Home extends Component {
       avatarAlt : " 0 ",
       //@aliak -> je te laisse compléter le nécessaire pour le profil
       //    -> dans componentDidMount je complete le user (c'est pour les test uniquement)
-    }
+    },
+
+    /*stat:{ 
+      stat: '',
+      users: '',
+      game: ''
+       }*/
   }
 
   componentDidMount() {
@@ -51,7 +58,7 @@ class Home extends Component {
         user : {
           mail : (localStorage.getItem("ProfilMail") != null) ? localStorage.getItem("ProfilMail") : null,
           avatar : (localStorage.getItem("ProfilAvatar") != null) ? localStorage.getItem("ProfilAvatar") : null,
-          }
+        }
         })})
   }
 //test d'ajout de l'image ("l'avatar") a user
@@ -107,6 +114,26 @@ class Home extends Component {
       console.log('ERROR TEST SUBJECT ! TestFunc2.2');
     }
   }
+async TestFuncStat(){
+  console.log('LANCEMENT...TestFuncStat');
+  let response = await StatistiqueService.stattwo(this.state.game);
+    if (response.ok) {
+      console.log('EFFICIENT TEST ! TestFuncStat');
+      let {value, id} = await response.json();
+        
+        await this.setState((prevState) => ({
+        game: {
+          ...prevState.game,
+        },
+       
+        
+      }));
+    }else {
+      console.log('ERROR TEST SUBJECT ! TestFunc2.1');
+    }
+    
+}
+
   async TestFunc3(){
     console.log('LANCEMENT...TestFunc3');
     console.log('EFFICIENT TEST ! TestFunc3');
@@ -157,6 +184,11 @@ class Home extends Component {
     console.log('EFFICIENT TEST ! TestFunc12');
     console.log('ERROR TEST SUBJECT ! TestFunc12');
   }
+  /*async TestFuncStat(){
+    console.log('LANCEMENT...TestFuncStat');
+    console.log('EFFICIENT TEST ! TestFuncStat');
+    console.log('ERROR TEST SUBJECT ! TestFuncStat');
+  }*/
 
  render(){
   return (
@@ -333,7 +365,12 @@ class Home extends Component {
                   <span className="">258 306 Parties en cours</span><br/>
                   <span>
                     <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">27%</span>
+                   {/*  <span className="fs-18 ml-1">27%</span>
+                   <span className="fs-18 ml-1">{ 
+                    
+                    StatistiqueService.stattwo(this.state.stat)
+                    }</span>*/}
+                    
                   </span>
                 </div>
             </div>
@@ -342,11 +379,13 @@ class Home extends Component {
           <div className="col-md-4">
             <div className="card card-body">
                 <div className="text-center">
-                  <span className="">258 306 Parties en cours</span><br/>
+                  <span className="">258 Parties en cours</span><br/>
                   <span>
                     <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">27%</span>
-                  </span>
+                    {/* <span className="fs-18 ml-1">27%</span>
+                     <span className="fs-18 ml-1">{ StatistiqueService.stattwo }</span>
+                 */}
+                    </span>
                 </div>
             </div>
           </div>
@@ -354,10 +393,14 @@ class Home extends Component {
           <div className="col-md-4">
             <div className="card card-body">
                 <div className="text-center">
-                  <span className="">28 631 Parties en cours</span><br/>
+                  <span className="">Parties en cours</span><br/>
                   <span>
                     <i className="ti-angle-up text-success"></i>
-                    <span className="fs-18 ml-1">27%</span>
+                   {/*  <span className="fs-18 ml-1">27%</span> <span className="fs-18 ml-1">{StatistiqueService.stattwo}</span>*/}
+                   <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
+                    href="# " onClick={() => {this.TestFuncStat()}}>
+                    Stats
+                    </a>
                   </span>
                 </div>
             </div>

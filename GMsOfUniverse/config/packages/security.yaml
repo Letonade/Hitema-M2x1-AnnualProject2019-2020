@@ -77,6 +77,14 @@ security:
             pattern: ^/game/get_Types
             stateless: true
             anonymous: true
+        statg :
+            pattern: ^/stat/get_game
+            stateless: true
+            anonymous: true
+        statu :
+            pattern: ^/stat/get_user
+            stateless: true
+            anonymous: true
         api:
             pattern:   ^/
             stateless: true
@@ -100,4 +108,6 @@ security:
         - { path: ^/game/get_game, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/game/get_Participants, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/game/get_Types, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/stat/get_game, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/stat/get_user, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/,      roles: IS_AUTHENTICATED_FULLY }
