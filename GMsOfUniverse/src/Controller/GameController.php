@@ -423,6 +423,31 @@ class GameController extends AbstractController
 
 
     /**
+     * @Route("/game/remove_img", name="removeImg", methods={"POST"})
+     */
+    public function removeImg(Request $request)
+    {
+        $data = json_decode($request->getContent(), true);
+        if(!isset($data['game_id'])
+        ) {
+            return new JsonResponse(['value' =>'bad1'], 200);
+        }
+
+
+        $game = $this->getDoctrine()->getRepository(Game::class)->find($data['game_id']);
+
+        $game->setImage(null);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($game);
+        $entityManager->flush();
+
+
+        // Persist, do thing you want to do and send json response
+        return new JsonResponse(['value' =>'good'], 200);
+
+    }
+
+    /**
      * @Route("/game/participe", name="participe", methods={"POST"})
      */
     public function participe(Request $request)

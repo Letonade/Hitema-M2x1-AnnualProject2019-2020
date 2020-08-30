@@ -74,7 +74,7 @@ class Game
     }
 
 
-    public function setImage(Image $image): void
+    public function setImage(?Image $image): void
     {
         $this->image = $image;
     }

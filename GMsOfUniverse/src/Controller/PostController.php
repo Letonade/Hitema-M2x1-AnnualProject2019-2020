@@ -96,6 +96,45 @@ class PostController extends AbstractController
     }
 
     /**
+     * @Route("/post/modify_post_img", name="modifyPostImg", methods={"POST"})
+     */
+    public function modifyPostImg(Request $request)
+    {
+        $user = $this->getUser();
+        $values = json_decode($request->getContent());
+
+
+        if(isset($values->id, $values->img->name, $values->img->value))
+        {
+            $post = $this->getDoctrine()->getRepository(Post::class)->find($values->id);
+
+
+
+            $avatarFile = new UploadedBase64File($values->img->value, $values->img->name);
+            $image = new Image();
+            $form = $this->createForm(ImageType::class, $image, ['csrf_protection' => false]);
+            $form->submit(['imageFile' => $avatarFile]);
+
+            if(!($form->isSubmitted() && $form->isValid())) {
+                return new JsonResponse(['valid' =>$form->isValid(), 'submit' =>$form->isSubmitted()], 200);
+            }
+
+            $post->setImage($image);
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($image);
+            $entityManager->persist($post);
+            $entityManager->flush();
+
+
+            return new JsonResponse(['value' =>'modify_post_img'], 200);
+        }
+
+        return new JsonResponse(['value' => 'bad json. You are a bad boy, bad json bad boy'], 500);
+    }
+
+    /**
      * @Route("/post/get_slider", name="getSlider", methods={"GET"})
      */
     public function getSlider(Request $request)
