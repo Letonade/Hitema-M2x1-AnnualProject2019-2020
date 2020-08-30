@@ -156,13 +156,34 @@ class PostController extends AbstractController
 
 
     /**
-     * @Route("/post/get_post", name="getPost", methods={"GET"})
+     * @Route("/post/get_post", name="getPost", methods={"POST"})
      */
     public function getPost(Request $request)
     {
         $user = $this->getUser();
+        $values = json_decode($request->getContent());
 
-        return new JsonResponse(['value' =>'create_post'], 200);
+
+        if(isset($values->id))
+        {
+            $post = $this->getDoctrine()->getRepository(Post::class)->find($values->id);
+            $content =$post->getContent();
+
+            $data = array();
+            $data['post']['id'] = $post->getId();
+            $data['post']['name'] = $post->getName();
+            $data['post']['date'] = $post->getDate();
+            $data['post']['type_id'] = $post->getType()->getId();
+            $data['post']['content'] = $content['content'];
+            $data['post']['sponsored'] = $post->getSponsored();
+            $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
+            $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
+
+
+            return new JsonResponse($data, 200);
+        }
+
+        return new JsonResponse(['value' => 'bad json. You are a bad boy, bad json bad boy'], 500);
     }
 
 }
