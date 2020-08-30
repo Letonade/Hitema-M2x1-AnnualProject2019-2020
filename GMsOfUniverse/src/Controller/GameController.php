@@ -187,7 +187,7 @@ class GameController extends AbstractController
                 $gameImg = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $game->getImage()->getImageName();
 
             } else {
-                $gameImg = ' ';
+                $gameImg = null;
             }
             $data['OtherGameInfo']['gameImg'] = $gameImg;
             //title
