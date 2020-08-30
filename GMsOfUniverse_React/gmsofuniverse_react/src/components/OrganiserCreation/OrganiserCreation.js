@@ -208,6 +208,7 @@ class OrganiserCreation extends Component {
               id: id,
             }
           }));
+          OrganisatorService.participe({id:this.state.game.id});
         }
       }
     }else{// submit en mode modification
@@ -228,7 +229,8 @@ class OrganiserCreation extends Component {
     {
       OrganisatorService.removeImg({game_id : this.state.game.id});
     }
-    
+
+    this.props.history.push('/', /*OBJ*/);
   }
 
 //EVENT
@@ -292,9 +294,6 @@ class OrganiserCreation extends Component {
 
     this.state.Connected && this.state.AmIMJ && !this.state.InPast && this.setState({Activated : true});
     this.state.Connected && this.state.ModeCreation && !this.state.InPast && this.setState({Activated : true});
-
-    console.log("initial State of creation/modif");
-    console.log(this.state);
   }
 
  render(){
