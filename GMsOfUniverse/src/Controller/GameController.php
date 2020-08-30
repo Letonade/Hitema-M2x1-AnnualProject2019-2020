@@ -179,8 +179,8 @@ class GameController extends AbstractController
             $data['avatarImg'] = $avatar;
             //avatarAlt
             $data['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
-            //CampagneId
-            $data['campagneId'] = $game->getCampagneId()->getId();
+            //campagne_id
+            $data['campagne_id'] = $game->getCampagneId()->getId();
             //gameImg
             $gameImg = $game->getImage();
             if (isset($gameImg)) {
