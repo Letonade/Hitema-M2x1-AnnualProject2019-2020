@@ -96,7 +96,7 @@ class GameController extends AbstractController
     {
 
 
-        $games = $this->getDoctrine()->getRepository(Game::class)->findAll();
+        $games = $this->getDoctrine()->getRepository(Game::class)->calendaranon();
         $datas =array();
         foreach ($games as $game)
         {

@@ -48,28 +48,15 @@ class GameRepository extends ServiceEntityRepository
         ;
     }
     */
-/*
-    public function calendar($user_id)
+
+    public function calendaranon()
     {
         $qb = $this->createQueryBuilder('g');
         $newDate = new \DateTime('now');
-        $qb->from('participant', 'p')
-            ->innerJoin('p.id_game','g')
-            ->where(
-                $qb->expr()->orX(
-                    $qb->expr()->orX(
-                        $qb->expr()->gte('g.date','date'),
-                        $qb->expr()->andX(
-                            $qb->expr()->eq('p.id_user','user_id'),
-                            $qb->expr()->lt('g.date','date2')))),
-                $qb->expr()->eq('g.proprietaire_id','user_id2')
-            )
-            ->setParameter('date', $newDate)
-            ->setParameter('date2', $newDate)
-            ->setParameter('user_id', $user_id)
-            ->setParameter('user_id2', $user_id);
+        $qb ->where($qb->expr()->gte('g.date',':date'))
+            ->setParameter('date', $newDate);
         return  $qb->getQuery()->getResult();
 
 
-    }*/
+    }
 }
