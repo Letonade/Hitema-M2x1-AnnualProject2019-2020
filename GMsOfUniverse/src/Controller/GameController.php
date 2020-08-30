@@ -166,7 +166,7 @@ class GameController extends AbstractController
             $description_data = $game->getDescription();
             //id
             $id = $game->getId();
-            $data['id'] = $id;
+            $data['game']['id'] = $id;
             // avatarImg
             $avatar = $game->getProprietaire()->getAvatar();
             if (isset($avatar)) {
@@ -176,11 +176,11 @@ class GameController extends AbstractController
                 $avatar = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
             }
 
-            $data['avatarImg'] = $avatar;
+            $data['OtherGameInfo']['avatarImg'] = $avatar;
             //avatarAlt
-            $data['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
+            $data['OtherGameInfo']['avatarAlt'] = ' ' . $game->getProprietaire()->getUsername()[0] . ' ';
             //campagne_id
-            $data['campagne_id'] = $game->getCampagneId()->getId();
+            $data['game']['campagne_id'] = $game->getCampagneId()->getId();
             //gameImg
             $gameImg = $game->getImage();
             if (isset($gameImg)) {
@@ -189,30 +189,30 @@ class GameController extends AbstractController
             } else {
                 $gameImg = ' ';
             }
-            $data['gameImg'] = $gameImg;
+            $data['OtherGameInfo']['gameImg'] = $gameImg;
             //title
-            $data['title'] = $game->getName();
+            $data['game']['title'] = $game->getName();
             //mj
-            $data['mj'] = $game->getProprietaire()->getUsername();
+            $data['OtherGameInfo']['mj'] = $game->getProprietaire()->getUsername();
             //description
-            $data['description'] = $description_data["description"];
+            $data['game']['description']['description'] = $description_data["description"];
             //maxJoueur
-            $data['maxJoueur'] = $description_data["maxJoueur"];
+            $data['game']['description']['maxJoueur'] = $description_data["maxJoueur"];
             //nombreInscrit
 
-            $data['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id)) + 1;
+            $data['OtherGameInfo']['nombreInscrit'] = ((int)$this->getDoctrine()->getRepository(Participant::class)->getGameParticipant($id)) + 1;
             //categorieDeJoueur
-            $data['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
+            $data['game']['description']['categorieDeJoueur'] = $description_data["categorieDeJoueur"];
             //univers
-            $data['univers'] = $game->getType()->getId();
+            $data['game']['type_id'] = $game->getType()->getId();
             //langue
-            $data['langue'] = $description_data["langue"];
+            $data['game']['description']['langue'] = $description_data["langue"];
             //matureContent
-            $data['matureContent'] = $description_data["matureContent"];
+            $data['game']['description']['matureContent'] = $description_data["matureContent"];
             //region
-            $data['region'] = $description_data["region"];
+            $data['game']['description']['region'] = $description_data["region"];
             //date
-            $data['date'] = $game->getDate();
+            $data['game']['date'] = $game->getDate();
 
 
             return new JsonResponse($data, 201);
@@ -317,12 +317,12 @@ class GameController extends AbstractController
 
         $values = json_decode($request->getContent());
 
-        if(isset($values->type_id,$values->campagne_id,$values->name,$values->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
+        if(isset($values->type_id,$values->campagne_id,$values->title,$values->date->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
 
             $game = new Game();
-            $game->setName($values->name);
+            $game->setName($values->title);
             $game->setCampagneId($this->getDoctrine()->getRepository(Campagne::class)->find($values->campagne_id));
-            $game->setDate(new \DateTime($values->date));
+            $game->setDate(new \DateTime($values->date->date));
             $game->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
             $game->setDescription([
                 'description' => $values->description->description,
