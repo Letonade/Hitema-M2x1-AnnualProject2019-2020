@@ -355,10 +355,10 @@ class GameController extends AbstractController
 
         $values = json_decode($request->getContent());
 
-        if(isset($values->id,$values->type_id,$values->campagne_id,$values->name,$values->date->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
+        if(isset($values->id,$values->type_id,$values->campagne_id,$values->title,$values->date->date,$values->description->description,$values->description->maxJoueur,$values->description->categorieDeJoueur,$values->description->langue,$values->description->matureContent,$values->description->region)) {
 
             $game = $this->getDoctrine()->getRepository(Game::class)->find($values->id);
-            $game->setName($values->name);
+            $game->setName($values->title);
             $game->setCampagneId($this->getDoctrine()->getRepository(Campagne::class)->find($values->campagne_id));
             $game->setDate(new \DateTime($values->date->date));
             $game->setType($this->getDoctrine()->getRepository(Type::class)->find($values->type_id));
