@@ -46,7 +46,6 @@ class PostService {
         let init = {
             method : "GET",
             headers : {
-                'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
@@ -59,7 +58,6 @@ class PostService {
         let init = {
             method : "GET",
             headers : {
-                'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
@@ -72,7 +70,6 @@ class PostService {
         let init = {
             method : "GET",
             headers : {
-                'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
@@ -85,7 +82,6 @@ class PostService {
         let init = {
             method : "POST",
             headers : {
-                'Authorization': 'Bearer ' + localStorage.getItem("TokenUser"),
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(body),
