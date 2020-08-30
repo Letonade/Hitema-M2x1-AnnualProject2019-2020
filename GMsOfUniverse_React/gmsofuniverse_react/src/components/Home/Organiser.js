@@ -81,7 +81,9 @@ class Organiser extends Component {
             </div>
           </PerfectScrollbar>
           <div className="text-center bt-1 border-light p-2">
-            <a className="text-default text-uppercase d-block fs-10 fw-500 ls-1" href=" #">Create a game</a>
+            {this.props.Connected &&
+              <a className="text-default text-uppercase d-block fs-10 fw-500 ls-1" href="/OrganiserCreationApp">Create a game</a>
+            }
           </div>
         </div>
       </div>

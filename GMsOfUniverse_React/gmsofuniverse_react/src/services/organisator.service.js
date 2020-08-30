@@ -30,6 +30,31 @@ class OrganisatorService {
 		return call;
 	}
 
+	static async getGame (body) {
+		let init = {
+			method : "POST",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/get_game`, init)
+		return call;
+	}
+
+	static async getTypes (body) {
+		let init = {
+			method : "GET",
+			headers : {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(body),
+		}
+		let call = await fetch(`${apiUrl}/get_Types`, init)
+		return call;
+	}
+
+//Pour Organiser
 	static async getCalandar (body) {
 		let init = {
 			method : "GET",
@@ -55,6 +80,7 @@ class OrganisatorService {
 		return call;
 	}
 
+//Hybrid Uses
 	static async participe (body) {
 		let init = {
 			method : "POST",

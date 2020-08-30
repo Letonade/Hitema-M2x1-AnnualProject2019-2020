@@ -45,9 +45,7 @@ class Navbar extends Component {
     this._isMounted = false;
   }
 
-
   render (){
-
     let connected = (
           <ul className="topbar-btns">
             <span className="topbar-btn" data-toggle="quickview" onClick={() => {this.Deconnexion()}}><i className="ti-close"></i></span>

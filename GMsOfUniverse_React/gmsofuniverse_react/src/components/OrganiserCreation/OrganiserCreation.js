@@ -12,26 +12,81 @@ import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
 import OrganiserCreationInscrits from './OrganiserCreationInscrits'
 
-import banner               from '../../assets/img/banner/ShadowrunBanner.png';
+import banner               from '../../assets/img/banner/NoBanner.png';
+
+import UserService            from '../../services/user.service';
+import OrganisatorService     from "../../services/organisator.service";
 
 class OrganiserCreation extends Component {
 
   state = {
-    game : {
+    Connected : false,
+    AmIMJ : false,
+    ModeCreation: true,
+
+    gametypes : null, //liste
+    game : 
+    {
       id : null,
-      name: "The great campaign of the lord commander Sputnik avec Kat l'oublié du pénitent",
-      campagne_id: 1,
-      date: "2020-05-02 01:40:56",
+      title: "Name",
+      campagne_id: null,
+      date: {
+          date : new Date(),
+          timezone_type : 3,
+          timezone : "Europe/Berlin"
+        },
       type_id: 1,
-      maxJoueur: 7,
       description: {
-        description: "Le lord commander vous convoque immédiatement sur le pont pour une aventure par dela les océans, un pélerinnage d'aventures sur des terres rempli de joyaux antique et de joyeux bandits.",
-        categorieDeJoueur: "Confirmé",
+        maxJoueur: 5,
+        description: "Description",
+        categorieDeJoueur: "Interessé",
         langue: "FR",
         matureContent: "KO",
         region: "Paris"
       }
+    },
+
+    "OtherGameInfo": {
+      "avatarImg": null,
+      "avatarAlt": " 0 ",
+      "gameImg": null,
+      "mj": null,
+      "nombreInscrit": 0
     }
+
+    /*
+    {
+      "game": {
+        "id": 4,
+        "campagne_id": 14,
+        "title": "ma_seconde_game",
+        "description": {
+          "description": "Faux!",
+          "maxJoueur": 9,
+          "categorieDeJoueur": "Initié",
+          "langue": "EN",
+          "matureContent": "OK",
+          "region": "Paris"
+        },
+        "type_id": 2,
+        "date": {
+          "date": "2021-05-02 01:23:56.000000",
+          "timezone_type": 3,
+          "timezone": "Europe/Berlin"
+        }
+      },
+      "OtherGameInfo": {
+        "avatarImg": "http://127.0.0.1:8000/images/5f48fe8f71a45670289505.jpeg",
+        "avatarAlt": " t ",
+        "gameImg": " ",
+        "mj": "test@test.com",
+        "nombreInscrit": 2
+      }
+    }
+
+    */
+
+
   }
 
 //utility
@@ -59,7 +114,9 @@ class OrganiserCreation extends Component {
     //console.log(dateAsTxt);
     this.setState((prevState) => ({
       game : {...prevState.game, 
-        date : e.toString()
+        date : {...prevState.game.date,
+          date : dateAsTxt 
+        }
       }
     }));
   }
@@ -89,11 +146,42 @@ class OrganiserCreation extends Component {
       }));
     }
   }
-
-  componentDidMount() {
+//EVENT
+  async componentDidMount() {
     ////récupérer l'Id
-    //this.props.location.state
-    
+    let ephemera = this.props.location.state;
+    if(ephemera){
+      this.setState({ModeCreation : false});
+      let response = await OrganisatorService.getGame({game_id : ephemera.gameId});
+      if (response.ok) {
+        let json = await response.json();
+        this.setState((prev) => ({
+          game :{...prev.game,
+            ...json.game,
+          },
+          OtherGameInfo :{...prev.OtherGameInfo,
+            ...json.OtherGameInfo,
+          }
+        }))
+      }else{
+        this.props.history.push('/', /*OBJ*/);
+      }
+    }
+    let response = await OrganisatorService.getTypes();
+    let json = await response.json();
+    this.setState({gametypes : json});
+    response = null;
+    json = null;
+    if (await UserService.VerificationToken())
+      {
+        this.setState({Connected : true});
+        if (this.state.ModeCreation && (localStorage.getItem("TokenAuthMail") === this.state.OtherGameInfo.mj))
+          this.setState({AmIMJ : true});
+      }else{
+        this.setState({Connected : false});
+      }
+    console.log("initial State of creation/modif");
+    console.log(this.state);
   }
 
  render(){
@@ -128,7 +216,7 @@ class OrganiserCreation extends Component {
                           <ReactQuill theme="bubble"
                             modules={{toolbar : false}}
                             onChange={(e) => {this.handleQuillChangeTitle(e)}}
-                            value={"<h2>"+this.state.game.name+"</h2>"}
+                            value={"<h2>"+this.state.game.title+"</h2>"}
                           />
                         <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                           <div className="file-group file-group-inline">
@@ -154,7 +242,7 @@ class OrganiserCreation extends Component {
                         showMonthDropdown
                         withPortal
                         id="date" onChange={(e) => this.handleDatePickerChange(e)}
-                        selected={new Date(this.state.game.date)}/>
+                        selected={new Date(this.state.game.date.date)}/>
                       <label>Date</label>
                     </div>
                   </div>
@@ -170,8 +258,8 @@ class OrganiserCreation extends Component {
 
                   <div className="col-md-3">
                     <div className="form-group">
-                      <input className="form-control" type="text" value={this.state.game.maxJoueur} pattern="[0-9]*"
-                      id="maxJoueur" onChange={(e) => this.changeGameForm(e)} />
+                      <input className="form-control" type="text" value={this.state.game.description.maxJoueur} pattern="[0-9]*"
+                      id="maxJoueur" onChange={(e) => this.changeGameDescriptionForm(e)} />
                       <label>Maximum de joueurs</label>
                     </div>
                   </div>
@@ -194,16 +282,13 @@ class OrganiserCreation extends Component {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="form-group">
-                      <select className="form-control" title="&#xA0;" data-provide="selectpicker">
-                        <option value="1">Warhammer 1ere édition</option>
-                        <option value="2" selected>Warhammer 2nd édition</option>
-                        <option value="3">Warhammer 3eme édition</option>
-                        <option value="4">Warhammer 4eme édition</option>
-                        <option value="5">pathfinder 1ere édition</option>
-                        <option value="6">pathfinder 2nd édition</option>
-                        <option value="7">pathfinder 3eme édition</option>
-                        <option value="8">Starfinder 1ere édition</option>
-                        <option value="9">Shadowrun Sixth World</option>
+                      <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
+                      id="type_id" value={this.state.game.type_id} onChange={(e) => this.changeGameForm(e)}>
+                      {
+                        this.state.gametypes && this.state.gametypes.map((elem,x) => {
+                          return (<option value={elem.id} key={x}>{elem.name}</option>);
+                        })
+                      }
                       </select>
                       <label>Univers</label>
                     </div>
@@ -214,7 +299,7 @@ class OrganiserCreation extends Component {
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="matureContent" onChange={(e) => {this.changeGameDescriptionForm(e)}}
                       value={this.state.game.description.matureContent}>
-                        <option value="1" selected>OK</option>
+                        <option value="1">OK</option>
                         <option value="2">KO</option>
                       </select>
                       <label>Mature Content</label>
@@ -226,7 +311,7 @@ class OrganiserCreation extends Component {
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="langue" onChange={(e) => {this.changeGameDescriptionForm(e)}}
                       value={this.state.game.description.langue}>
-                        <option value="FR" selected>FR</option>
+                        <option value="FR">FR</option>
                         <option value="EN">EN</option>
                       </select>
                       <label>Langue</label>
@@ -240,7 +325,7 @@ class OrganiserCreation extends Component {
                       value={this.state.game.description.region}>
                         <option value="Campagne">Campagne</option>
                         <option value="Paris">Paris</option>
-                        <option value="Région parisienne" selected>Région parisienne</option>
+                        <option value="Région parisienne">Région parisienne</option>
                       </select>
                       <label>Région</label>
                     </div>

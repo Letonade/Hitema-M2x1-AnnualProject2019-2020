@@ -92,9 +92,10 @@ class UserService {
 		// traitement de la reception
 		if (call.ok) {
 			const json = await call.json();
-			let {mail, avatar} = json.data;
+			let {mail, avatar, avatarAlt} = json.data;
 			localStorage.setItem("ProfilMail",mail);
 			localStorage.setItem("ProfilAvatar",avatar);
+			localStorage.setItem("ProfilAvatarAlt",avatarAlt);
 		}else
 		{return {ok : false}}
 

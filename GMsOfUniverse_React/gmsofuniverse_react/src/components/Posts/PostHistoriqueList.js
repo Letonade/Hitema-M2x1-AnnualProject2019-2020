@@ -4,7 +4,7 @@ import { withRouter }       from 'react-router-dom';
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
 
-class PostHistoriqueOne extends Component {
+class PostHistoriqueList extends Component {
 
   // componentDidMount() {
     
@@ -41,5 +41,5 @@ class PostHistoriqueOne extends Component {
  }
 }
 
-export default withRouter(PostHistoriqueOne)
+export default withRouter(PostHistoriqueList)
 

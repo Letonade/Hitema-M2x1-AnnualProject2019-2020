@@ -5,9 +5,24 @@ import { withRouter }       from 'react-router-dom';
 import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
 
-import PostHistoriqueOne    from './PostHistoriqueOne'
+import PostHistoriqueList    from './PostHistoriqueList'
 
 class PostHistorique extends Component {
+
+  state = {
+    PostHistoriqueListe : [
+      {
+        id: 1
+        ,img: null //image
+        ,bannerAlt: "banner"
+        ,title: "Shadowrun Sixth world" 
+        //title->  pour les sliders, si il n'y à pas de message le title va dans h2 laissant p et h3 vide.
+        //        dans le cas de présence de message, le message va dans p et le titre dans h2 laissant h3 vide.
+        ,commercial : 0
+        ,message : "Fight with brothers !"
+      }
+    ]
+  }
 
   // componentDidMount() {
     
@@ -43,8 +58,8 @@ class PostHistorique extends Component {
             </div>
           </header>
 
-          <PostHistoriqueOne>
-          </PostHistoriqueOne>
+          <PostHistoriqueList>
+          </PostHistoriqueList>
 
           <footer className="flexbox align-items-center py-20">
             <span className="flex-grow text-right text-lighter pr-2">1-10 of 1,853</span>

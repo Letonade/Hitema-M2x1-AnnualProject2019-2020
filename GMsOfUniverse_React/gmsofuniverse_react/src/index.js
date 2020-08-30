@@ -27,6 +27,8 @@ import './assets/css/app.min.css';
 import './assets/css/core.min.css';
 import './assets/css/style.min.css';
 
+import OurLogoMini               from './assets/img/OurLogoMini.png';
+
 // NOT IN REACT 
 // import './assets/js/Jquery.js';
 // import './assets/js/bootstrap.js';
@@ -35,6 +37,7 @@ const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.
 
 render(
 	<Provider store={store}>
+	<link rel="shortcut icon" type="image/x-icon" href={OurLogoMini} />
 		<Router>
 			<Switch>
 				<Route path="/LoginApp" component={LoginApp} />
