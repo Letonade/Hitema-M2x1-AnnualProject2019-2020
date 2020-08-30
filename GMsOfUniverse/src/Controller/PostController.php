@@ -139,9 +139,28 @@ class PostController extends AbstractController
      */
     public function getSlider(Request $request)
     {
-        $user = $this->getUser();
 
-        return new JsonResponse(['value' =>'create_post'], 200);
+
+        $posts = $this->getDoctrine()->getRepository(Post::class)->slider();
+        $datas = array();
+        foreach ($posts as $post)
+        {
+            $content =$post->getContent();
+
+            $data = array();
+            $data['post']['id'] = $post->getId();
+            $data['post']['name'] = $post->getName();
+            $data['post']['date'] = $post->getDate();
+            $data['post']['type_id'] = $post->getType()->getId();
+            $data['post']['content'] = $content['content'];
+            $data['post']['sponsored'] = $post->getSponsored();
+            $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
+            $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
+            $datas[] = $data;
+        }
+
+
+        return new JsonResponse($datas, 200);
     }
 
     /**
@@ -151,7 +170,26 @@ class PostController extends AbstractController
     {
         $user = $this->getUser();
 
-        return new JsonResponse(['value' =>'create_post'], 200);
+        $posts = $this->getDoctrine()->getRepository(Post::class)->slider();
+        $datas = array();
+        foreach ($posts as $post)
+        {
+            $content =$post->getContent();
+
+            $data = array();
+            $data['post']['id'] = $post->getId();
+            $data['post']['name'] = $post->getName();
+            $data['post']['date'] = $post->getDate();
+            $data['post']['type_id'] = $post->getType()->getId();
+            $data['post']['content'] = $content['content'];
+            $data['post']['sponsored'] = $post->getSponsored();
+            $data['post']['img'] = $request->getScheme() . '://' . $request->getHttpHost() . $request->getBasePath() . '/images/' . $post->getImage()->getImageName();
+            $data['other_post_info']['owner'] = $post->getUserId()->getUsername();
+            $datas[] = $data;
+        }
+
+
+        return new JsonResponse($datas, 200);
     }
 
 
@@ -160,7 +198,7 @@ class PostController extends AbstractController
      */
     public function getPost(Request $request)
     {
-        $user = $this->getUser();
+
         $values = json_decode($request->getContent());
 
 
