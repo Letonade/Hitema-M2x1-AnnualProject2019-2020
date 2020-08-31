@@ -6,7 +6,7 @@ import Navbar               from '../../components/Common/Navbar/Navbar'
 import Footer               from '../../components/Common/Footer/Footer'
 
 import banner               from '../../assets/img/banner/ShadowrunBanner.png';
-import OrganisatorService from "../../services/organisator.service";
+import PostService from "../../services/post.service";
 
 class PostOne extends Component {
 
@@ -40,11 +40,11 @@ class PostOne extends Component {
     let ephemera = this.props.location.state;
     if (ephemera) {
       this.setState({ModeCreation: false});
-      let response = await OrganisatorService.getPost({id: ephemera.id});
+      let response = await PostService.getPost({id: ephemera.id});
       if (response.ok) {
         let json = await response.json();
         this.setState((prev) => ({
-          game: {
+          post: {
             ...prev.post,
             ...json.post,
           },
@@ -54,7 +54,9 @@ class PostOne extends Component {
           }
         }))
       } else {
-        this.props.history.push('/', /*OBJ*/);
+        console.log("ephemera");
+        console.log(ephemera);
+        this.props.history.push('/PostHistoriqueApp', /*OBJ*/);
       }
     }
   }
@@ -73,7 +75,7 @@ class PostOne extends Component {
           {/*Pannel*/}
           <div className="col-lg-12 tab-content">
             <div className="card form-type-material tab-pane fade active show" id="tab1">
-              <figure class="teaser teaser-bubba rounded">
+              <figure className="teaser teaser-bubba rounded">
                 <img src={this.state.post.img} alt="banner"/>
                 <figcaption>
                   <h2 className="goldShadow">{this.state.post.annonce}</h2>

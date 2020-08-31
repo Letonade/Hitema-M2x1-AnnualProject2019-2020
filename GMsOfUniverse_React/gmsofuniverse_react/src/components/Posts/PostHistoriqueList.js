@@ -13,6 +13,10 @@ class PostHistoriqueList extends Component {
   // componentDidMount() {
     
   // }
+    redirectToDetail (id) {
+        this.props.history.push('/PostOneApp', {id : id});
+    }
+
 
  render(){
   let [...child] = this.props.children;
@@ -26,10 +30,11 @@ class PostHistoriqueList extends Component {
           <div className="media align-items-center">
             <img src={elem.img ? elem.img : banner} className="avatarBanner avatarBanner-xl rounded" alt="banner" />
             <a className="media-body text-truncate" href=" #">
-              <h5>{elem.name}</h5>
+              <h5 onClick={() => this.redirectToDetail(elem.id)}>{elem.name}</h5>
               <small>{elem.message}</small>
             </a>
             <span className="lead text-fade mr-25" title="Balance">{elem.annonce}</span>
+
           </div>      
         </div>
       );
