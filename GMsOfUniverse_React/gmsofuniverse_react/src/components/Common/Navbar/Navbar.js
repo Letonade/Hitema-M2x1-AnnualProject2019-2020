@@ -70,7 +70,7 @@ class Navbar extends Component {
         </div>
         <div className="topbar-right">
           <a className="topbar-btn" href="PostHistoriqueApp">
-            <i className="ti-align-right"></i>
+            <i className="ti-layout-media-left"></i>
           </a>
 
           <div className="topbar-divider">
