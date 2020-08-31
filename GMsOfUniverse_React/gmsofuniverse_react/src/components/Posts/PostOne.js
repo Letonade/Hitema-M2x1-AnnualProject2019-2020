@@ -38,7 +38,10 @@ class PostOne extends Component {
 
   async componentDidMount() {
     let ephemera = this.props.location.state;
+    console.log("ephemera");
+    console.log(ephemera);
     if (ephemera) {
+
       this.setState({ModeCreation: false});
       let response = await PostService.getPost({id: ephemera.id});
       if (response.ok) {
@@ -54,10 +57,12 @@ class PostOne extends Component {
           }
         }))
       } else {
-        console.log("ephemera");
-        console.log(ephemera);
-        this.props.history.push('/PostHistoriqueApp', /*OBJ*/);
+
+
       }
+    }
+    else{
+      this.props.history.push('/PostHistoriqueApp', /*OBJ*/);
     }
   }
 
