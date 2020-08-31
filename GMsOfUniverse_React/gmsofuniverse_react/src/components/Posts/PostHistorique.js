@@ -7,6 +7,8 @@ import Footer               from '../../components/Common/Footer/Footer'
 
 import PostHistoriqueList    from './PostHistoriqueList'
 
+import PostService     from "../../services/post.service";
+
 class PostHistorique extends Component {
 
   state = {
@@ -14,7 +16,7 @@ class PostHistorique extends Component {
     PaginationNumber : 5,
     search : "",
     PostHistoriqueListe : [
-        {
+/*        {
           "id": 25,
           "name": "Posty Posta",
           "date": {
@@ -28,308 +30,10 @@ class PostHistorique extends Component {
           "annonce": "It is a good product",
           "sponsored": 0,
           "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-
-//massDriver
-
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-        {
-          "id": 25,
-          "name": "Posty Posta",
-          "date": {
-              "date": "2011-05-02 01:23:56.000000",
-              "timezone_type": 3,
-              "timezone": "UTC"
-          },
-          "type_id": 1,
-          "content": "Joby Joba lorem ipsum tatati tatata",
-          "message": "Joby is our Joba",
-          "annonce": "It is a good product",
-          "sponsored": 0,
-          "img": "http://127.0.0.1:8000/images/5f4be72deeadd263659897.png"
-        },
-//fin mass
+        },*/
     ],
-/*      {
-        id: 1
-        ,img: null //image
-        ,bannerAlt: "banner"
-        ,title: "Shadowrun Sixth world" 
-        //title->  pour les sliders, si il n'y à pas de message le title va dans h2 laissant p et h3 vide.
-        //        dans le cas de présence de message, le message va dans p et le titre dans h2 laissant h3 vide.
-        ,commercial : 0
-        ,message : "Fight with brothers !"
-      }*/
   }
+//utility
   PaginationPlus(){
     let NumberResult = this.state.PaginationNumber + 5;
     NumberResult = (NumberResult < 0 || NumberResult > 50) ? 0 : NumberResult
@@ -375,10 +79,16 @@ class PostHistorique extends Component {
     let posts = this.SearchbarResult().slice(Pagination * PaginationNumber, (Pagination + 1) * PaginationNumber);
     return(posts);
   }
-
-  // componentDidMount() {
-    
-  // }
+//Event
+  async componentDidMount() {
+    let response = await PostService.getHistorique();
+    let json = await response.json();
+    json.forEach(e => {
+        this.state.PostHistoriqueListe.push(e.post);
+      });
+    this.setState({Refresher: this.state.Refresher+1});
+    console.log(this.state);
+  }
 
  render(){
     let {Pagination, PaginationNumber} = this.state;
