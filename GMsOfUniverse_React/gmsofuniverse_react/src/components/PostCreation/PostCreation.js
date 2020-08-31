@@ -29,16 +29,16 @@ class PostCreation extends Component {
 
     Post : {
       "id" : null,
-      "name": "Posty Posta",
+      "name": "New",
       "date": {
-        "date": "2021-05-02 01:23:56.000000",
+        "date": "2020-01-01 01:23:56",
         "timezone_type": 3,
         "timezone": "Europe/Berlin"
       },
       "type_id": 1,
-      "content": "Joby Joba lorem ipsum tatati tatata",
-      "message": "Joby is our Joba",
-      "annonce" : "It is a good product",
+      "content": "Lorem ipsum",
+      "message": "New message",
+      "annonce" : "Announcer",
       "sponsored": 0,
       "img" :{
         "name" : "postImg",
