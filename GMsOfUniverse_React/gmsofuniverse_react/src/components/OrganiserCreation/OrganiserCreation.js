@@ -369,7 +369,7 @@ class OrganiserCreation extends Component {
                   <div className="col-md-3">
                     <div className="form-group">
                       <input className="form-control" type="text" value={this.state.game.description.maxJoueur} pattern="[0-9]*"
-                      id="maxJoueur" onChange={(e) => this.changeGameDescriptionForm(e)} disable={Activated ? false : true } />
+                      id="maxJoueur" onChange={(e) => this.changeGameDescriptionForm(e)} disabled={Activated ? false : true } />
                       <label>Maximum de joueurs </label>
                     </div>
                   </div>
@@ -377,7 +377,7 @@ class OrganiserCreation extends Component {
                   <div className="col-md-3">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
-                      id="categorieDeJoueur" onChange={(e) => {this.changeGameDescriptionForm(e)} } disable={Activated ? false : true }
+                      id="categorieDeJoueur" onChange={(e) => {this.changeGameDescriptionForm(e)} } disabled={Activated ? false : true }
                       value={this.state.game.description.categorieDeJoueur}>
                         <option value="Interessé" >Interessé</option>
                         <option value="Initié"    >Initié</option>
@@ -393,7 +393,7 @@ class OrganiserCreation extends Component {
                   <div className="col-md-6">
                     <div className="form-group" disable={Activated ? false : true }>
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
-                      id="type_id" value={this.state.game.type_id} onChange={(e) => this.changeGameForm(e)} >
+                      id="type_id" value={this.state.game.type_id} onChange={(e) => this.changeGameForm(e)} disabled={Activated ? false : true }>
                       {
                         this.state.gametypes && this.state.gametypes.map((elem,x) => {
                           return (<option value={elem.id} key={x}>{elem.name}</option>);
@@ -408,7 +408,7 @@ class OrganiserCreation extends Component {
                     <div className="form-group" disable={Activated ? false : true }>                      
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="matureContent" onChange={(e) => {this.changeGameDescriptionForm(e)}}
-                      value={this.state.game.description.matureContent} >
+                      value={this.state.game.description.matureContent} disabled={Activated ? false : true }>
                         <option value="1">OK</option>
                         <option value="2">KO</option>
                       </select>
@@ -420,7 +420,7 @@ class OrganiserCreation extends Component {
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="langue" onChange={(e) => {this.changeGameDescriptionForm(e)}}
-                      value={this.state.game.description.langue}>
+                      value={this.state.game.description.langue} disabled={Activated ? false : true }>
                         <option value="FR">FR</option>
                         <option value="EN">EN</option>
                       </select>
@@ -432,7 +432,7 @@ class OrganiserCreation extends Component {
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="region" onChange={(e) => {this.changeGameDescriptionForm(e)}}
-                      value={this.state.game.description.region}>
+                      value={this.state.game.description.region} disabled={Activated ? false : true }>
                         <option value="Campagne">Campagne</option>
                         <option value="Paris">Paris</option>
                         <option value="Région parisienne">Région parisienne</option>
