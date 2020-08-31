@@ -22,12 +22,13 @@ class OrganiserCreation extends Component {
   state = {
     Connected : false,
     AmIMJ : false,
-  ModeCreation: true,
+    ModeCreation: true,
     InPast : false,
 
     Activated : false,
     Processing : false,
     imageHaveChanged : false,
+    
 
     gametypes : null, //liste
     game : 
@@ -310,7 +311,7 @@ class OrganiserCreation extends Component {
           {/*Pannel*/}
           <div className="col-lg-12 tab-content">
             <form className="card form-type-material tab-pane fade active show" id="tab1" onSubmit={(e) => this.handleSubmit(e)}>
-              <h4 className="card-title fw-400">Game Details</h4>
+              <h4 className="card-title fw-400">Game Details {Activated? "OK":"KO"}</h4>
 
               <div className="card-body">
                 <div className="flexbox gap-items-4">
@@ -321,6 +322,7 @@ class OrganiserCreation extends Component {
                     <div className="col-md-5 col-sm-12 ">
                       <div className="flex-grow">
                           <ReactQuill theme="bubble"
+                            readOnly ={Activated ? false : true }
                             modules={{toolbar : false}}
                             onChange={(e) => {this.handleQuillChangeTitle(e)}}
                             value={"<h2>"+this.state.game.title+"</h2>"}
@@ -344,6 +346,7 @@ class OrganiserCreation extends Component {
                   <div className="col-md-12">
                     <div className="form-group">
                       <DatePicker
+                        readOnly ={Activated ? false : true }
                         customInput={<input className="form-control text-center text-info " type="text"/>}
                         dateFormat="dd/MM/yyyy" 
                         showMonthDropdown
@@ -359,22 +362,22 @@ class OrganiserCreation extends Component {
                   <div className="col-md-6">
                     <div className="form-group">
                       <input id="" className="form-control" type="text" placeholder={this.state.OtherGameInfo.mj} disabled/>
-                      <label>Maître du jeu</label>
+                      <label>Maître du jeu </label>
                     </div>
                   </div>
 
                   <div className="col-md-3">
                     <div className="form-group">
                       <input className="form-control" type="text" value={this.state.game.description.maxJoueur} pattern="[0-9]*"
-                      id="maxJoueur" onChange={(e) => this.changeGameDescriptionForm(e)} />
-                      <label>Maximum de joueurs</label>
+                      id="maxJoueur" onChange={(e) => this.changeGameDescriptionForm(e)} disable={Activated ? false : true } />
+                      <label>Maximum de joueurs </label>
                     </div>
                   </div>
 
                   <div className="col-md-3">
                     <div className="form-group">
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
-                      id="categorieDeJoueur" onChange={(e) => {this.changeGameDescriptionForm(e)}}
+                      id="categorieDeJoueur" onChange={(e) => {this.changeGameDescriptionForm(e)} } disable={Activated ? false : true }
                       value={this.state.game.description.categorieDeJoueur}>
                         <option value="Interessé" >Interessé</option>
                         <option value="Initié"    >Initié</option>
@@ -388,9 +391,9 @@ class OrganiserCreation extends Component {
 
                 <div className="row">
                   <div className="col-md-6">
-                    <div className="form-group">
+                    <div className="form-group" disable={Activated ? false : true }>
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker" 
-                      id="type_id" value={this.state.game.type_id} onChange={(e) => this.changeGameForm(e)}>
+                      id="type_id" value={this.state.game.type_id} onChange={(e) => this.changeGameForm(e)} >
                       {
                         this.state.gametypes && this.state.gametypes.map((elem,x) => {
                           return (<option value={elem.id} key={x}>{elem.name}</option>);
@@ -402,10 +405,10 @@ class OrganiserCreation extends Component {
                   </div>
 
                   <div className="col-md-2">
-                    <div className="form-group">                      
+                    <div className="form-group" disable={Activated ? false : true }>                      
                       <select className="form-control" title="&#xA0;" data-provide="selectpicker"
                       id="matureContent" onChange={(e) => {this.changeGameDescriptionForm(e)}}
-                      value={this.state.game.description.matureContent}>
+                      value={this.state.game.description.matureContent} >
                         <option value="1">OK</option>
                         <option value="2">KO</option>
                       </select>
@@ -443,6 +446,7 @@ class OrganiserCreation extends Component {
                   <div className="col-md-12">
                     <div className="form-group">
                       <ReactQuill theme="bubble"
+                        readOnly ={Activated ? false : true }
                         value= {this.state.game.description.description}
                         onChange={(e) => {this.handleQuillChangeDescription(e)}}
                       />
@@ -460,8 +464,12 @@ class OrganiserCreation extends Component {
               </div>
 
               <footer className="card-footer text-right">
+                  
                   {
-                    !this.state.Processing && <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
+                    this.state.Processing && Activated ? false : true }
+                  
+                  {
+                   !this.state.Processing && <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
                   }{
                     this.state.Processing && 
                     <div className="text-center">Processing
