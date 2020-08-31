@@ -69,6 +69,12 @@ class Navbar extends Component {
           </a>
         </div>
         <div className="topbar-right">
+          <a className="topbar-btn" href="PostHistoriqueApp">
+            <i className="ti-align-right"></i>
+          </a>
+
+          <div className="topbar-divider">
+          </div>
 
           {this.state.logged === 1 ? connected : disconnected}
         </div>
