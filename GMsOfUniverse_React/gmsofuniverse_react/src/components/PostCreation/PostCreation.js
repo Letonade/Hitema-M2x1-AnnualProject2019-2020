@@ -193,7 +193,7 @@ class PostCreation extends Component {
                       <ReactQuill theme="bubble"
                         modules={{toolbar : false}}
                         onChange={(e) => {this.handleQuillChangeName(e)}}
-                        value={"<h2>"+this.state.Post.name+"</h2>"}
+                        value={this.state.Post.name}
                       />
                       <label>Titre</label>
                     </div>
@@ -203,7 +203,7 @@ class PostCreation extends Component {
                       <ReactQuill theme="bubble"
                         modules={{toolbar : false}}
                         onChange={(e) => {this.handleQuillChangeAnnonce(e)}}
-                        value={"<h2>"+this.state.Post.annonce+"</h2>"}
+                        value={this.state.Post.annonce}
                       />
                       <label>Annonce</label>
                     </div>
@@ -213,7 +213,7 @@ class PostCreation extends Component {
                       <ReactQuill theme="bubble"
                         modules={{toolbar : false}}
                         onChange={(e) => {this.handleQuillChangeMessage(e)}}
-                        value={"<p>"+this.state.Post.message+"</p>"}
+                        value={this.state.Post.message}
                       />
                       <label>Message d'annonce</label>
                     </div>
