@@ -151,7 +151,7 @@ class PostController extends AbstractController
      * @Route("/post/get_slider", name="getSlider", methods={"GET"})
      */
     public function getSlider(Request $request)
-    {
+    { 
 
 
         $posts = $this->getDoctrine()->getRepository(Post::class)->slider();

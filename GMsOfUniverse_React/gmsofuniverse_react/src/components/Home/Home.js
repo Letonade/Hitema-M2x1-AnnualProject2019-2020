@@ -13,6 +13,7 @@ import OrganiserApp           from './Organiser'
 
 import UserService            from '../../services/user.service';
 import OrganisatorService     from "../../services/organisator.service";
+import PostService         from "../../s"
 
 class Home extends Component {
 
@@ -22,6 +23,30 @@ class Home extends Component {
       homeCarroussel : 
         [
           {
+            img : img
+            ,sponsored : sponsored
+            ,h3 :h3
+            ,h2 : h3
+            ,p : p
+            ,alt :"Baniere1"
+          },
+          {
+            img : ""
+            ,sponsored : ""
+            ,h3 :""
+            ,h2 : ""
+            ,p : ""
+            ,alt :"Baniere2"
+          },
+          {
+            img : ""
+            ,sponsored : ""
+            ,h3 :""
+            ,h2 : ""
+            ,p : ""
+            ,alt :"Baniere3"
+          }
+          /*{
             img : Slider1
             ,commercial : 0
             ,h3 : "Warhammer JDR 4eme Edition"
@@ -44,7 +69,7 @@ class Home extends Component {
             ,h2 : "Buy Now !"
             ,p : ""
             ,alt : "SlideShow"
-          }
+          }*/
         ],
       homeOrganisator :
         [
@@ -209,7 +234,28 @@ class Home extends Component {
 
       <div className="main-content">
         <div className="card">
-          <Carousel>
+        <Carousel>
+            {// mise en place du carroussel
+              this.state.homeCarroussel.map((elem,x) => 
+              {
+                return (
+                  <Carousel.Item key={x}>
+                    <img
+                      className="d-block w-100"
+                      src={this.state.homeCarroussel.elem.img}
+                      alt={this.state.homeCarroussel.elem.alt}
+                    />
+                    <Carousel.Caption>
+                      {this.state.homeCarroussel.elem.h3 && <h3>{this.state.homeCarroussel.elem.h3}</h3>}
+                      {this.state.homeCarroussel.elem.h2 && <h2 className={this.state.homeCarroussel.elem.commercial && "goldShadow"} >{this.state.homeCarroussel.elem.h2}</h2>}
+                      {this.state.homeCarroussel.elem.p && <p>{this.state.homeCarroussel.elem.p}</p>}
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                 )
+              })
+            }
+          </Carousel>
+          {/*   <Carousel>
             {// mise en place du carroussel
               this.state.homeCarroussel.map((elem,x) => 
               {
@@ -229,7 +275,7 @@ class Home extends Component {
                  )
               })
             }
-          </Carousel>
+          </Carousel>*/}
         </div>
       </div>
 
