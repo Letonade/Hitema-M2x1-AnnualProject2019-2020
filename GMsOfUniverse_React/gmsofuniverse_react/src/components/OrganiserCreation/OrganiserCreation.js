@@ -22,7 +22,7 @@ class OrganiserCreation extends Component {
   state = {
     Connected : false,
     AmIMJ : false,
-    ModeCreation: true,
+  ModeCreation: true,
     InPast : false,
 
     Activated : false,
