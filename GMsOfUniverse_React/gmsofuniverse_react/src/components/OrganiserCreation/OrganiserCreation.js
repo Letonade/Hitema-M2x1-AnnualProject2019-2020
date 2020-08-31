@@ -327,14 +327,15 @@ class OrganiserCreation extends Component {
                             onChange={(e) => {this.handleQuillChangeTitle(e)}}
                             value={"<h2>"+this.state.game.title+"</h2>"}
                           />
+                        { Activated &&
                         <div className="d-felx flex-column flex-sm-row gap-y gap-items-2 mt-16">
                           <div className="file-group file-group-inline">
                             <label htmlFor="banner" className="btn btn-sm btn-w-lg btn-outline btn-round btn-secondary">Change Picture</label>
                             <input id="banner" type="file" onChange={(e) => this.changeImage(e)}/>
                           </div>
-
                           <a className="btn btn-sm btn-w-lg btn-outline btn-round btn-danger align-top" href="# " onClick={() => {this.removeBanner()}}>Delete Picture</a>
                         </div>
+                        }
                       </div>
                     </div>
                   </div>
@@ -464,12 +465,8 @@ class OrganiserCreation extends Component {
               </div>
 
               <footer className="card-footer text-right">
-                  
                   {
-                    this.state.Processing && Activated ? false : true }
-                  
-                  {
-                   !this.state.Processing && <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
+                   !this.state.Processing && Activated && <button className="btn btn-flat btn-primary" type="submit">Save Changes</button>
                   }{
                     this.state.Processing && 
                     <div className="text-center">Processing
@@ -479,6 +476,9 @@ class OrganiserCreation extends Component {
                         <span className="dot3"></span>
                       </span>
                     </div>
+                  }
+                  {
+                    !this.state.Processing && !Activated && <button className="btn btn-flat btn-primary" href="/">Back</button>
                   }
               </footer>
             </form>
