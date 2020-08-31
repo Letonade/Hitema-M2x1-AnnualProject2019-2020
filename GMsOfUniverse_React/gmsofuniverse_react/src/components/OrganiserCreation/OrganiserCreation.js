@@ -297,18 +297,13 @@ class OrganiserCreation extends Component {
   }
 
  render(){
+  let {Activated} = this.state;
   return (
   <div className="OrganiserCreation">
 
     <Navbar/>
 
     <main className="main-container">
-        <div className="col-md-4 text-center">
-          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
-            href="# " onClick={() => {console.log(this.state)}}>
-              State {this.state.Activated && "OK"}
-          </a>
-        </div>
       <div className="main-content">
         <div className="row">
 

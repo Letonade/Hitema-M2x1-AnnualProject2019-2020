@@ -36,7 +36,7 @@ class PostHistorique extends Component {
 //utility
   PaginationPlus(){
     let NumberResult = this.state.PaginationNumber + 5;
-    NumberResult = (NumberResult < 0 || NumberResult > 50) ? 0 : NumberResult
+    NumberResult = (NumberResult < 0 || NumberResult > 50) ? 5 : NumberResult
     this.setState((prev) => ({PaginationNumber: NumberResult}));
   }
 
