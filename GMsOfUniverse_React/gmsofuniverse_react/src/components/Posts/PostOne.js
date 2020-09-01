@@ -38,8 +38,6 @@ class PostOne extends Component {
 
   async componentDidMount() {
     let ephemera = this.props.location.state;
-    console.log("ephemera");
-    console.log(ephemera);
     if (ephemera) {
 
       this.setState({ModeCreation: false});

@@ -120,7 +120,6 @@ class OrganiserCreation extends Component {
   handleDatePickerChange (e) {
     if (e >= new Date((new Date()).valueOf() - 1000*3600*24)){
       const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
-      //console.log(dateAsTxt);
       this.setState((prevState) => ({
         game : {...prevState.game, 
           date : {...prevState.game.date,
@@ -143,7 +142,6 @@ class OrganiserCreation extends Component {
   }
 
   changeGameDescriptionForm(e){
-    //console.log(e.target);
     let {id, value, validity} = e.target;
     if(validity.valid){
       this.setState((prevState) => ({
@@ -164,7 +162,6 @@ class OrganiserCreation extends Component {
 
     reader.onloadend = () => {
       if (reader.result.indexOf("data:image/") === 0){
-        console.log(reader.result.indexOf("data:image/"));
         this.setState((prev) => ({
           OtherGameInfo: {
             ...prev.OtherGameInfo,

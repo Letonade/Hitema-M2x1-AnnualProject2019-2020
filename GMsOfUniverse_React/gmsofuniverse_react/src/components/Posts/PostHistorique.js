@@ -87,7 +87,6 @@ class PostHistorique extends Component {
         this.state.PostHistoriqueListe.push(e.post);
       });
     this.setState({Refresher: this.state.Refresher+1});
-    console.log(this.state);
   }
 
  render(){

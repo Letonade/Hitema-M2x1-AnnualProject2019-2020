@@ -199,14 +199,6 @@ class Home extends Component {
     <Navbar/>
 
     <main className="main-container">
-
-        <div className="col-md-4 text-center">
-          <a className="btn btn-sm btn-bold btn-round btn-outline btn-danger w-200px" 
-            href="# " onClick={() => {console.log(this.state)}}>
-              State
-          </a>
-        </div>
-
       <div className="main-content">
         <div className="card">
           <Carousel>

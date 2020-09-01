@@ -20,11 +20,8 @@ class PostHistoriqueList extends Component {
 
  render(){
   let [...child] = this.props.children;
-  console.log(child);
   return (
     child.map((elem, x) => {
-      console.log("elem");
-      console.log(elem);
       return (
         <div className="media-list-body bg-white b-1" key={x}>
           <div className="media align-items-center">

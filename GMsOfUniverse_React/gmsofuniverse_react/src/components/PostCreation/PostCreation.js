@@ -81,7 +81,6 @@ class PostCreation extends Component {
   handleDatePickerChange (e) {
     if (e >= new Date((new Date()).valueOf() - 1000*3600*24)){
       const dateAsTxt = e.getFullYear()+"-"+(this.dualDigit(e.getMonth()+1))+"-"+this.dualDigit(e.getDate())+" "+this.dualDigit(e.getHours())+":"+this.dualDigit(e.getMinutes())+":"+this.dualDigit(e.getSeconds())
-      //console.log(dateAsTxt);
       this.setState((prevState) => ({
         Post : {...prevState.Post,
           date : {...prevState.Post.date,
@@ -107,10 +106,8 @@ class PostCreation extends Component {
     e.preventDefault();
     let reader = new FileReader();
     let file = e.target.files[0];
-    console.log("enter");
     reader.onloadend = () => {
       if (reader.result.indexOf("data:image/") === 0){
-        console.log(reader.result.indexOf("data:image/"));
         this.setState((prev) => ({
           Post : {
               ...prev.Post,
